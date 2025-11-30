@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AdSense from './AdSense';
+import { ADSENSE_CONFIG } from '../src/constants';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -60,7 +61,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       {/* Top Banner Ad */}
       <div className="max-w-6xl mx-auto px-4 w-full">
-        <AdSense slot="header-banner-12345" className="hidden md:flex" />
+        <AdSense slot={ADSENSE_CONFIG.HEADER_BANNER} className="hidden md:flex" />
       </div>
 
       {/* Main Content */}
@@ -78,7 +79,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 Din lokala guide till det bästa staden har att erbjuda. Nyheter, tips och inspiration för en levande vardag.
               </p>
             </div>
-            
+
             <div>
               <h4 className="font-bold text-xs uppercase tracking-widest text-gray-900 mb-4">Kategorier</h4>
               <ul className="space-y-2 text-sm text-gray-600">
@@ -98,14 +99,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </div>
 
             <div>
-               <h4 className="font-bold text-xs uppercase tracking-widest text-gray-900 mb-4">Nyhetsbrev</h4>
-               <div className="flex">
-                 <input type="email" placeholder="Din e-post" className="bg-white border border-gray-300 px-3 py-2 text-sm w-full focus:outline-none focus:border-blue-500" />
-                 <button className="bg-black text-white px-4 py-2 text-sm font-bold uppercase hover:bg-gray-800">Gå med</button>
-               </div>
+              <h4 className="font-bold text-xs uppercase tracking-widest text-gray-900 mb-4">Nyhetsbrev</h4>
+              <div className="flex">
+                <input type="email" placeholder="Din e-post" className="bg-white border border-gray-300 px-3 py-2 text-sm w-full focus:outline-none focus:border-blue-500" />
+                <button className="bg-black text-white px-4 py-2 text-sm font-bold uppercase hover:bg-gray-800">Gå med</button>
+              </div>
             </div>
           </div>
-          
+
           <div className="border-t border-gray-300 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
             <p>&copy; {currentYear} GotoBurg. Alla rättigheter förbehållna.</p>
             <div className="mt-4 md:mt-0 space-x-4">
