@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import AdSense from '../components/AdSense';
 import { getArticleBySlug, getRelatedArticles } from '../services/articleService';
+import { formatDate } from '../src/utils/dateUtils';
 
 const ArticlePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -46,7 +47,7 @@ const ArticlePage: React.FC = () => {
             <div className="flex flex-col md:flex-row md:items-center text-sm font-sans text-gray-600">
                <span className="font-bold text-gray-900 mr-2">Av {article.author}</span>
                <span className="hidden md:inline mx-2">•</span>
-               <span>{article.publishedAt}</span>
+               <span>{formatDate(article.publishedAt)}</span>
             </div>
             <div className="flex-grow"></div>
             <div className="flex space-x-3 text-gray-400">
@@ -95,7 +96,7 @@ const ArticlePage: React.FC = () => {
              <div className="mt-8 pt-8 border-t border-gray-200">
                 <h4 className="text-sm font-bold uppercase mb-4">Kategorier</h4>
                 <div className="flex flex-wrap gap-2">
-                   <span className="bg-gray-100 px-3 py-1 text-xs font-bold uppercase text-gray-600 rounded-sm">{article.category}</span>
+                   <Link to={`/?category=${article.category}`} className="bg-gray-100 px-3 py-1 text-xs font-bold uppercase text-gray-600 rounded-sm hover:bg-gray-200">{article.category}</Link>
                    <span className="bg-gray-100 px-3 py-1 text-xs font-bold uppercase text-gray-600 rounded-sm">Nyheter</span>
                    <span className="bg-gray-100 px-3 py-1 text-xs font-bold uppercase text-gray-600 rounded-sm">2023</span>
                 </div>

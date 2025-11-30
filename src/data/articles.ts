@@ -1,4 +1,17 @@
-[
+export const articles = [
+  {
+    "id": "6",
+    "slug": "asdf",
+    "title": "asdf",
+    "excerpt": "asdf",
+    "content": [
+      "asdf"
+    ],
+    "author": "Peter",
+    "publishedAt": "2025-11-30",
+    "category": "Mat & Dryck",
+    "imageUrl": "https://picsum.photos/800/400?random=6"
+  },
   {
     "id": "1",
     "slug": "basta-hantverksol-gotoburg",
@@ -84,4 +97,4 @@
       "Brunch är mer än bara mat, det är ett socialt umgänge. Så samla vännerna och unna er en riktigt god start på dagen."
     ]
   }
-]
+];

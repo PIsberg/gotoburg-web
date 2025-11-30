@@ -1,11 +1,16 @@
-import { ARTICLES } from '../constants';
+import { ARTICLES } from '../src/constants';
 import { Article } from '../types';
 
 export const getAllArticles = (): Article[] => {
-  // Sort by date descending
-  return [...ARTICLES].sort((a, b) => 
-    new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-  );
+  // Sort by date descending using proper Date comparison
+  return [...ARTICLES].sort((a, b) => {
+    const dateA = new Date(a.publishedAt);
+    const dateB = new Date(b.publishedAt);
+    // Handle potential invalid dates safely
+    const timeA = isNaN(dateA.getTime()) ? 0 : dateA.getTime();
+    const timeB = isNaN(dateB.getTime()) ? 0 : dateB.getTime();
+    return timeB - timeA;
+  });
 };
 
 export const getArticleBySlug = (slug: string): Article | undefined => {

@@ -7,14 +7,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const PORT = 3001;
-const DATA_FILE = path.join(__dirname, '../src/data/articles.json');
-
-// Helper to get Swedish Date string
-const getSwedishDate = () => {
-  const months = ['januari', 'februari', 'mars', 'april', 'maj', 'juni', 'juli', 'augusti', 'september', 'oktober', 'november', 'december'];
-  const date = new Date();
-  return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
-};
+// Pointing to the new TS file
+const DATA_FILE = path.join(__dirname, '../src/data/articles.ts');
 
 const server = http.createServer((req, res) => {
   // CORS headers
@@ -45,10 +39,16 @@ const server = http.createServer((req, res) => {
         
         // Read existing file
         const fileContent = fs.readFileSync(DATA_FILE, 'utf8');
-        const articles = JSON.parse(fileContent);
+        
+        // Extract the JSON array part from the TS file
+        const jsonStartIndex = fileContent.indexOf('[');
+        const jsonEndIndex = fileContent.lastIndexOf(']') + 1;
+        const jsonString = fileContent.substring(jsonStartIndex, jsonEndIndex);
+        
+        const articles = JSON.parse(jsonString);
 
         // Generate ID (simple logic: max ID + 1)
-        const maxId = articles.reduce((max, art) => Math.max(max, parseInt(art.id)), 0);
+        const maxId = articles.reduce((max, art) => Math.max(max, parseInt(art.id) || 0), 0);
         const newId = (maxId + 1).toString();
 
         // Generate Slug
@@ -59,15 +59,18 @@ const server = http.createServer((req, res) => {
           .replace(/[^a-z0-9]+/g, '-')
           .replace(/(^-|-$)+/g, '');
 
+        // Use ISO Date format (YYYY-MM-DD)
+        const isoDate = new Date().toISOString().split('T')[0];
+
         // Create new article object
         const newArticle = {
           id: newId,
           slug: slug,
           title: formData.title,
           excerpt: formData.excerpt,
-          content: formData.content.split('\n').filter(line => line.trim() !== ''), // Split paragraphs by newline
+          content: formData.content.split('\n').filter(line => line.trim() !== ''), // Split paragraphs
           author: formData.author,
-          publishedAt: getSwedishDate(),
+          publishedAt: isoDate,
           category: formData.category,
           imageUrl: formData.imageUrl || `https://picsum.photos/800/400?random=${newId}`
         };
@@ -75,8 +78,13 @@ const server = http.createServer((req, res) => {
         // Add to array (unshift to put it at the top/newest)
         articles.unshift(newArticle);
 
+        // Reconstruct the file content
+        const newFileContent = `export const articles = ${JSON.stringify(articles, null, 2)};`;
+
         // Write back to file
-        fs.writeFileSync(DATA_FILE, JSON.stringify(articles, null, 2), 'utf8');
+        fs.writeFileSync(DATA_FILE, newFileContent, 'utf8');
+        
+        console.log(`Saved new article "${newArticle.title}" to ${DATA_FILE}`);
 
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ success: true, article: newArticle }));

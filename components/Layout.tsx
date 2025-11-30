@@ -50,9 +50,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           {/* Navigation */}
           <nav className="hidden md:flex justify-center mt-6 space-x-8 text-sm font-bold uppercase tracking-widest text-gray-600 border-t border-gray-100 pt-4">
             {['Mat & Dryck', 'Natur', 'Arbete', 'Aktiviteter'].map((item) => (
-              <span key={item} className="hover:text-blue-600 cursor-pointer transition-colors duration-200">
+              <Link key={item} to={`/?category=${item}`} className="hover:text-blue-600 cursor-pointer transition-colors duration-200">
                 {item}
-              </span>
+              </Link>
             ))}
           </nav>
         </div>
@@ -82,16 +82,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div>
               <h4 className="font-bold text-xs uppercase tracking-widest text-gray-900 mb-4">Kategorier</h4>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li><span className="hover:text-black cursor-pointer">Mat & Dryck</span></li>
-                <li><span className="hover:text-black cursor-pointer">Natur</span></li>
-                <li><span className="hover:text-black cursor-pointer">Aktiviteter</span></li>
+                <li><Link to="/?category=Mat & Dryck" className="hover:text-black cursor-pointer">Mat & Dryck</Link></li>
+                <li><Link to="/?category=Natur" className="hover:text-black cursor-pointer">Natur</Link></li>
+                <li><Link to="/?category=Aktiviteter" className="hover:text-black cursor-pointer">Aktiviteter</Link></li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-bold text-xs uppercase tracking-widest text-gray-900 mb-4">Om oss</h4>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li><span className="hover:text-black cursor-pointer">Kontakta oss</span></li>
+                <li><a href="mailto:peter@gotoburg.se" className="hover:text-black cursor-pointer">Kontakta oss</a></li>
                 <li><span className="hover:text-black cursor-pointer">Karriär</span></li>
                 <li><span className="hover:text-black cursor-pointer">Integritetspolicy</span></li>
               </ul>
@@ -112,6 +112,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <span>Integritet</span>
               <span>Villkor</span>
               <span>Webbplatskarta</span>
+              <a href="mailto:peter@gotoburg.se" className="hover:text-gray-800 transition-colors">Kontakt</a>
             </div>
           </div>
         </div>

@@ -1,11 +1,12 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import Layout from '../components/Layout';
 import ArticleCard from '../components/ArticleCard';
 import AdSense from '../components/AdSense';
 import { getAllArticles } from '../services/articleService';
 
 const HomePage: React.FC = () => {
-  const articles = useMemo(() => getAllArticles(), []);
+  // Removed useMemo to ensure fresh data is pulled on every render/hot-update
+  const articles = getAllArticles();
   const featuredArticle = articles[0];
   const secondaryArticles = articles.slice(1, 3);
   const remainingArticles = articles.slice(3);
@@ -14,7 +15,7 @@ const HomePage: React.FC = () => {
     <Layout>
       {/* Featured Section */}
       <section className="mb-12 border-b border-gray-200 pb-12">
-        <ArticleCard article={featuredArticle} featured={true} />
+        {featuredArticle && <ArticleCard article={featuredArticle} featured={true} />}
       </section>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">

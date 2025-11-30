@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Article } from '../types';
+import { formatDate } from '../src/utils/dateUtils';
 
 interface ArticleCardProps {
   article: Article;
@@ -33,7 +34,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, featured = false }) 
         </p>
         <div className="flex items-center text-xs text-gray-500 font-sans mt-auto">
           <span className="font-semibold text-gray-900 mr-2">{article.author}</span>
-          <span>• {article.publishedAt}</span>
+          <span>• {formatDate(article.publishedAt)}</span>
         </div>
       </div>
     </div>
