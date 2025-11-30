@@ -19,7 +19,7 @@ View your app in AI Studio: https://ai.studio/apps/drive/1AWguCJdpDURpTzR9ch6KXm
 3. Run the app:
    `npm run dev`
 
-* How to add a new article
+* How to add a new article manually (deprecated use admin)
 Based on the current architecture of the application, the articles are stored as a static array of objects. To add a new article, you need to manually append a new entry to the data file.
 Here are the exact steps:
 Open the file constants.ts.
@@ -149,3 +149,19 @@ Open your terminal/command prompt in that folder.
 Run the command: npm install (Installs the build tools).
 Run the command: npm run build (This creates a dist folder).
 Upload the dist folder to Netlify, not your source code folder.
+
+
+https://gotoburg.netlify.app/
+www.gotoburg.se
+goteburg.se
+
+How to use your new Article Generator
+Stop your current server (Ctrl+C).
+Start the admin tool by running:
+code
+Bash
+npm run admin
+Open your browser to: http://localhost:3001
+Fill out the form and click "Publicera Artikel".
+Restart your main website server (npm run dev) to see the changes immediately (or if it's already running, it should auto-refresh).
+This creates a new entry in src/data/articles.json automatically. When you are ready to publish to Netlify, just run npm run build as usual, and the new articles will be included in the static site.
