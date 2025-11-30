@@ -19,7 +19,7 @@ View your app in AI Studio: https://ai.studio/apps/drive/1AWguCJdpDURpTzR9ch6KXm
 3. Run the app:
    `npm run dev`
 
-How to add a new article
+* How to add a new article
 Based on the current architecture of the application, the articles are stored as a static array of objects. To add a new article, you need to manually append a new entry to the data file.
 Here are the exact steps:
 Open the file constants.ts.
@@ -50,3 +50,102 @@ Key Fields Explanation:
 slug: This acts as the URL link. Use lowercase letters and hyphens (e.g., min-artikel-titel).
 content: This is an array of strings. Each string represents a separate paragraph in the article body.
 category: Ensure this matches Mat & Dryck, Natur, Arbete, or Aktiviteter so the "Filed Under" logic works correctly.
+
+* To integrate your real Google AdSense account into GotoBurg, you need to perform three specific tasks: Connect your account, Update the Component logic, and Assign specific Ad Slots.
+Here are the exact steps:
+Step 1: Add your Publisher ID (Global Connection)
+This connects the website to your specific AdSense account.
+Open index.html.
+Locate the commented-out AdSense script section inside the <head> tag.
+Uncomment it and replace ca-pub-XXXXXXXXXXXXX with your actual Publisher ID (found in your AdSense Dashboard > Account > Settings > Account Information).
+Change this in index.html:
+code
+Html
+<!-- BEFORE -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+<!-- AFTER (Replace numbers with yours) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
+Step 2: Update the Ad Component logic
+Currently, components/AdSense.tsx is just a visual placeholder (a grey box). You need to change it to render the actual Google code.
+Open components/AdSense.tsx.
+Replace the entire file content with the code below. This code handles the injection of the ad into React.
+code
+Tsx
+import React, { useEffect, useRef } from 'react';
+import { AdUnitProps } from '../types';
+
+declare global {
+  interface Window {
+    adsbygoogle: any[];
+  }
+}
+
+const AdSense: React.FC<AdUnitProps> = ({ slot, format = 'auto', className = '', label = 'Annons' }) => {
+  const adRef = useRef<HTMLModElement>(null);
+
+  useEffect(() => {
+    // This pushes the ad request to Google when the component mounts
+    try {
+      if (adRef.current && adRef.current.innerHTML === "") {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      }
+    } catch (e) {
+      console.error("AdSense error", e);
+    }
+  }, []);
+
+  return (
+    <div className={`w-full my-6 flex flex-col items-center justify-center ${className}`}>
+      {/* Label for compliance */}
+      <span className="text-[10px] uppercase tracking-widest text-gray-400 mb-1">{label}</span>
+      
+      {/* The actual Google Ad Container */}
+      <div className="w-full bg-gray-50 min-h-[100px] flex justify-center">
+        <ins
+          ref={adRef}
+          className="adsbygoogle"
+          style={{ display: 'block', width: '100%' }}
+          data-ad-client="ca-pub-YOUR_PUBLISHER_ID_HERE" 
+          data-ad-slot={slot}
+          data-ad-format={format}
+          data-full-width-responsive="true"
+        ></ins>
+      </div>
+    </div>
+  );
+};
+
+
+export default AdSense;
+Note: In the code above, replace ca-pub-YOUR_PUBLISHER_ID_HERE with your actual ID again.
+Step 3: Configure your Ad Slots
+You need to generate specific "Ad Units" in your AdSense dashboard (e.g., "Homepage Header", "Article Sidebar") and get their Slot IDs.
+Go to AdSense Dashboard > Ads > By ad unit.
+Create "Display ads" for the different sections of your site.
+Copy the data-ad-slot number (e.g., 1234567890) for each unit.
+Now, update these files with those numbers:
+A. Header Ad
+File: components/Layout.tsx
+Find: <AdSense slot="header-banner-12345" ... />
+Action: Change header-banner-12345 to your real ID.
+B. Home Page Feed Ad
+File: pages/HomePage.tsx
+Find: <AdSense slot="feed-middle-56789" ... />
+Action: Change feed-middle-56789 to your real ID.
+C. Sidebar Ad
+File: pages/HomePage.tsx (and pages/ArticlePage.tsx)
+Find: <AdSense slot="sidebar-right-99887" ... />
+Action: Change sidebar-right-99887 to your real ID.
+D. In-Article Ad
+File: pages/ArticlePage.tsx
+Find: <AdSense slot="in-article-fluid-777" ... />
+Action: Change in-article-fluid-777 to your real ID.
+
+
+Steps to Deploy:
+Download all these files to a folder on your computer.
+Open your terminal/command prompt in that folder.
+Run the command: npm install (Installs the build tools).
+Run the command: npm run build (This creates a dist folder).
+Upload the dist folder to Netlify, not your source code folder.
