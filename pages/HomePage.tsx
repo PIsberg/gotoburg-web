@@ -1,12 +1,20 @@
-import React from 'react';
+import { useLocation } from 'react-router-dom';
 import Layout from '../components/Layout';
 import ArticleCard from '../components/ArticleCard';
 import AdSense from '../components/AdSense';
 import { getAllArticles } from '../services/articleService';
 
 const HomePage: React.FC = () => {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const categoryFilter = searchParams.get('category');
+
   // Removed useMemo to ensure fresh data is pulled on every render/hot-update
-  const articles = getAllArticles();
+  const allArticles = getAllArticles();
+  
+  const articles = categoryFilter 
+    ? allArticles.filter(article => article.category === categoryFilter)
+    : allArticles;
   const featuredArticle = articles[0];
   const secondaryArticles = articles.slice(1, 3);
   const remainingArticles = articles.slice(3);
