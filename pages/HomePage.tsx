@@ -1,9 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import Layout from '../components/Layout';
 import ArticleCard from '../components/ArticleCard';
-import AdSense from '../components/AdSense';
 import { getAllArticles } from '../services/articleService';
-import { ADSENSE_CONFIG } from '../src/constants';
 
 const HomePage: React.FC = () => {
   const location = useLocation();
@@ -36,7 +34,7 @@ const HomePage: React.FC = () => {
             ))}
           </div>
 
-          <AdSense slot={ADSENSE_CONFIG.HOME_FEED_MIDDLE} format="fluid" className="mb-12" />
+          {/* <AdSense slot={ADSENSE_CONFIG.HOME_FEED_MIDDLE} format="fluid" className="mb-12" /> */}
 
           <h3 className="font-bold text-lg uppercase tracking-wider border-t-2 border-black pt-4 mb-6">Senaste nytt</h3>
           <div className="space-y-8">
@@ -71,7 +69,7 @@ const HomePage: React.FC = () => {
               </ol>
             </div>
 
-            <AdSense slot={ADSENSE_CONFIG.SIDEBAR_RIGHT} format="rectangle" label="Sponsor" />
+            {/* <AdSense slot={ADSENSE_CONFIG.SIDEBAR_RIGHT} format="rectangle" label="Sponsor" /> */}
           </div>
         </aside>
       </div>

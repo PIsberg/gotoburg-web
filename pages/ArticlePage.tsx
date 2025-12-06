@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Layout from '../components/Layout';
-import AdSense from '../components/AdSense';
 import { getArticleBySlug, getRelatedArticles } from '../services/articleService';
 import { formatDate } from '../src/utils/dateUtils';
-import { ADSENSE_CONFIG } from '../src/constants';
 
 const ArticlePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -85,7 +83,7 @@ const ArticlePage: React.FC = () => {
               ))}
 
               {/* In-Article Ad Unit (FR-03) */}
-              <AdSense slot={ADSENSE_CONFIG.IN_ARTICLE_FLUID} format="fluid" className="my-8 py-4 border-y border-gray-100" label="Annons" />
+              {/* <AdSense slot={ADSENSE_CONFIG.IN_ARTICLE_FLUID} format="fluid" className="my-8 py-4 border-y border-gray-100" label="Annons" /> */}
 
               {/* Render second half of paragraphs */}
               {article.content.slice(midPoint).map((paragraph, idx) => (
@@ -107,7 +105,7 @@ const ArticlePage: React.FC = () => {
           {/* Sidebar */}
           <aside className="lg:col-span-4">
             <div className="sticky top-24 space-y-8">
-              <AdSense slot={ADSENSE_CONFIG.ARTICLE_SIDEBAR} format="rectangle" label="Annons" />
+              {/* <AdSense slot={ADSENSE_CONFIG.ARTICLE_SIDEBAR} format="rectangle" label="Annons" /> */}
 
               <div>
                 <h3 className="font-bold text-sm uppercase tracking-widest border-b border-gray-200 pb-2 mb-4">Läs också</h3>

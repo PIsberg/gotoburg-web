@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AdSense from './AdSense';
-import { ADSENSE_CONFIG } from '../src/constants';
+
+
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -59,10 +59,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </div>
       </header>
 
-      {/* Top Banner Ad */}
-      <div className="max-w-6xl mx-auto px-4 w-full">
+      {/* Top Banner Ad - Removed for Auto Ads */}
+      {/* <div className="max-w-6xl mx-auto px-4 w-full">
         <AdSense slot={ADSENSE_CONFIG.HEADER_BANNER} className="hidden md:flex" />
-      </div>
+      </div> */}
 
       {/* Main Content */}
       <main className="flex-grow w-full max-w-6xl mx-auto px-4 py-8">

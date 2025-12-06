@@ -165,3 +165,8 @@ Open your browser to: http://localhost:3001
 Fill out the form and click "Publicera Artikel".
 Restart your main website server (npm run dev) to see the changes immediately (or if it's already running, it should auto-refresh).
 This creates a new entry in src/data/articles.json automatically. When you are ready to publish to Netlify, just run npm run build as usual, and the new articles will be included in the static site.
+
+
+Deploy online
+
+https://app.netlify.com/projects/gotoburg/deploys/692cbcd273dabd72fdafbf51
