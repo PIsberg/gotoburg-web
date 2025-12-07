@@ -2,6 +2,7 @@ import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ArticlePage from './pages/ArticlePage';
+import AnalyticsTracker from './components/AnalyticsTracker';
 // import { ADSENSE_CONFIG } from './src/constants';
 
 // Using HashRouter as permitted in instructions to simulate static page navigation 
@@ -11,6 +12,7 @@ const App: React.FC = () => {
 
   return (
     <HashRouter>
+      <AnalyticsTracker />
       <Routes>
         <Route path="/" element={<HomePage />} />
         {/* The :slug param captures the article identifier from the URL */}
