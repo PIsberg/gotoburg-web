@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GotoBurg Admin</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-100 min-h-screen p-8">
   <div class="max-w-2xl mx-auto bg-white p-8 rounded shadow-lg">
     <div class="flex justify-between items-center mb-6">
@@ -14,7 +16,33 @@
     </div>
 
     <form id="articleForm" class="space-y-6">
-      
+
+      <!-- AI Source Material -->
+      <div class="bg-blue-50 p-6 rounded-lg border border-blue-100 mb-8">
+        <label class="block text-sm font-bold text-gray-700 mb-2">
+          ✨ AI-Assistent: Källmaterial
+        </label>
+        <p class="text-xs text-gray-500 mb-3">
+          Klistra in råtext, stolpar eller länkar här så skriver AI:n artikeln åt dig.
+        </p>
+        <textarea id="sourceMaterial" rows="6"
+          class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-purple-500 focus:border-purple-500 mb-4"
+          placeholder="Klistra in text här..."></textarea>
+
+        <button type="button" id="generateBtn"
+          class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-full transition-colors flex items-center gap-2 text-sm mb-4">
+          <span>✨</span> Generera utkast
+        </button>
+
+        <!-- AI Output Field -->
+        <label class="block text-sm font-bold text-gray-700 mb-2">
+          🤖 AI Resultat (Kopiera härifrån)
+        </label>
+        <textarea id="aiOutput" rows="8" readonly
+          class="w-full px-4 py-2 border border-gray-300 bg-gray-50 rounded focus:ring-purple-500 focus:border-purple-500 font-mono text-sm text-gray-600"
+          placeholder="Här visas resultatet..."></textarea>
+      </div>
+
       <!-- Title -->
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">Rubrik</label>
@@ -33,9 +61,13 @@
             <option value="Natur">Natur</option>
             <option value="Arbete">Arbete</option>
             <option value="Aktiviteter">Aktiviteter</option>
+            <option value="Kultur">Kultur</option>
+            <option value="Sport">Sport</option>
+            <option value="Vad är på gång">Vad är på gång</option>
+            <option value="Event">Event</option>
           </select>
         </div>
-        
+
         <!-- Author -->
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">Författare</label>
@@ -56,9 +88,17 @@
       <!-- Image -->
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">Bild URL</label>
-        <input type="url" id="imageUrl" 
+        <input type="url" id="imageUrl"
           class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
           placeholder="Lämna tomt för slumpmässig bild">
+      </div>
+
+      <!-- Additional Images -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Extra bilder (En URL per rad)</label>
+        <textarea id="additionalImages" rows="3"
+          class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500 font-mono text-sm"
+          placeholder="https://example.com/img1.jpg&#10;https://example.com/img2.jpg"></textarea>
       </div>
 
       <!-- Content -->
@@ -70,18 +110,194 @@
           placeholder="Skriv din artikel här..."></textarea>
       </div>
 
-      <button type="submit" 
+      <button type="submit"
         class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded transition-colors">
         Publicera Artikel
       </button>
     </form>
   </div>
 
+  <!-- Article List -->
+  <div class="max-w-4xl mx-auto mt-8 bg-white p-8 rounded shadow-lg">
+    <h2 class="text-xl font-bold text-gray-800 mb-6 border-b pb-2">Befintliga Artiklar</h2>
+    <div id="articleList" class="space-y-4">
+      <!-- Articles will be loaded here -->
+      <p class="text-gray-500 text-center py-4">Laddar artiklar...</p>
+    </div>
+  </div>
+
   <script>
+    let currentEditingId = null;
+    let allArticles = [];
+
+    // --- Core Functions ---
+
+    async function loadArticles() {
+      try {
+        const response = await fetch('/api/articles');
+        allArticles = await response.json();
+        renderArticles();
+      } catch (e) {
+        console.error('Failed to load articles', e);
+      }
+    }
+
+    function renderArticles() {
+      const list = document.getElementById('articleList');
+      if (allArticles.length === 0) {
+        list.innerHTML = '<p class="text-gray-500">Inga artiklar hittades.</p>';
+        return;
+      }
+
+      list.innerHTML = allArticles.map(article => `
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center bg-gray-50 p-4 rounded border border-gray-200">
+          <div class="mb-4 md:mb-0">
+            <h3 class="font-bold text-lg text-gray-900">${article.title}</h3>
+            <p class="text-xs text-gray-500 uppercase tracking-wide">
+              ${article.category} • ${article.publishedAt} • ID: ${article.id}
+            </p>
+          </div>
+          <div class="flex space-x-2">
+            <button onclick="editArticle('${article.id}')" 
+              class="bg-blue-100 text-blue-700 px-3 py-1 rounded hover:bg-blue-200 text-sm font-medium">
+              Redigera
+            </button>
+            <button onclick="deleteArticle('${article.id}')" 
+              class="bg-red-100 text-red-700 px-3 py-1 rounded hover:bg-red-200 text-sm font-medium">
+              Ta bort
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    window.editArticle = (id) => {
+      const article = allArticles.find(a => a.id === id);
+      if (!article) return;
+
+      currentEditingId = id;
+
+      // Populate Form
+      document.getElementById('title').value = article.title;
+      document.getElementById('category').value = article.category;
+      document.getElementById('author').value = article.author;
+      document.getElementById('excerpt').value = article.excerpt;
+      document.getElementById('imageUrl').value = article.imageUrl || '';
+
+      const additionalImagesText = Array.isArray(article.additionalImages)
+        ? article.additionalImages.join('\n')
+        : '';
+      document.getElementById('additionalImages').value = additionalImagesText;
+
+      // Content is array, join valid lines
+      const contentText = Array.isArray(article.content)
+        ? article.content.join('\n\n')
+        : article.content;
+      document.getElementById('content').value = contentText;
+
+      // Update UI 
+      const submitBtn = document.querySelector('button[type="submit"]');
+      submitBtn.textContent = 'Uppdatera Artikel';
+      submitBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+      submitBtn.classList.add('bg-green-600', 'hover:bg-green-700');
+
+      // Add Cancel Button if not exists
+      let cancelBtn = document.getElementById('cancelEditBtn');
+      if (!cancelBtn) {
+        cancelBtn = document.createElement('button');
+        cancelBtn.id = 'cancelEditBtn';
+        cancelBtn.type = 'button';
+        cancelBtn.textContent = 'Avbryt';
+        cancelBtn.className = 'w-full mt-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-3 px-4 rounded transition-colors';
+        cancelBtn.onclick = resetForm;
+        submitBtn.parentNode.appendChild(cancelBtn);
+      }
+
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.deleteArticle = async (id) => {
+      if (!confirm('Är du säker på att du vill ta bort denna artikel?')) return;
+
+      try {
+        const res = await fetch(`/api/articles/${id}`, { method: 'DELETE' });
+        if (res.ok) {
+          loadArticles();
+          if (currentEditingId === id) resetForm();
+        } else {
+          alert('Kunde inte ta bort artikeln.');
+        }
+      } catch (e) {
+        console.error(e);
+        alert('Serverfel vid borttagning.');
+      }
+    };
+
+    function resetForm() {
+      currentEditingId = null;
+      document.getElementById('articleForm').reset();
+
+      const submitBtn = document.querySelector('button[type="submit"]');
+      submitBtn.textContent = 'Publicera Artikel';
+      submitBtn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+      submitBtn.classList.remove('bg-green-600', 'hover:bg-green-700');
+
+      const cancelBtn = document.getElementById('cancelEditBtn');
+      if (cancelBtn) cancelBtn.remove();
+    }
+
+    // --- Event Listeners ---
+
+    // Initial Load
+    loadArticles();
+
+    // AI Generation
+    document.getElementById('generateBtn').addEventListener('click', async (e) => {
+      const btn = e.target.closest('button');
+      const sourceText = document.getElementById('sourceMaterial').value;
+      if (!sourceText.trim()) { alert('Vänligen fyll i källmaterial först.'); return; }
+
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span>⏳</span> Tänker...';
+      btn.disabled = true;
+      btn.classList.add('opacity-75');
+
+      try {
+        const response = await fetch('/api/generate-article', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ source: sourceText })
+        });
+        const data = await response.json();
+
+        if (response.ok) {
+          let finalText = '';
+          if (data.title && data.content) {
+            finalText = `Rubrik:\n${data.title}\n\nIngress:\n${data.excerpt || ''}\n\nBrödtext:\n${data.content}`;
+          } else {
+            // Fallback: Show raw data if keys are wrong
+            finalText = "Varning: AI returnerade oväntat format:\n\n" + JSON.stringify(data, null, 2);
+          }
+          document.getElementById('aiOutput').value = finalText;
+
+          alert('Utkast genererat! Kopiera texten från rutan ovan.');
+        } else {
+          alert('Fel: ' + (data.error || 'Okänt fel'));
+        }
+      } catch (err) { alert('Kunde inte nå servern.'); }
+      finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+        btn.classList.remove('opacity-75');
+      }
+    });
+
+    // Form Submit (Create or Update)
     document.getElementById('articleForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-      
-      const btn = e.target.querySelector('button');
+
+      const btn = e.target.querySelector('button[type="submit"]');
       const originalText = btn.innerText;
       btn.innerText = 'Sparar...';
       btn.disabled = true;
@@ -92,30 +308,37 @@
         author: document.getElementById('author').value,
         excerpt: document.getElementById('excerpt').value,
         imageUrl: document.getElementById('imageUrl').value,
+        additionalImages: document.getElementById('additionalImages').value.split('\n').map(s => s.trim()).filter(s => s !== ''),
         content: document.getElementById('content').value
       };
 
       try {
-        const response = await fetch('/api/articles', {
-          method: 'POST',
+        const url = currentEditingId ? `/api/articles/${currentEditingId}` : '/api/articles';
+        const method = currentEditingId ? 'PUT' : 'POST';
+
+        const response = await fetch(url, {
+          method: method,
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         });
 
         if (response.ok) {
-          alert('Artikel sparad!');
-          e.target.reset();
+          alert(currentEditingId ? 'Artikel uppdaterad!' : 'Artikel skapad!');
+          resetForm();
+          loadArticles();
         } else {
           alert('Något gick fel.');
         }
       } catch (err) {
         console.error(err);
-        alert('Kunde inte nå servern.');
+        alert('Kunde inte spara.');
       } finally {
-        btn.innerText = originalText;
+        btn.innerText = originalText; // Note: resetForm might have changed this text already if successful, but this runs if failed/modal logic
+        if (!currentEditingId) btn.innerText = 'Publicera Artikel'; // Fallback
         btn.disabled = false;
       }
     });
   </script>
 </body>
+
 </html>

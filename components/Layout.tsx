@@ -39,7 +39,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <h1 className="font-serif text-3xl md:text-5xl font-black tracking-tight text-gray-900">
                 GotoBurg
               </h1>
-              <span className="ml-2 md:ml-3 font-serif text-xs md:text-sm text-gray-500 italic">
+              <span className="ml-4 md:ml-6 font-serif text-xs md:text-sm text-gray-500 italic">
                 Det senaste från wetcoasten
               </span>
             </Link>
@@ -52,7 +52,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
           {/* Navigation */}
           <nav className="hidden md:flex justify-center mt-6 space-x-8 text-sm font-bold uppercase tracking-widest text-gray-600 border-t border-gray-100 pt-4">
-            {['Mat & Dryck', 'Natur', 'Arbete', 'Aktiviteter'].map((item) => (
+            {['Mat & Dryck', 'Natur', 'Arbete', 'Aktiviteter', 'Kultur', 'Sport', 'Vad är på gång', 'Event'].map((item) => (
               <Link key={item} to={`/?category=${item}`} className="hover:text-blue-600 cursor-pointer transition-colors duration-200">
                 {item}
               </Link>
@@ -74,7 +74,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       {/* Footer */}
       <footer className="bg-gray-100 border-t border-gray-200 pt-12 pb-8">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div className="col-span-1 md:col-span-1">
               <h3 className="font-serif font-bold text-lg mb-4">GotoBurg</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
@@ -88,6 +88,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <li><Link to="/?category=Mat & Dryck" className="hover:text-black cursor-pointer">Mat & Dryck</Link></li>
                 <li><Link to="/?category=Natur" className="hover:text-black cursor-pointer">Natur</Link></li>
                 <li><Link to="/?category=Aktiviteter" className="hover:text-black cursor-pointer">Aktiviteter</Link></li>
+                <li><Link to="/?category=Kultur" className="hover:text-black cursor-pointer">Kultur</Link></li>
+                <li><Link to="/?category=Sport" className="hover:text-black cursor-pointer">Sport</Link></li>
+                <li><Link to="/?category=Vad är på gång" className="hover:text-black cursor-pointer">Vad är på gång</Link></li>
+                <li><Link to="/?category=Event" className="hover:text-black cursor-pointer">Event</Link></li>
               </ul>
             </div>
 
@@ -95,18 +99,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <h4 className="font-bold text-xs uppercase tracking-widest text-gray-900 mb-4">Om oss</h4>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li><a href="mailto:peter@gotoburg.se" className="hover:text-black cursor-pointer">Kontakta oss</a></li>
-                <li><span className="hover:text-black cursor-pointer">Karriär</span></li>
-                <li><span className="hover:text-black cursor-pointer">Integritetspolicy</span></li>
               </ul>
             </div>
 
-            <div>
-              <h4 className="font-bold text-xs uppercase tracking-widest text-gray-900 mb-4">Nyhetsbrev</h4>
-              <div className="flex">
-                <input type="email" placeholder="Din e-post" className="bg-white border border-gray-300 px-3 py-2 text-sm w-full focus:outline-none focus:border-blue-500" />
-                <button className="bg-black text-white px-4 py-2 text-sm font-bold uppercase hover:bg-gray-800">Gå med</button>
-              </div>
-            </div>
+
           </div>
 
           <div className="border-t border-gray-300 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">

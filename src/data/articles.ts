@@ -1,16 +1,53 @@
 export const articles = [
   {
-    "id": "6",
-    "slug": "asdf",
-    "title": "asdf",
-    "excerpt": "asdf",
+    "id": "7",
+    "slug": "goteborg-far-en-alkoholfri-oas-jarn-mocktail-bar-oppnar-i-feskekorka",
+    "title": "Göteborg får en alkoholfri oas – Järn Mocktail Bar öppnar i Feskekörka",
+    "excerpt": "En ny bar i Göteborg vill utmana synen på fest och fylla. Järn Mocktail Bar lockar med välblandade, alkoholfria drinkar i Feskekörka.",
     "content": [
-      "asdf"
+      "Göteborg får en ny mötesplats för den som vill njuta av smakrika drinkar utan alkohol. Den 1 december 2025 öppnar Järn Mocktail Bar i Feskekörka, en helt alkoholfri bar med fokus på kreativa mocktails och mat från västerhavet.",
+      "Bakom satsningen står det alkoholfria dryckesvarumärket JÄRN, med grundaren Christoffer Daal i spetsen. Målet är att visa att man kan ha lika roligt utan alkohol, och vara en motkraft till det höga alkoholintaget under julen.",
+      "Baren kommer att hålla öppet mellan den 1 och 23 december, med ett fullspäckat program av specialevent, gästspel och aktiviteter. Bland höjdpunkterna finns:",
+      "*   9 december: Storgatan 19 x Emil Åreng x JÄRN – En helkväll med mat, mocktails och berättelser.",
+      "*   15 december: Lunch med Mocktails & Gentlemen’s Coach – En inspirerande lunch om mindset, utveckling och alkoholfria drinkar.",
+      "*   20 december: \"Maffia-kvällen\" (Förrädarna-tema) – En interaktiv kväll med skådespelaren Viktor Åkerblom.",
+      "Dessutom erbjuds mocktailsprovningar, drinkskola och företagsaktiviteter. Varje söndag blir det quiz med mocktails."
     ],
-    "author": "Peter",
-    "publishedAt": "2025-11-30",
+    "author": "Peter AI assisted",
+    "publishedAt": "2025-12-14",
     "category": "Mat & Dryck",
-    "imageUrl": "https://picsum.photos/800/400?random=6"
+    "imageUrl": "https://billetto.imgix.net/pg5tsie3jrdr9bbdj01cvj7q8xec?w=1440&h=810&fit=crop&auto=compress%2Cformat&rect=0%2C130%2C940%2C529&s=59aed5ac5b51035e2cf62b3f8bdfc428",
+    "additionalImages": []
+  },
+  {
+    "id": "6",
+    "slug": "goteborgs-nya-sparvagnslinje-12-ar-har",
+    "title": "Göteborgs nya spårvagnslinje 12 är här!",
+    "excerpt": "Den nya spårvagnslinjen 12 har startat den 14 december 2025 och binder samman Lindholmen och Mölndal via centrala Göteborg.",
+    "content": [
+      "Göteborgs nya spårvagnslinje 12 rullar nu! Den 14 december 2025 invigdes linjen som går mellan Lindholmen och Mölndal, via bland annat Centralstationen och Korsvägen. Linjen är en viktig länk för att binda ihop Chalmers områden och erbjuder en smidig resa genom staden.",
+      "**Linje 12 i korthet:**",
+      "*   Sträckning: Mölndal - Mölndals innerstad - Liseberg - Korsvägen - Centralstationen - Nordstan - Frihamnen - Pumpgatan - Lindholmen.",
+      "*   Trafikstart: 14 december 2025.",
+      "*   Syfte: Att koppla ihop Lindholmen med centrala Göteborg och Mölndal, samt att binda samman Chalmers campus.",
+      "*   Färg: Turkos (standard), grå (om M29-vagnar kör).",
+      "**Hållplatser längs linjen:**",
+      "Lindholmen, Pumpgatan, Jubileumsparken, Nordstan, Centralstationen, Ullevi Södra, Scandinavium, Korsvägen, Liseberg Södra, Almedal, Elisedal, Varbergsgatan, Lana, Krokslätts torg, Krokslätts Fabriker, Lackarebäck, Mölndals sjukhus, Mölndals Innerstad.",
+      "**Förändringar i kollektivtrafiken:**",
+      "Samtidigt med linje 12 fick även linje 10 en ny sträckning (Lindholmen–Guldheden) och linje 2 fick en ny sträcka (Högsbotorp–Biskopsgården). Denna utbyggnad möjliggörs av den nya spårvägen mellan Frihamnen och Lindholmen.",
+      "**Historisk återblick**",
+      "Det är inte första gången linje 12 trafikerar Göteborg. Tidigare har numret använts under jubileumsutställningen 1923 och som förstärkningslinje till Liseberg. Nu gör linjen comeback som en permanent linje.",
+      "**Ny linje, fler möjligheter**",
+      "Med linje 12 och de nya sträckningarna för linje 2 och 10 förbättras kollektivtrafiken i Göteborg avsevärt. Resenärer får fler alternativ och en smidigare resa genom staden. Linje 16 och 16X planeras ersättas med den nya spårvagnstrafiken och utökad busstrafik på andra linjer.",
+      "Källa: [Västtrafik](https://www.vasttrafik.se/om-vasttrafik/nyhetsarkiv/goteborgs-nya-sparvagnslinje/)"
+    ],
+    "author": "Peter AI assisted",
+    "publishedAt": "2025-12-14",
+    "category": "Vad är på gång",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Sp%C3%A5rvagnslinje_12_2025.svg/250px-Sp%C3%A5rvagnslinje_12_2025.svg.png",
+    "additionalImages": [
+      "https://via.tt.se/data/images/public/3072694/3831745/f66aa4fe-702f-4a41-a159-871265ebe5ce-w_960.jpg"
+    ]
   },
   {
     "id": "1",

@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "admin": "node admin/server.js"
+    "admin": "node --env-file=.env.local admin/server.js"
   },
   "dependencies": {
     "react": "^18.2.0",

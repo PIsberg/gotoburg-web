@@ -8,6 +8,7 @@ export interface Article {
   publishedAt: string;
   category: string;
   imageUrl: string;
+  additionalImages?: string[];
 }
 
 export interface AdUnitProps {

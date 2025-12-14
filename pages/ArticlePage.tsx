@@ -93,6 +93,18 @@ const ArticlePage: React.FC = () => {
               ))}
             </div>
 
+            {/* Additional Images Gallery */}
+            {article.additionalImages && article.additionalImages.length > 0 && (
+              <div className="mt-8 space-y-6">
+                <h4 className="font-bold text-lg">Fler bilder</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {article.additionalImages.map((img, idx) => (
+                    <img key={idx} src={img} alt={`Bild ${idx + 1}`} className="w-full h-64 object-cover rounded-sm" />
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Tags/Categories */}
             <div className="mt-8 pt-8 border-t border-gray-200">
               <h4 className="text-sm font-bold uppercase mb-4">Kategorier</h4>
