@@ -52,6 +52,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
           {/* Navigation */}
           <nav className="hidden md:flex justify-center mt-6 space-x-8 text-sm font-bold uppercase tracking-widest text-gray-600 border-t border-gray-100 pt-4">
+            <Link to="/explore" className="text-blue-600 hover:text-blue-800 cursor-pointer transition-colors duration-200">
+              Utforska Staden
+            </Link>
             {['Mat & Dryck', 'Natur', 'Arbete', 'Aktiviteter', 'Kultur', 'Sport', 'Vad är på gång', 'Event'].map((item) => (
               <Link key={item} to={`/?category=${item}`} className="hover:text-blue-600 cursor-pointer transition-colors duration-200">
                 {item}

@@ -76,7 +76,8 @@ const server = http.createServer((req, res) => {
           publishedAt: new Date().toISOString().split('T')[0],
           category: formData.category,
           imageUrl: formData.imageUrl || `https://picsum.photos/800/400?random=${newId}`,
-          additionalImages: formData.additionalImages || []
+          additionalImages: formData.additionalImages || [],
+          googleMapsUrl: formData.googleMapsUrl || ''
         };
 
         articles.unshift(newArticle);
@@ -106,6 +107,7 @@ const server = http.createServer((req, res) => {
           excerpt: formData.excerpt,
           imageUrl: formData.imageUrl,
           additionalImages: formData.additionalImages || [],
+          googleMapsUrl: formData.googleMapsUrl,
           content: typeof formData.content === 'string'
             ? formData.content.split('\n').filter(line => line.trim() !== '')
             : formData.content

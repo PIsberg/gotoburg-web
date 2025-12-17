@@ -17,7 +17,8 @@ export const articles = [
     "publishedAt": "2025-12-14",
     "category": "Mat & Dryck",
     "imageUrl": "https://billetto.imgix.net/pg5tsie3jrdr9bbdj01cvj7q8xec?w=1440&h=810&fit=crop&auto=compress%2Cformat&rect=0%2C130%2C940%2C529&s=59aed5ac5b51035e2cf62b3f8bdfc428",
-    "additionalImages": []
+    "additionalImages": [],
+    "googleMapsUrl": "https://www.google.com/maps/place/Feskek%C3%B4rka,+411+20+G%C3%B6teborg/@57.7011008,11.9551992,17z/data=!3m1!4b1!4m6!3m5!1s0x464ff369ad5ca32d:0x1c0d4c405eda660a!8m2!3d57.701098!4d11.9577741!16s%2Fg%2F1q67s49_z?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D"
   },
   {
     "id": "6",

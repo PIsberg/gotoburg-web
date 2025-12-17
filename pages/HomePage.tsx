@@ -22,7 +22,6 @@ const HomePage: React.FC = () => {
 
   return (
     <Layout>
-      {/* Featured Section */}
       <section className="mb-12 border-b border-gray-200 pb-12">
         {featuredArticle && <ArticleCard article={featuredArticle} featured={true} />}
       </section>

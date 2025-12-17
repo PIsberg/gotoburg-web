@@ -2,6 +2,7 @@ import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ArticlePage from './pages/ArticlePage';
+import ExplorePage from './pages/ExplorePage';
 import AnalyticsTracker from './components/AnalyticsTracker';
 // import { ADSENSE_CONFIG } from './src/constants';
 
@@ -15,6 +16,7 @@ const App: React.FC = () => {
       <AnalyticsTracker />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/explore" element={<ExplorePage />} />
         {/* The :slug param captures the article identifier from the URL */}
         <Route path="/:slug" element={<ArticlePage />} />
       </Routes>

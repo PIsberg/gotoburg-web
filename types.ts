@@ -9,6 +9,7 @@ export interface Article {
   category: string;
   imageUrl: string;
   additionalImages?: string[];
+  googleMapsUrl?: string; // Optional Google Maps URL
 }
 
 export interface AdUnitProps {
@@ -16,4 +17,20 @@ export interface AdUnitProps {
   format?: 'auto' | 'fluid' | 'rectangle';
   className?: string;
   label?: string;
+}
+
+declare global {
+  interface Window {
+    google: any;
+  }
+}
+
+// Fix Property 'env' does not exist on type 'ImportMeta'
+interface ImportMetaEnv {
+  readonly VITE_GOOGLE_MAPS_API_KEY: string;
+  readonly [key: string]: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
 }

@@ -18,6 +18,25 @@ View your app in AI Studio: https://ai.studio/apps/drive/1AWguCJdpDURpTzR9ch6KXm
 2. Run the app:
    `npm run dev`
 
+## Google Maps Configuration
+
+To enable the map view on the home page, you need a Google Maps API Key.
+
+1.  **Get an API Key:**
+    *   Go to the [Google Maps Platform Console](https://console.cloud.google.com/google/maps-apis/).
+    *   Create a new project or select an existing one.
+    *   Enable **Maps JavaScript API** and **Geocoding API**.
+    *   Go to **Credentials** and create an **API Key**.
+2.  **Configure Local Environment:**
+    *   Create or edit `.env.local` in the project root.
+    *   Add the line: `VITE_GOOGLE_MAPS_API_KEY=YOUR_API_KEY_HERE`
+3.  **Production / Deployment (e.g., Netlify):**
+    *   Do **NOT** commit `.env.local` to GitHub.
+    *   Go to your hosting provider's dashboard (e.g., Netlify).
+    *   Navigate to **Site settings** > **Environment variables**.
+    *   Add a new variable with Key: `VITE_GOOGLE_MAPS_API_KEY` and Value: `YOUR_API_KEY_HERE`.
+    *   Redeploy the site.
+
 * How to add a new article manually (deprecated use admin)
 Based on the current architecture of the application, the articles are stored as a static array of objects. To add a new article, you need to manually append a new entry to the data file.
 Here are the exact steps:
