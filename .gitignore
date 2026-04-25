@@ -11,6 +11,12 @@ node_modules
 dist-ssr
 *.local
 
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
