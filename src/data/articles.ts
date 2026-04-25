@@ -1,5 +1,24 @@
 export const articles = [
   {
+    "id": "8",
+    "slug": "haklapp-pa-goteboil-levererar-en-festlig-skaldjursupplevelse-utover-det-vanliga-i-goteborg",
+    "title": "Haklapp På! Göteboil Levererar En Festlig Skaldjursupplevelse Utöver Det Vanliga I Göteborg",
+    "excerpt": "Göteborgs restaurangkarta har fått ett spännande nytillskott med Göteboil, stadens första restaurang att omfamna den trendiga \"seafood boil\"-konceptet. Här utlovas en avslappnad och smakrik festmåltid där färska skaldjur serveras direkt på bordet för en oförglömlig delad upplevelse.",
+    "content": [
+      "Göteborgarna har sedan en tid tillbaka kunnat njuta av en helt ny typ av matupplevelse när Göteboil slog upp portarna som stadens första restaurang specialiserad på 'seafood boils'. Konceptet är enkelt men genialiskt: stora, härliga skaldjurskok som serveras direkt på bordet för att delas med vänner och familj. Det är en matupplevelse som redan hyllas av stadens kritiker och gäster.",
+      "På Göteboil handlar det om färskhet och passion. Här blandas färska räkor, musslor, krabba och majs varsamt med smöriga såser och kryddas till perfektion för att ge den äkta 'boil'-känslan. Det är en middag som inbjuder till gemenskap, där man kavlar upp ärmarna och dyker in med händerna – bokstavligen, med haklapp på.",
+      "Atmosfären beskrivs som avslappnad men festlig, och recensionerna talar sitt tydliga språk om restaurangens succé. En besökare uttryckte sin begeistring med orden: \"Jag älskar skaldjur men jag ÄLSKADE smaken här, det var som ingen annan skaldjursplats jag har varit på. Definitivt en solid 5/5!\" En annan gäst var lika entusiastisk och gav upplevelsen ett omdöme på \"1000/10\", betonande att trots att det kan vara \"lite dyrt, var det definitivt värt det\" tack vare den \"fantastiska maten, den trevliga atmosfären och utmärkta servicen\".",
+      "Utöver den unika smakupplevelsen lyfts även den oklanderliga servicen och den trevliga atmosfären fram som stora plus. Många gäster har lovordat personalens bemötande och den rena och fräscha miljön. Det är tydligt att Göteboil snabbt har etablerat sig som ett måste för den som söker en annorlunda och minnesvärd middagsupplevelse i Göteborg.",
+      "Så, om du är sugen på att klä på dig haklappen och dyka in i en värld av smakrika skaldjur, är Göteboil stället för dig. Det är en kulinarisk resa som garanterat kommer att sitta kvar länge i minnet och få dig att längta tillbaka till havets läckerheter."
+    ],
+    "author": "Peter",
+    "publishedAt": "2026-04-25",
+    "category": "Mat & Dryck",
+    "imageUrl": "https://media.cylex.se/companies/1241/8152/logo/logo43403652.jpg",
+    "additionalImages": [],
+    "googleMapsUrl": "https://www.google.com/maps/place/G%C3%B6teboil/@57.7002417,11.9542399,17z/data=!4m6!3m5!1s0x464ff34fbbe95c5b:0x9d11ced83c05f64b!8m2!3d57.7002389!4d11.9568202!16s%2Fg%2F11zj34925s?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D"
+  },
+  {
     "id": "7",
     "slug": "goteborg-far-en-alkoholfri-oas-jarn-mocktail-bar-oppnar-i-feskekorka",
     "title": "Göteborg får en alkoholfri oas – Järn Mocktail Bar öppnar i Feskekörka",
