@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ADSENSE_CONFIG } from '../src/constants';
 
 interface AdSenseProps {
@@ -24,10 +24,12 @@ const AdSense: React.FC<AdSenseProps> = ({
     label,
     style = { display: 'block' }
 }) => {
-    // Check if running on localhost or 127.0.0.1
     const isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const initialized = useRef(false);
 
     useEffect(() => {
+        if (initialized.current) return;
+        initialized.current = true;
         try {
             (window.adsbygoogle = window.adsbygoogle || []).push({});
         } catch (err) {
@@ -51,7 +53,7 @@ const AdSense: React.FC<AdSenseProps> = ({
 
             <ins
                 className="adsbygoogle"
-                style={style}
+                style={{ width: '100%', ...style }}
                 data-ad-client={ADSENSE_CONFIG.PUBLISHER_ID}
                 data-ad-slot={slot}
                 data-ad-format={format}

@@ -3,7 +3,6 @@ import { articles } from './data/articles';
 
 // Load articles from the TS file
 export const ARTICLES: Article[] = articles as Article[];
-console.log('Loaded articles:', ARTICLES.length);
 
 export const ADSENSE_CONFIG = {
     PUBLISHER_ID: 'ca-pub-2203695397498260',

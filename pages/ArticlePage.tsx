@@ -111,7 +111,7 @@ const ArticlePage: React.FC = () => {
               <div className="flex flex-wrap gap-2">
                 <Link to={`/?category=${article.category}`} className="bg-gray-100 px-3 py-1 text-xs font-bold uppercase text-gray-600 rounded-sm hover:bg-gray-200">{article.category}</Link>
                 <span className="bg-gray-100 px-3 py-1 text-xs font-bold uppercase text-gray-600 rounded-sm">Nyheter</span>
-                <span className="bg-gray-100 px-3 py-1 text-xs font-bold uppercase text-gray-600 rounded-sm">2023</span>
+                <span className="bg-gray-100 px-3 py-1 text-xs font-bold uppercase text-gray-600 rounded-sm">{new Date(article.publishedAt).getFullYear()}</span>
               </div>
             </div>
           </div>
