@@ -63,10 +63,13 @@ const HomePage: React.FC = () => {
             <div className="bg-gray-50 border border-gray-200 p-6 mb-8">
               <h4 className="font-bold text-sm uppercase tracking-widest mb-4">Just nu</h4>
               <ol className="list-decimal pl-4 space-y-4 font-serif">
-                <li className="pl-2 hover:text-blue-600 cursor-pointer"><strong>Mat:</strong> Nya foodtrucks intar torget.</li>
-                <li className="pl-2 hover:text-blue-600 cursor-pointer"><strong>Natur:</strong> Bästa platserna för svampplockning.</li>
-                <li className="pl-2 hover:text-blue-600 cursor-pointer"><strong>Debatt:</strong> Ska vi ha bilfria zoner i centrum?</li>
-                <li className="pl-2 hover:text-blue-600 cursor-pointer"><strong>Bostad:</strong> Priserna planar ut i förorterna.</li>
+                {allArticles.slice(0, 4).map((article) => (
+                  <li key={article.id} className="pl-2 hover:text-blue-600">
+                    <a href={`#/${article.slug}`}>
+                      <strong>{article.category}:</strong> {article.title}
+                    </a>
+                  </li>
+                ))}
               </ol>
             </div>
 
