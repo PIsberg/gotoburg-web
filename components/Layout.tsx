@@ -51,7 +51,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </div>
 
           {/* Navigation */}
-          <nav className="hidden md:flex justify-center mt-6 space-x-8 text-sm font-bold uppercase tracking-widest text-gray-600 border-t border-gray-100 pt-4">
+          <nav className="hidden md:flex justify-center mt-6 space-x-4 text-sm font-bold uppercase tracking-widest text-gray-600 border-t border-gray-100 pt-4">
             <Link to="/explore" className="text-blue-600 hover:text-blue-800 cursor-pointer transition-colors duration-200">
               Utforska Staden
             </Link>

@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import ArticleCard from '../components/ArticleCard';
 import AdSense from '../components/AdSense';
@@ -46,9 +46,9 @@ const HomePage: React.FC = () => {
                 </div>
                 <div className="md:w-2/3">
                   <div className="text-xs font-bold text-blue-600 uppercase mb-1">{article.category}</div>
-                  <a href={`#/${article.slug}`} className="block hover:text-blue-700">
+                  <Link to={`/${article.slug}`} className="block hover:text-blue-700">
                     <h4 className="text-xl font-serif font-bold mb-2">{article.title}</h4>
-                  </a>
+                  </Link>
                   <p className="text-sm text-gray-600 font-serif leading-relaxed line-clamp-2">{article.excerpt}</p>
                 </div>
               </div>
@@ -65,9 +65,9 @@ const HomePage: React.FC = () => {
               <ol className="list-decimal pl-4 space-y-4 font-serif">
                 {allArticles.slice(0, 4).map((article) => (
                   <li key={article.id} className="pl-2 hover:text-blue-600">
-                    <a href={`#/${article.slug}`}>
+                    <Link to={`/${article.slug}`}>
                       <strong>{article.category}:</strong> {article.title}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ol>
