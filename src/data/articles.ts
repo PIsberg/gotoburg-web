@@ -64,7 +64,7 @@ export const articles = [
     "author": "Peter AI assisted",
     "publishedAt": "2025-12-14",
     "category": "Vad är på gång",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Sp%C3%A5rvagnslinje_12_2025.svg/250px-Sp%C3%A5rvagnslinje_12_2025.svg.png",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Sp%C3%A5rvagnslinje_12.svg/500px-Sp%C3%A5rvagnslinje_12.svg.png",
     "additionalImages": [
       "https://via.tt.se/data/images/public/3072694/3831745/f66aa4fe-702f-4a41-a159-871265ebe5ce-w_960.jpg"
     ]
@@ -95,7 +95,7 @@ export const articles = [
     "author": "Redaktionen",
     "publishedAt": "2025-10-15",
     "category": "Natur",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Delsj%C3%B6n.jpg/800px-Delsj%C3%B6n.jpg",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/Delsj%C3%B6n.jpg",
     "additionalImages": [],
     "content": [
       "Det behövs ingen lång resa för att hitta vild natur i Göteborg. Delsjöområdets naturreservat, beläget bara ett par kilometer öster om stadskärnan, erbjuder en av regionens vackraste och mest välbesökta friluftsmiljöer. Hit tar du dig smidigt med spårvagn till Virginsgatan eller Bögatan, eller med buss till Spåntorget.",
@@ -113,7 +113,7 @@ export const articles = [
     "author": "Redaktionen",
     "publishedAt": "2025-09-20",
     "category": "Arbete",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Lindholmen_Science_Park.jpg/800px-Lindholmen_Science_Park.jpg",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/45/Lindholmen_Science_Park.jpg",
     "additionalImages": [],
     "content": [
       "På Hisingen, med utsikt över älven och centrala Göteborg, ligger en av Sveriges viktigaste knutpunkter för innovation och näringsliv: Lindholmen Science Park. Grundat år 2000 i ett samarbete mellan Chalmers tekniska högskola, Göteborgs stad och det lokala näringslivet har Lindholmen vuxit till ett ekosystem utan motstycke i Sverige.",
@@ -131,7 +131,7 @@ export const articles = [
     "author": "Redaktionen",
     "publishedAt": "2025-08-05",
     "category": "Aktiviteter",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Universeum2.JPG/800px-Universeum2.JPG",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/14/Universeum2.JPG",
     "additionalImages": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Lisebergsportal_kv%C3%A4ll.jpg/800px-Lisebergsportal_kv%C3%A4ll.jpg"
     ],
@@ -151,7 +151,7 @@ export const articles = [
     "author": "Redaktionen",
     "publishedAt": "2025-07-12",
     "category": "Mat & Dryck",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Haganygata.jpg/800px-Haganygata.jpg",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Haganygata.jpg",
     "additionalImages": [],
     "content": [
       "Göteborgarna vet hur man avnjuter en helgmorgon. I en stad känd för sin matkultur och sina kaféer har brunchen fått en närmast helig status. Varje lördag och söndag fylls restauranger runt om i Göteborg av gäster som inte har någon brådska alls – och det är precis som det ska vara.",
