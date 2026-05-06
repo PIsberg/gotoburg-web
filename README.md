@@ -2,189 +2,119 @@
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# Run and deploy your AI Studio app
+# GotoBurg
 
-This contains everything you need to run your app locally.
+A Swedish-language local news and lifestyle site for Gothenburg. Built with React 18, Vite, and Tailwind CSS.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1AWguCJdpDURpTzR9ch6KXmygUwPUwP76
+- **Live site:** https://gotoburg.netlify.app/
+- **Custom domains:** www.gotoburg.se / goteburg.se
 
-## Run Locally
+## Quick Start
 
-**Prerequisites:**  Node.js
-
+**Prerequisites:** Node.js
 
 1. Install dependencies:
-   `npm install`
-2. Run the app:
-   `npm run dev`
+   ```
+   npm install
+   ```
+
+2. Start the dev server:
+   ```
+   npm run dev
+   ```
+
+## Available Commands
+
+- `npm run dev` — Start Vite dev server for the public site
+- `npm run build` — Build static site to `dist/` (deploy this folder to Netlify)
+- `npm run preview` — Preview the production build locally
+- `npm run admin` — Start the admin tool on http://localhost:3001
+
+## Adding & Managing Articles
+
+Use the admin tool to create, edit, and delete articles:
+
+1. Stop the dev server (Ctrl+C)
+2. Run `npm run admin`
+3. Open http://localhost:3001 in your browser
+4. Fill out the form and click "Publicera Artikel"
+5. Restart `npm run dev` to see changes immediately
+
+The admin tool saves articles to `src/data/articles.ts`. When you run `npm run build`, articles are bundled into the static site.
+
+### Generating Articles with AI
+
+The admin tool can generate article drafts using Google's Gemini API:
+
+1. Create or edit `.env.local` in the project root
+2. Add your API key: `GEMINI_API_KEY=YOUR_KEY_HERE` (or `GOOGLE_API_KEY`)
+3. Use the "Generate med AI" feature in the admin tool
+
+### Article Structure
+
+Articles follow this schema (edit in admin tool):
+
+- **Slug:** URL identifier (lowercase, hyphens) — e.g., `nytt-kallbadhus-oppnar`
+- **Category:** One of: Mat & Dryck, Natur, Arbete, Aktiviteter, Kultur, Sport, Vad är på gång, Event
+- **Content:** Array of paragraphs (ad slots can be inserted between them)
+- **Google Maps URL:** Optional, for the map view on the Explore page
 
 ## Google Maps Configuration
 
-To enable the map view on the home page, you need a Google Maps API Key.
+To enable the map view (Explore page), configure a Google Maps API Key:
 
-1.  **Get an API Key:**
-    *   Go to the [Google Maps Platform Console](https://console.cloud.google.com/google/maps-apis/).
-    *   Create a new project or select an existing one.
-    *   Enable **Maps JavaScript API** and **Geocoding API**.
-    *   Go to **Credentials** and create an **API Key**.
-2.  **Configure Local Environment:**
-    *   Create or edit `.env.local` in the project root.
-    *   Add the line: `VITE_GOOGLE_MAPS_API_KEY=YOUR_API_KEY_HERE`
-3.  **Production / Deployment (e.g., Netlify):**
-    *   Do **NOT** commit `.env.local` to GitHub.
-    *   Go to your hosting provider's dashboard (e.g., Netlify).
-    *   Navigate to **Site settings** > **Environment variables**.
-    *   Add a new variable with Key: `VITE_GOOGLE_MAPS_API_KEY` and Value: `YOUR_API_KEY_HERE`.
-    *   Redeploy the site.
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/google/maps-apis/)
+2. Create a new project or select an existing one
+3. Enable **Maps JavaScript API** and **Geocoding API**
+4. Go to **Credentials** and create an **API Key**
 
-* How to add a new article manually (deprecated use admin)
-Based on the current architecture of the application, the articles are stored as a static array of objects. To add a new article, you need to manually append a new entry to the data file.
-Here are the exact steps:
-Open the file constants.ts.
-Locate the ARTICLES array. It starts with export const ARTICLES: Article[] = [.
-Add a new object inside this array (usually at the top if you want it to appear first, or at the bottom).
-Ensure the object matches the following structure, specifically using one of your defined categories (Mat & Dryck, Natur, Arbete, or Aktiviteter).
-Here is a code snippet you can copy and paste into constants.ts to test it:
-code
-TypeScript
-{
-    id: '6', // Ensure this ID is unique
-    slug: 'nytt-vinterbadhus-oppnar', // This becomes the URL: domain.com/#/nytt-vinterbadhus-oppnar
-    title: 'Nytt kallbadhus öppnar i hamnen',
-    excerpt: 'Vinterbadare kan glädjas – nu står stadens modernaste kallbadhus redo för säsongen.',
-    author: 'Lars Westkust',
-    publishedAt: '26 oktober 2023',
-    category: 'Aktiviteter', // Must match one of your header categories exactly
-    imageUrl: 'https://picsum.photos/800/400?random=20', // URL to an image
-    content: [
-      "Intresset för kallbad har exploderat och nu möter staden efterfrågan med en helt ny anläggning vid piren.",
-      "Det nya badhuset erbjuder tre olika bastur med panoramafönster ut mot havet, samt direkttrappa ner i det kalla vattnet.",
-      "– Vi ville skapa en mötesplats för alla, oavsett om man är en inbiten vinterbadare eller nybörjare, säger projektledaren.",
-      "Anläggningen kommer att hålla öppet året runt och har även ett litet café som serverar värmande soppor och kaffe.",
-      "Invigningen sker på lördag klockan 10:00 med gratis provbad för de 50 första besökarna."
-    ]
-  },
-Key Fields Explanation:
-slug: This acts as the URL link. Use lowercase letters and hyphens (e.g., min-artikel-titel).
-content: This is an array of strings. Each string represents a separate paragraph in the article body.
-category: Ensure this matches Mat & Dryck, Natur, Arbete, or Aktiviteter so the "Filed Under" logic works correctly.
+### Local Configuration
 
-* To integrate your real Google AdSense account into GotoBurg, you need to perform three specific tasks: Connect your account, Update the Component logic, and Assign specific Ad Slots.
-Here are the exact steps:
-Step 1: Add your Publisher ID (Global Connection)
-This connects the website to your specific AdSense account.
-Open index.html.
-Locate the commented-out AdSense script section inside the <head> tag.
-Uncomment it and replace ca-pub-XXXXXXXXXXXXX with your actual Publisher ID (found in your AdSense Dashboard > Account > Settings > Account Information).
-Change this in index.html:
-code
-Html
-<!-- BEFORE -->
-<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+Create or edit `.env.local` in the project root:
+```
+VITE_GOOGLE_MAPS_API_KEY=YOUR_API_KEY_HERE
+```
 
-<!-- AFTER (Replace numbers with yours) -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
-Step 2: Update the Ad Component logic
-Currently, components/AdSense.tsx is just a visual placeholder (a grey box). You need to change it to render the actual Google code.
-Open components/AdSense.tsx.
-Replace the entire file content with the code below. This code handles the injection of the ad into React.
-code
-Tsx
-import React, { useEffect, useRef } from 'react';
-import { AdUnitProps } from '../types';
+### Production (Netlify)
 
-declare global {
-  interface Window {
-    adsbygoogle: any[];
-  }
-}
+1. Do NOT commit `.env.local` to GitHub
+2. In Netlify dashboard, go to **Site settings** > **Environment variables**
+3. Add: Key `VITE_GOOGLE_MAPS_API_KEY`, Value: your API key
+4. Redeploy the site
 
-const AdSense: React.FC<AdUnitProps> = ({ slot, format = 'auto', className = '', label = 'Annons' }) => {
-  const adRef = useRef<HTMLModElement>(null);
+## Deployment
 
-  useEffect(() => {
-    // This pushes the ad request to Google when the component mounts
-    try {
-      if (adRef.current && adRef.current.innerHTML === "") {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      }
-    } catch (e) {
-      console.error("AdSense error", e);
-    }
-  }, []);
+### Build
 
-  return (
-    <div className={`w-full my-6 flex flex-col items-center justify-center ${className}`}>
-      {/* Label for compliance */}
-      <span className="text-[10px] uppercase tracking-widest text-gray-400 mb-1">{label}</span>
-      
-      {/* The actual Google Ad Container */}
-      <div className="w-full bg-gray-50 min-h-[100px] flex justify-center">
-        <ins
-          ref={adRef}
-          className="adsbygoogle"
-          style={{ display: 'block', width: '100%' }}
-          data-ad-client="ca-pub-YOUR_PUBLISHER_ID_HERE" 
-          data-ad-slot={slot}
-          data-ad-format={format}
-          data-full-width-responsive="true"
-        ></ins>
-      </div>
-    </div>
-  );
-};
+```
+npm run build
+```
 
+This creates a `dist/` folder with the static site.
 
-export default AdSense;
-Note: In the code above, replace ca-pub-YOUR_PUBLISHER_ID_HERE with your actual ID again.
-Step 3: Configure your Ad Slots
-You need to generate specific "Ad Units" in your AdSense dashboard (e.g., "Homepage Header", "Article Sidebar") and get their Slot IDs.
-Go to AdSense Dashboard > Ads > By ad unit.
-Create "Display ads" for the different sections of your site.
-Copy the data-ad-slot number (e.g., 1234567890) for each unit.
-Now, update these files with those numbers:
-A. Header Ad
-File: components/Layout.tsx
-Find: <AdSense slot="header-banner-12345" ... />
-Action: Change header-banner-12345 to your real ID.
-B. Home Page Feed Ad
-File: pages/HomePage.tsx
-Find: <AdSense slot="feed-middle-56789" ... />
-Action: Change feed-middle-56789 to your real ID.
-C. Sidebar Ad
-File: pages/HomePage.tsx (and pages/ArticlePage.tsx)
-Find: <AdSense slot="sidebar-right-99887" ... />
-Action: Change sidebar-right-99887 to your real ID.
-D. In-Article Ad
-File: pages/ArticlePage.tsx
-Find: <AdSense slot="in-article-fluid-777" ... />
-Action: Change in-article-fluid-777 to your real ID.
+### Deploy to Netlify
 
+1. Upload the `dist/` folder (not the source code)
+2. Ensure `VITE_GOOGLE_MAPS_API_KEY` is configured in Netlify env vars
+3. Site will be live at https://gotoburg.netlify.app/
 
-Steps to Deploy:
-Download all these files to a folder on your computer.
-Open your terminal/command prompt in that folder.
-Run the command: npm install (Installs the build tools).
-Run the command: npm run build (This creates a dist folder).
-Upload the dist folder to Netlify, not your source code folder.
+## Integrations
 
+- **Google Analytics:** Configured in `index.html` (tracks SPA route changes)
+- **Google AdSense:** Publisher ID `ca-pub-2203695397498260` (ads auto-inject between article paragraphs and in sidebars)
+- **Google Maps:** Articles can include an optional `googleMapsUrl` for map embeds
 
-https://gotoburg.netlify.app/
-www.gotoburg.se
-goteburg.se
+## Project Structure
 
-How to use your new Article Generator
-Stop your current server (Ctrl+C).
-Start the admin tool by running:
-code
-Bash
-npm run admin
-Open your browser to: http://localhost:3001
-Fill out the form and click "Publicera Artikel".
-Restart your main website server (npm run dev) to see the changes immediately (or if it's already running, it should auto-refresh).
-This creates a new entry in src/data/articles.json automatically. When you are ready to publish to Netlify, just run npm run build as usual, and the new articles will be included in the static site.
+- `src/` — React source code
+- `src/data/articles.ts` — Article data (managed via admin tool)
+- `src/constants.ts` — Global config (ARTICLES, ADSENSE_CONFIG)
+- `src/services/articleService.ts` — Article lookup and filtering
+- `dist/` — Built static site (created by `npm run build`)
+- `admin/` — Admin tool (separate Node server on port 3001)
 
+## Architecture Notes
 
-Deploy online
-
-https://app.netlify.com/projects/gotoburg/deploys/692cbcd273dabd72fdafbf51
+- **Static generation:** Articles bundled at build time, no backend at runtime
+- **Routing:** Hash-based (`/#/slug`) for deployment without server rewrites
+- **Admin mutations:** Direct file edits to `src/data/articles.ts` (shape must be preserved as `export const articles = [...]`)
