@@ -67,7 +67,7 @@ const ArticlePage: React.FC = () => {
         <figure className="mb-10">
           <img src={article.imageUrl} alt={article.title} className="w-full h-[400px] object-cover rounded-sm" />
           <figcaption className="text-center text-xs text-gray-500 mt-2 italic">
-            Bild som representerar {article.category}. Källa: Picsum.
+            {article.title}
           </figcaption>
         </figure>
 

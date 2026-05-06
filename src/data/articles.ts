@@ -71,87 +71,95 @@ export const articles = [
   },
   {
     "id": "1",
-    "slug": "basta-hantverksol-gotoburg",
-    "title": "De bästa ställena för hantverksöl i staden",
-    "excerpt": "Från mikrobryggerier i hamnen till mysiga källarpubar – här hittar du stadens bästa IPA och lager.",
-    "author": "Johan Andersson",
-    "publishedAt": "2023-10-24",
+    "slug": "goteborg-hantverksolens-huvudstad",
+    "title": "Göteborg – Sveriges nya huvudstad för hantverksöl",
+    "excerpt": "Från Stigbergets prisbelönta IPA i Majorna till Poppels världsunika pilsnerbryggeri – Göteborg har på kort tid blivit ett av Europas mest spännande ölstäder.",
+    "author": "Redaktionen",
+    "publishedAt": "2025-11-10",
     "category": "Mat & Dryck",
-    "imageUrl": "https://picsum.photos/800/400?random=10",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/G%C3%B6teborg_Panorama.jpg/1280px-G%C3%B6teborg_Panorama.jpg",
+    "additionalImages": [],
     "content": [
-      "Ölkulturen i staden har exploderat de senaste åren. Det som en gång var en handfull entusiaster har växt till en levande industri som lockar besökare från hela landet.",
-      "Vi har besökt de hetaste bryggerierna just nu. I det gamla industriområdet vid vattnet hittar vi 'Hamnens Humle', som specialiserar sig på syrliga ales och tunga stouts.",
-      "För den som föredrar en klassisk miljö rekommenderas 'Källarmästarens' i centrum. Här serveras öl på fat direkt från tankarna, och maten är anpassad för att komplettera drycken perfekt.",
-      "Trenden går tydligt mot lokalproducerade ingredienser. Många bryggare samarbetar nu med bönder i regionen för att ta fram unik malt och humle.",
-      "Oavsett om du är en erfaren ölkännare eller bara nyfiken, finns det något att upptäcka i stadens glödheta ölkarta."
+      "Det är ingen överdrift att kalla Göteborg för Sveriges nya hantverksölsmetropol. Under det senaste decenniet har en explosiv tillväxt av mikrobryggerier och ölbarer förvandlat staden till en destination som lockar ölentusiaster från hela världen. Internationella rankningslistor placerar regelbundet göteborgsöl i absolut världsklass.",
+      "Stigbergets Bryggeri är kanske det namn som satt Göteborg på den internationella ölkartan. Bryggeriet startade som ett litet projekt i en källarlokal i Majorna men har vuxit till en global spelare. Deras West Coast IPA är legendarisk bland kännare – fruktig, välhumlad och med en karaktär som är svår att kopiera. I dag finns de i taprooms och butiker över hela Europa.",
+      "O/O Brewery, grundat av Olle och Olof, är ett annat namn som hantverksölsälskare nämner med vördnad. Med fokus på precision och råvaror av högsta kvalitet har bryggeriet tagit hem priser i internationella tävlingar och etablerat sig som en av Göteborgs mest hyllade producenter.",
+      "Oceanbryggeriet och Poppels Bryggeri kompletterar stadens imponerande bryggerilandskap. Poppels, som från början höll till i Jonsereds klassiska fabriksmiljö, har nu ett bryggeri i centrala Göteborg som kan stoltsera med att vara världens största ekfatsbaserade pilsnerbryggeri – en distinktion som lockar besökare långt utöver landets gränser.",
+      "För den som vill utforska stadens ölkultur utan att fastna vid ett enda ställe är Beerista en utmärkt utgångspunkt. Baren har ett av Göteborgs mest välsorterade utbud och serverar allt från lokala mikrobryggerier till internationella specialöl. Och på Scandinaviums bar Kranen hittar du nästan hundra sorter från över trettio göteborgsbryggerier – ett levande bevis på att staden menar allvar med sitt ölhantverk."
     ]
   },
   {
     "id": "2",
-    "slug": "hostvandring-naturreservat",
-    "title": "Guide: Höstvandring i våra vackra naturreservat",
-    "excerpt": "När löven skiftar färg är det dags att snöra på sig kängorna. Här är lederna du inte får missa.",
-    "author": "Anna Berg",
-    "publishedAt": "2023-10-22",
+    "slug": "guide-delsjoomradet-naturreservat-goteborg",
+    "title": "Naturen en spårvagn bort – guide till Delsjöområdets naturreservat",
+    "excerpt": "Bara några kilometer från Göteborgs centrum gömmer sig Delsjöområdet – ett naturreservat med sjöar, stigar och friluftsliv som passar hela familjen.",
+    "author": "Redaktionen",
+    "publishedAt": "2025-10-15",
     "category": "Natur",
-    "imageUrl": "https://picsum.photos/800/400?random=11",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Delsj%C3%B6n.jpg/800px-Delsj%C3%B6n.jpg",
+    "additionalImages": [],
     "content": [
-      "Hösten är kanske den bästa tiden för vandring. Luften är krispig, myggorna är borta och naturen bjuder på en färgsprakande show.",
-      "Ett stenkast från centrum ligger 'Stora Skogens' naturreservat. Den 10 km långa slingan runt sjön är perfekt för en dagstur. Glöm inte att packa med kaffe och bullar.",
-      "För den mer äventyrlige rekommenderas 'Klippleden'. Den är mer krävande med branta partier, men utsikten från toppen över skärgården är värd varje svett-droppe.",
-      "Tänk på att klä dig efter lager-på-lager-principen och att alltid respektera allemansrätten. Lämna inget annat än fotspår efter dig.",
-      "Många leder har nyligen rustats upp med nya grillplatser och vindskydd, vilket gör det enkelt att förlänga turen med en övernattning."
+      "Det behövs ingen lång resa för att hitta vild natur i Göteborg. Delsjöområdets naturreservat, beläget bara ett par kilometer öster om stadskärnan, erbjuder en av regionens vackraste och mest välbesökta friluftsmiljöer. Hit tar du dig smidigt med spårvagn till Virginsgatan eller Bögatan, eller med buss till Spåntorget.",
+      "Reservatets pärlor är de två sjöarna Stora Delsjön och Lilla Delsjön, omgivna av böljande skogar och välmarkerade vandringsleder. Den populäraste turen är slingan runt Stora Delsjön – en bekväm 7,5 kilometer lång runda som passar de flesta. Loopen runt både Lilla och Stora Delsjön är en av AllTrails mest omtyckta leder i hela Västra Götaland, med betyget 4,6 av 5 från hundratals vandrare.",
+      "Under sommaren förvandlas sjöarnas stränder till populära badplatser. Vattnet är klart och rent, och det finns gott om platser att slå sig ned för en picknick eller ett dopp. Fiskare kan också ta ut sitt nöje – Delsjöarna är kända för sina gäddor och abborrar.",
+      "Bohusleden, en av Sveriges mest välkända vandringsleder, passerar genom Delsjöområdet. Det gör området till ett naturligt utflyktsmål även för dem som vill kombinera Göteborgsmiljön med länets vildare natur. Under höst och vinter erbjuder de upplysta lederna möjlighet att röra sig utomhus även i mörker.",
+      "En klassisk avslutning på turen är fika på kaffestugan nordost om Stora Delsjön. Här kan man sätta sig ned med en kopp kaffe och ett hembakat tilltugg och låta naturen sakta sjunka in. Delsjöområdet är ett av Göteborgs bästa bevis på att stad och natur inte behöver utesluta varandra."
     ]
   },
   {
     "id": "3",
-    "slug": "framtidens-arbetsplats",
-    "title": "Så formar hybridarbete stadens kontor",
-    "excerpt": "Allt fler företag ställer om till flexibla lösningar. Vad innebär det för stadskärnan och arbetstagarna?",
-    "author": "Karin Nilsson",
-    "publishedAt": "2023-10-20",
+    "slug": "lindholmen-science-park-goteborg-framtidens-arbetsplats",
+    "title": "Lindholmen Science Park – där Göteborg formar framtidens arbete",
+    "excerpt": "Med 250 företag, 24 000 anställda och giganter som Volvo Cars och Ericsson i grannskapet är Lindholmen inte bara en arbetsplats – det är ett helt ekosystem.",
+    "author": "Redaktionen",
+    "publishedAt": "2025-09-20",
     "category": "Arbete",
-    "imageUrl": "https://picsum.photos/800/400?random=12",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Lindholmen_Science_Park.jpg/800px-Lindholmen_Science_Park.jpg",
+    "additionalImages": [],
     "content": [
-      "Kontorslandskapen gapar inte längre tomma, men de är inte heller fulla som förr. Den hybrida modellen har kommit för att stanna.",
-      "Företag i regionen rapporterar att anställda mår bättre och presterar högre när de får styra sin tid. Men det kräver också ny teknik och nya ledarskapsstrategier.",
-      "Många kontor byggs nu om till mötesplatser snarare än produktionsytor. Fokus ligger på kreativa rum och sociala ytor där teamen kan samlas de dagar de är på plats.",
-      "Samtidigt ser vi en ökning av co-working spaces i förorterna. Folk vill ha kontorets bekvämlighet men slippa pendlingen in till city varje dag.",
-      "Utmaningen framåt blir att behålla företagskulturen när vi inte ses vid kaffemaskinen varje dag. Digitala fikor i all ära, men det fysiska mötet är fortfarande oslagbart."
+      "På Hisingen, med utsikt över älven och centrala Göteborg, ligger en av Sveriges viktigaste knutpunkter för innovation och näringsliv: Lindholmen Science Park. Grundat år 2000 i ett samarbete mellan Chalmers tekniska högskola, Göteborgs stad och det lokala näringslivet har Lindholmen vuxit till ett ekosystem utan motstycke i Sverige.",
+      "I dag är drygt 250 företag verksamma på Lindholmen med sammanlagt 24 000 anställda – och varje dag rör sig runt 30 000 personer i området. Bland de stora aktörerna återfinns Volvo Cars, Ericsson, IBM, Semcon och SVT, sida vid sida med hundratals startups och forskningsinstitut. Mångfalden av branscher och kompetenser skapar en kreativ gnista som är svår att hitta någon annanstans.",
+      "Lindholmens styrka ligger i möjligheten till tvärvetenskapliga samarbeten. Här kan en startup inom cybersäkerhet sitta vägg i vägg med ett forskarteam från Chalmers, ett designstudio och ett globalt teknikbolag. Det är just den täta mixen som Science Park-konceptet bygger på – och som Lindholmen har lyckats förverkliga bättre än de flesta.",
+      "Hybridarbete har blivit norm i hela Sverige, och Lindholmen ligger i framkant av den omvandlingen. Moderna kontor är i dag utformade som mötesplatser snarare än produktionsytor, med fokus på kreativa rum och sociala ytor där teamen kan samlas de dagar folk faktiskt är på plats. Många av de co-working-ytor och flexibla kontorslösningar som vuxit fram i Göteborg de senaste åren har Lindholmen som förebild.",
+      "Med den nya spårvagnslinjen 12, som sedan december 2025 knyter samman Lindholmen med Centralstationen och Mölndal, har tillgängligheten förbättrats markant. Det är ett tecken på att Göteborg satsar långsiktigt på Lindholmen som ett nav för innovation, utbildning och hållbar stadsutveckling – inte bara som arbetsplats, utan som en del av stadens framtid."
     ]
   },
   {
     "id": "4",
-    "slug": "helgens-aktiviteter-familj",
-    "title": "Helgens bästa aktiviteter för hela familjen",
-    "excerpt": "Från barnteater till skridskoåkning – här är tipsen som räddar helgen.",
-    "author": "Mikael Svensson",
-    "publishedAt": "2023-10-18",
+    "slug": "basta-familjeaktiviteterna-goteborg-universeum-liseberg",
+    "title": "Bästa familjeaktiviteterna i Göteborg – Universeum, Liseberg och mer",
+    "excerpt": "Göteborg är en av Sveriges bästa städer att besöka med barn. Från regnskog och rymd på Universeum till karuseller och djur på Liseberg och Slottsskogen – här finns upplevelser för alla åldrar.",
+    "author": "Redaktionen",
+    "publishedAt": "2025-08-05",
     "category": "Aktiviteter",
-    "imageUrl": "https://picsum.photos/800/400?random=13",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Universeum2.JPG/800px-Universeum2.JPG",
+    "additionalImages": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Lisebergsportal_kv%C3%A4ll.jpg/800px-Lisebergsportal_kv%C3%A4ll.jpg"
+    ],
     "content": [
-      "Det kan vara svårt att hitta aktiviteter som passar både stora och små. Men staden bubblar av liv just nu.",
-      "På lördag öppnar ishallen för allmänhetens åkning. Det är gratis inträde och finns skridskor att hyra för en billig peng.",
-      "Stadsmuseet har precis invigt sin nya interaktiva utställning om vikingatiden. Här får barnen klä ut sig, prova svärd och lära sig historia på ett lekfullt sätt.",
-      "För de som vill vara utomhus anordnas en tipspromenad i stadsparken med fina priser. Startskottet går klockan 11 vid stora fontänen.",
-      "Oavsett vad ni väljer, se till att njuta av den lediga tiden tillsammans. Ibland är en enkel picknick i parken det allra bästa äventyret."
+      "Göteborg är en stad som tar familjer på allvar. Med ett rikt utbud av museer, nöjesparker och naturupplevelser mitt i stadsmiljön är det inte konstigt att Göteborg år efter år toppar listorna över Sveriges bästa familjestäder. Här är tre upplevelser som du inte bör missa.",
+      "Universeum vid Korsvägen är Nordens största science center och ett av Göteborgs allra populäraste besöksmål för familjer. Här kan barn och vuxna utforska allt från djuphavets hemligheter i gigantiska akvarium till en riktig regnskog inomhus. Rymd, teknik och hälsa är andra teman som behandlas på ett lekfullt och interaktivt sätt. Universeum rymmer även 3D-bion Wisdome. För de allra minsta finns utställningen Jobbis på markplanet – ett sagoland med lekkök, sjukhus och annan rekvisita för fantasilek.",
+      "Liseberg är Nordens största nöjespark och en institution i Göteborg sedan 1923. Sommartid erbjuder parken allt från familjefavoriter som Flygande elefanter och Radiobilarna till vuxenåk som berg-och-dalbanan Helix och det dramatiska fritt-fallsåket AtmosFear. Under lov och helger under vinterhalvåret håller Kaninlandet öppet – en sagovärld för de minsta som gör Liseberg till ett årsruntmål.",
+      "Slottsskogen i Linnéstaden är Göteborgs grönaste familjerum. Parken är gratis att besöka och rymmer en djurpark med älgar, hjortar, grävlingar och sälar. Barnens Zoo ger de yngsta möjlighet att möta och klappa inhemska husdjur och svenska lantraser. Slottsskogen är perfekt för en hel dag utomhus, med lekplatser, grillplatser och café längs vägen.",
+      "Göteborg erbjuder också ett rikt kulturliv för barn: Naturhistoriska museet med sin berömda valbältfisk, Göteborgs stadsmuseum och Sjöfartsmuseet Akvariet är alla gratis eller mycket prisvärda besök. Med goda kollektivtrafikförbindelser och ett kompakt stadscentrum är det enkelt att kombinera flera upplevelser under samma dag."
     ]
   },
   {
     "id": "5",
-    "slug": "brunch-guiden-2024",
-    "title": "Stora Brunch-guiden: Här äter du bäst",
-    "excerpt": "Ägg benedict, amerikanska pannkakor eller en fräsch smoothie bowl? Vi listar favoriterna.",
-    "author": "Sofia Lind",
-    "publishedAt": "2023-10-15",
+    "slug": "basta-brunchstallena-goteborg",
+    "title": "Göteborgs bästa brunchställen – från lyx till mysigt gatukafé",
+    "excerpt": "Oavsett om du söker sushibrunch med DJ, spansk tapasbrunch eller klassisk fika i Haga – Göteborg har ett av Sveriges rikaste brunchutbud.",
+    "author": "Redaktionen",
+    "publishedAt": "2025-07-12",
     "category": "Mat & Dryck",
-    "imageUrl": "https://picsum.photos/800/400?random=14",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Haganygata.jpg/800px-Haganygata.jpg",
+    "additionalImages": [],
     "content": [
-      "Det finns få saker som slår en långdragen söndagsbrunch. Det är måltiden där allt är tillåtet, från sött till salt.",
-      "Café 'Hörnet' har länge varit en favorit med sina enorma avokadomackor. Kön ringlar ofta lång, så kom i tid eller boka bord.",
-      "Nykomlingen 'Greta's' satsar helt vegetariskt. Deras veganska 'bacon' gjord på rispapper har blivit en viral succé på sociala medier.",
-      "För den som vill ha lyx rekommenderar vi hotellbruncherna nere vid vattnet. Där ingår ofta ett glas bubbel och utsikten är svårslagen.",
-      "Brunch är mer än bara mat, det är ett socialt umgänge. Så samla vännerna och unna er en riktigt god start på dagen."
+      "Göteborgarna vet hur man avnjuter en helgmorgon. I en stad känd för sin matkultur och sina kaféer har brunchen fått en närmast helig status. Varje lördag och söndag fylls restauranger runt om i Göteborg av gäster som inte har någon brådska alls – och det är precis som det ska vara.",
+      "Norda Brunch Club på Clarion Hotel Post vid Drottningtorget är ett av stadens mest omtalade brunchweekendalternativ. Varje lördag och söndag mellan klockan 11 och 16 bjuder de in till en helhetsupplevelse med lyxiga brunchrätter, en amerikansk twist och ett välbemängt dessertbord.",
+      "Brunchoteket är ett populärt val för den som vill ha frihet att välja. Här serveras à la carte-brunch hela dagen, alla dagar i veckan – utan tidspress eller buffébegränsningar. Klassiker som eggs benedict, amerikanska pannkakor och svenska våfflor delar meny med mer exotiska inslag.",
+      "TOSO tar brunchen i en annan riktning med sin asiatiska profil. Lördagar och söndagar klockan 12–16 välkomnar de gäster till en färgsprakande upplevelse med generös sushibuffé och dessertbord. Boqueria fyller en liknande nisch men med spanska smaker: tapas, grillrätter och paella i en avslappnad atmosfär.",
+      "Cheri-Lee på Avenyn är för dig som vill att brunchen ska kännas lite som en fest. Deras omakase-brunch på lördagar kombineras med DJ-musik och mimosabehållare – ett recept som gjort dem till ett av stadens mest populära brunchställen.",
+      "Och för den som föredrar det lugna och klassiska: Hagas kullerstensgator och trähusidyller hyser flera mysiga kaféer med hembakade kanelbullar och färskbryggt kaffe. Det är inte den mest spektakulära brunchen – men ofta den mest tillfredsställande."
     ]
   }
 ];
