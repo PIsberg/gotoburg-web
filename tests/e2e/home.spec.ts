@@ -36,7 +36,7 @@ test.describe('Home page', () => {
   test('category filter via query string narrows the feed', async ({ page }) => {
     await page.goto('/#/?category=Mat%20%26%20Dryck');
 
-    const categoryLabels = page.locator('main .text-blue-600.uppercase');
+    const categoryLabels = page.locator('[data-testid="article-category"]');
     await expect(categoryLabels.first()).toBeVisible();
 
     const labels = await categoryLabels.allTextContents();
