@@ -133,7 +133,7 @@ export const articles = [
     "category": "Aktiviteter",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/14/Universeum2.JPG",
     "additionalImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Lisebergsportal_kv%C3%A4ll.jpg/800px-Lisebergsportal_kv%C3%A4ll.jpg"
+      "https://cms.goteborg.com/uploads/2021/05/Liseberg_Kaninoppet_Flygis_1_s2025-1_43.jpg"
     ],
     "content": [
       "Göteborg är en stad som tar familjer på allvar. Med ett rikt utbud av museer, nöjesparker och naturupplevelser mitt i stadsmiljön är det inte konstigt att Göteborg år efter år toppar listorna över Sveriges bästa familjestäder. Här är tre upplevelser som du inte bör missa.",
@@ -180,7 +180,7 @@ export const articles = [
     "author": "Peter AI assisted",
     "publishedAt": "2026-05-07",
     "category": "Vad är på gång",
-    "imageUrl": "https://www.mynewsdesk.com/image/upload/t_open_graph_image_v2/aanqdyzhwkvwgxsq49lj.jpg",
+    "imageUrl": "https://cms.goteborg.com/uploads/2026/01/activatenordstan.jpg",
     "additionalImages": [],
     "googleMapsUrl": "https://www.google.com/maps/place/Postgatan+39,+411+13+G%C3%B6teborg/@57.7085,11.9695,17z"
   },
@@ -202,7 +202,7 @@ export const articles = [
     "author": "Peter",
     "publishedAt": "2026-05-05",
     "category": "Mat & Dryck",
-    "imageUrl": "https://skitgott.se/wp-content/uploads/2020/07/hoze1.jpg",
+    "imageUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/147f14b64ec24fbdbb7a35557654e40d.jpg?w=1200&h=1200&org_if_sml=1",
     "additionalImages": [],
     "googleMapsUrl": "https://www.google.com/maps/place/Hoze/@57.699405,11.9350685,17z"
   },
@@ -247,7 +247,7 @@ export const articles = [
     "author": "Redaktionen",
     "publishedAt": "2026-05-01",
     "category": "Natur",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hyssna_gamla_kyrka_-_KMB_-_16001000033019.jpg/1280px-Hyssna_gamla_kyrka_-_KMB_-_16001000033019.jpg",
+    "imageUrl": "https://www.vastsverige.com/globalassets/migratedresources/mark/en-mossig-skog-i-marks-kommun.jpg?w=670&h=380&m=Crop&f=webp&q=75",
     "additionalImages": [],
     "googleMapsUrl": "https://www.google.com/maps/place/Hyssna+gamla+kyrka/@57.5572,12.5327,14z"
   },
@@ -406,7 +406,7 @@ export const articles = [
     "author": "Redaktionen",
     "publishedAt": "2026-04-22",
     "category": "Kultur",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Greek_dance_in_Greece.jpg/1280px-Greek_dance_in_Greece.jpg",
+    "imageUrl": "https://scontent.fmmx3-1.fna.fbcdn.net/v/t39.30808-6/550168255_24661949673424819_3881198572181805278_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=25d718&_nc_ohc=BhGguB761BQQ7kNvwE72RcY&_nc_oc=Adrh17SG3JqhlUNKv1Nc9jhNCmRwHYJWvrXs2J1U0JWzkjzry7uo2xpEKT7SjgbfWqw&_nc_zt=23&_nc_ht=scontent.fmmx3-1.fna&_nc_gid=47bBh_KBfuYFgDL8c5FT9w&_nc_ss=7b2a8&oh=00_Af5tNJjvkR1zE4A8tVR7yoZ6MP6XHcmvq4YNKLbISrcm1g&oe=6A0296E3",
     "additionalImages": [],
     "googleMapsUrl": "https://www.google.com/maps/place/Grekiska+F%C3%B6reningen+i+G%C3%B6teborg/@57.7565,11.9580,15z"
   }
