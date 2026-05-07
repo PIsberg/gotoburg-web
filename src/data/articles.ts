@@ -161,5 +161,253 @@ export const articles = [
       "Cheri-Lee på Avenyn är för dig som vill att brunchen ska kännas lite som en fest. Deras omakase-brunch på lördagar kombineras med DJ-musik och mimosabehållare – ett recept som gjort dem till ett av stadens mest populära brunchställen.",
       "Och för den som föredrar det lugna och klassiska: Hagas kullerstensgator och trähusidyller hyser flera mysiga kaféer med hembakade kanelbullar och färskbryggt kaffe. Det är inte den mest spektakulära brunchen – men ofta den mest tillfredsställande."
     ]
+  },
+  {
+    "id": "10",
+    "slug": "activate-nordstan-skandinaviens-forsta-aktivitetscenter-postgatan-goteborg",
+    "title": "Kanada möter Nordstan – Activate öppnar Skandinaviens första aktivitetscenter mitt i Göteborg",
+    "excerpt": "På Postgatan 39, i Nordstans västra hörn, har det kanadensiska aktivitetskonceptet Activate slagit upp portarna. Här blir golv till spelplaner och väggar till hinderbanor. Drygt 700 kvadratmeter digital lek mitt i city – Activates första anhalt utanför Nordamerika och Storbritannien.",
+    "content": [
+      "Den som har gått förbi Postgatan på senare tid har sannolikt undrat vad som händer bakom de inglasade fasaderna i Nordstans västra hörn. Svaret heter Activate – ett kanadensiskt aktivitetskoncept med över 65 anläggningar i Nordamerika, Storbritannien och Dubai som nu valt Göteborg som sin första nordiska adress.",
+      "Konceptet är enkelt att beskriva men svårare att förklara utan att se det själv. På 700 kvadratmeter har man byggt ett dussintal tematiska spelrum, där varje rum är en egen utmaning som kombinerar fysisk rörelse med digital teknik. Sensorer, lampor och projektioner styr spelet. Mega Grid är 500 lysande golvplattor som ändrar färg medan du försöker hoppa rätt; Mega Laser är en labyrint av rörliga laserstrålar som ska undvikas; Hoops kombinerar basket med trivia-frågor; Climb, Pipes, Push och Strike utmanar reaktion, balans och koordination på olika sätt.",
+      "Allt går snabbt att lära sig. Det krävs ingen utrustning, ingen tidigare erfarenhet och inga regler att memorera. En session är 60 till 75 minuter där du fritt rör dig mellan rummen. Resultaten loggas på leaderboards – och det är där tävlingsinstinkten börjar bita.",
+      "Bakom etableringen står Hufvudstaden, som äger Nordstan och som länge sökt efter mer än bara butiker till sina lokaler. \"Activate ligger helt i linje med vår ambition att skapa levande mötesplatser där handel, kultur och upplevelser samspelar\", säger Malin Måhlin, leasing manager Göteborg på Hufvudstaden, i ett pressmeddelande.",
+      "Håvard Olstad, vd för Activate Games Scandinavia, beskriver Göteborgsetableringen som en avsiktlig första punkt. \"Göteborg erbjuder en perfekt miljö för att nå både vardagsbesökare och grupper som söker en ny typ av aktivitet\", säger han.",
+      "Målgruppen är medvetet bred. Familjer med barn från sex år och uppåt, tonåringar, studenter, kompisgäng på AW och företag som söker something different för team-buildingen. Varje rum är designat för att fungera lika bra för en åttaåring som för en fyrtiofemåring – det är fysiskt nog att svettas men inte så krävande att någon hamnar utanför.",
+      "Internationellt ligger priset runt 25–30 dollar per person för en dryg timme; svensk prissättning väntas hamna i intervallet 250–350 kronor. Bokning sker via playactivate.se. Öppettiderna är förmånliga: vardagar tio till åtta, helger till tio på kvällen, söndagar till sex.",
+      "Steget från Brunnsparkens spårvagnsknut till entrén är två-tre minuters promenad. För Nordstan är Activate en del av en bredare strategi: när handelsplatser globalt tappar mark mot näthandeln satsar fastighetsägarna på upplevelser som inte går att beställa hem. Det är en taktik som passar göteborgaren bra – staden har sällan sagt nej till en ny grej att göra."
+    ],
+    "author": "Peter AI assisted",
+    "publishedAt": "2026-05-07",
+    "category": "Vad är på gång",
+    "imageUrl": "https://www.mynewsdesk.com/image/upload/t_open_graph_image_v2/aanqdyzhwkvwgxsq49lj.jpg",
+    "additionalImages": [],
+    "googleMapsUrl": "https://www.google.com/maps/place/Postgatan+39,+411+13+G%C3%B6teborg/@57.7085,11.9695,17z"
+  },
+  {
+    "id": "9",
+    "slug": "hoze-michelinstjarna-sushi-omakase-masthugget-goteborg",
+    "title": "Sex stolar och en stjärna – Hoze i Masthugget tog hem Göteborgs första Michelinstjärna för sushi",
+    "excerpt": "På en bardisk i ek, bakom en svart sammetsdraperad dörr i Masthugget, sitter sex gäster och äter den bästa sushin i Skandinavien. Hoze tilldelades i år sin första Michelinstjärna – och har ändå funnits sedan 2010.",
+    "content": [
+      "På Stigbergsliden 17, ett par hundra meter från Stigbergstorget, är fasaden så diskret att de flesta passerar förbi utan att ana vad som finns innanför. En tegelvägg, en svart sammetsdraperad dörr, ingen skylt. Bakom dörren ligger Hoze – Göteborgs första sushibar med Michelinstjärna och, med sina sex platser, en av stadens minsta restauranger.",
+      "Stjärnan kom 2025 i Michelin Guide Nordic Countries och bekräftade vad göteborgska matkritiker länge sagt. Köksmästaren och ägaren José Cerdá är spanjor till födseln men har ägnat ett vuxet liv åt att lära sig japansk teknik. Han har studerat under kaiseki-mästaren Fumihiro Hayashi och gjort otaliga lärlingsresor till Japan för att perfektionera Edomae-tekniken – en sushistil från 1800-talets Tokyo där fisken mognas, lakas och behandlas innan den läggs på riset.",
+      "Verksamheten är i högsta grad familjär. Cerdás far Gabriel tar emot gästerna och håller i rummet, medan sonen står bakom disken och bygger menyn rätt för rätt. Det är en omakase i klassisk mening: gästen lämnar valet åt kocken. Kvällen börjar exakt klockan sex med fem till sju otsumami – små förrätter – följt av nio till tolv nigiri, missoshiru och en avslutande gyoku-tamago. Hela upplevelsen tar runt två timmar.",
+      "Råvaran är en av Hozes signaturer. Över 90 procent av fisken är skandinavisk: brunöring, makrill, hälleflundra, röding, laxbuk, västkustsill och musslor från Färöarna. Riset – kinmemai från Shika i Japan – flygs in direkt från producenten. Den färska wasabin kostar 3 500 kronor kilot och rivs vid disken.",
+      "Det finns inget alkoholpaket. Cerdás hållning är medveten purist: yuzulemonad, grönt te, infusioner. Det är ingen slump – när varje rätt kalibreras till noggrannhet vill kocken inte att ett vinval ska sätta sig i vägen för smaken.",
+      "Bland signaturrätterna finns en pilgrimsmussla med brynt smör, yuzu och rättika så tunt skuren att den nästan blir genomskinlig – en rätt Cerdá har arbetat på i tio år. En annan favorit är torkat och rökt lax-buk med körsbärsträ-rökt salt, och en kakigōri-dessert avslutar måltiden.",
+      "Priset ligger runt 2 300–2 500 kronor per person. Recensionerna är därefter. Göteborgs-Posten gav 24 av 25 möjliga med fullt betyg på maten: \"Det blir inte bättre än så här, om vi pratar hantering av fisk och ris.\" White Guide klassar Hoze på Masters-nivå. Michelin-inspektörerna kallar det en kulinarisk teater.",
+      "Bord släpps i omgångar via Hozes egen hemsida och bokas slut inom timmar. För göteborgaren som vill smaka stadens enskilt mest hyllade måltid återstår alltså att vara framme när bokningarna öppnar – och att sedan dyka upp klockan sex precis. Hoze väntar inte."
+    ],
+    "author": "Peter",
+    "publishedAt": "2026-05-05",
+    "category": "Mat & Dryck",
+    "imageUrl": "https://skitgott.se/wp-content/uploads/2020/07/hoze1.jpg",
+    "additionalImages": [],
+    "googleMapsUrl": "https://www.google.com/maps/place/Hoze/@57.699405,11.9350685,17z"
+  },
+  {
+    "id": "11",
+    "slug": "izakaya-by-komo-japansk-gastropub-sankt-eriksgatan-goteborg",
+    "title": "Izakaya by KOMO – när Operans grannar fick Göteborgs första riktiga japanska gastropub",
+    "excerpt": "Mittemot Göteborgsoperan har KOMO-gruppen öppnat en helt ny scen för japansk mat. Izakaya by KOMO serverar små rätter, sake och A5-wagyū-nigiri i en miljö av rispappersväggar och privata träbås.",
+    "content": [
+      "I maj 2025 öppnade Izakaya by KOMO på Sankt Eriksgatan 5, snett över gatan från Göteborgsoperan. Restaurangen är systerkoncept till KOMO Korean Steakhouse en trappa upp i samma byggnad – samma ägargrupp, ny adress, ny matkultur.",
+      "En izakaya är Japans motsvarighet till en gastropub. Konceptet bygger på små delningsrätter som anländer i sin egen takt, med sake, japansk öl och cocktails som naturlig följeslagare. Det är inte snabbmat men inte heller fine dining – det är en plats där en middag får växa fram över två-tre timmar utan att någon stressar fram nästa rätt.",
+      "Menyn rör sig mellan klassiker och nya tolkningar. A5 wagyū-nigiri är husets mest omtalade rätt; bredvid den finns hamachi carpaccio, tonfisk-tartar, karaage-kyckling, gyoza av kocken Nami, missoshiru, kockens sushibricka och en hotstone med skaldjur som tillagas vid bordet. Priserna ligger mellan 79 och 119 kronor per liten rätt – edamame 79, gyoza 99, karaage och tonfisk-tartar 119. En genomsnittlig kvällsmiddag landar runt 400–600 kronor per person beroende på hur generös delningen är.",
+      "Drycken följer principen. Sakelistan är lika lång som ölsortimentet är begränsat – Sapporo, Asahi, en handfull japanska whiskies och cocktails som balanserar yuzu, shiso och umami. Det finns alkoholfria alternativ, inklusive en gurka-mocktail som gjorts till husets signatur.",
+      "Rummet är medvetet kontemplativt. En grön vägg som löper genom hela rummet ger liv, rispappersskärmar dämpar ljudet och privata träbås längs väggarna gör det möjligt att äta utan att höras av grannbordet. Belysningen är låg, träet ljust – det är en miljö som bjuder in till långsamhet.",
+      "Mottagandet har varit översvallande. Tripadvisor ger 4,8 av 5 stjärnor. LikeSweden gav 4,9 och kallade det \"den bästa sushin vi haft i Sverige\". En gäst skrev på Tripadvisor i juli: \"Bästa wagyū-sushin jag någonsin ätit till det priset.\" Karolina på LikeSweden formulerade det fint: \"Det finns en stillsam självsäkerhet hos Izakaya by KOMO. En djup respekt för japansk matlagningstradition.\"",
+      "Restaurangen håller stängt på måndagar och öppnar tisdag till torsdag klockan fyra, fredagar till elva, helgerna från tolv. Sällskap över åtta personer behöver bokas via bokning@izakaya.nu. För övriga räcker det att gå in. Lilla Bommens spårvagnshållplats ligger fyra minuters promenad bort – perfekt avslut på en kväll på Operan."
+    ],
+    "author": "Peter AI assisted",
+    "publishedAt": "2026-05-03",
+    "category": "Mat & Dryck",
+    "imageUrl": "https://izakaya.nu/wp-content/uploads/Izakaya-greewall-n-table-hero-1024x683.webp",
+    "additionalImages": [
+      "https://izakaya.nu/wp-content/uploads/IZAKAYA-private-wooden-booths-edited.webp"
+    ],
+    "googleMapsUrl": "https://www.google.com/maps/place/Izakaya+by+KOMO/@57.7095,11.9628,17z"
+  },
+  {
+    "id": "12",
+    "slug": "hyssnaleden-europas-basta-vandringsleder-marks-kommun",
+    "title": "Hyssnaleden – en av Europas tio bästa vandringsleder, en timme från Göteborg",
+    "excerpt": "Forbes utsåg den 2024 till en av Europas tio finaste vandringsleder. CNN kallade den \"stillsam men spektakulär\". Hyssnaleden – fyrtio kilometer av bokskog, sjöar och jättegrytor i Marks kommun – ligger närmare Göteborg än de flesta tror.",
+    "content": [
+      "När Forbes 2024 listade Europas tio finaste vandringsleder fanns en svensk med – och det var inte Kungsleden eller Bohusleden. Det var Hyssnaleden, en fyrtio kilometer lång slinga i Marks kommun, ungefär en timmes körning sydost om Göteborg. CNN följde upp med en hyllning samma år: \"stillsam men spektakulär\". Plötsligt stod en ledning som inhemska vandrare själva nästan glömt bort på världens hikingkartor.",
+      "Hyssnaleden börjar och slutar vid Hyssna gamla kyrka, en stenkyrka från 1100-talet som är en av Göteborgs stifts äldsta. Kyrkan övergavs som församlingskyrka 1907 och hade hunnit bli en ruin innan en restaurering 1922–23 räddade byggnaden. I dag står den som en stilla startpunkt med medeltida dopfunt och ett gömt reformationskrucifix på platsen där man parkerar bilen för att börja vandra.",
+      "Leden är gulmarkerad och tänkt att gå moturs. De flesta delar upp den i två dagsetapper med övernattning i vindskydd vid Hökås, men det finns flera kortare alternativ för dagsturer. Den populäraste är slingan runt Lilla Hålsjön på dryga tio kilometer – kuperad och solig, med badbara stränder och en naturskön plats för fika. Den södra slingan vid Furusjön är längre, ungefär tjugoen kilometer, och tar dig genom djupare bokskog.",
+      "Det är just bokskogen som flera internationella recensenter lyfter. I Stomsås naturreservat löper leden genom en av Sveriges vackraste bokbeständer – ljusgrön i maj, gyllene i oktober. Reservatet Liagärdet bjuder på en mer skogsbeklädd bergsknalle, och längs vägen passerar man jättegrytor: glaciala håligheter formade av smältvattenströmmar för tiotusentals år sedan.",
+      "Utsikten kommer från höjderna Torberg, Liagärdesberget, Hökås och Sjögaråsen, där leden klättrar till knappa 200 meter över havet och bjuder på vyer över sjösystemen. Vid Lilla Hålsjön finns en grillplats, latrin och tältplats; den som vill övernatta enklare gör det vid Hökås vindskydd.",
+      "Praktiskt går det smidigt att ta sig hit utan bil. Västtrafiks bussar går från Göteborg till Sandvad-hållplatsen, som ligger direkt vid Hyssna gamla kyrka. Bilväg är E20 och väg 156 söderut förbi Sätila. Hyssna Forest Resort i byn erbjuder stugor för den som hellre vandrar dagstid än bär tält.",
+      "Åsa Qvist Ek, ansvarig för näringsliv och hållbarhet i Marks kommun, kommenterade Forbes-listan till den lokala pressen som en bekräftelse på en lång satsning på naturturism. Det Vilda Göteborg-bloggen sammanfattar leden enkelt: \"Inte ens en timme från centrala Göteborg, väldigt välunderhållen.\"",
+      "Den bästa tiden? Maj och oktober för bokskogens färgskiftningar. Augusti om man vill bada i Hålsjöarna. November om man vill ha leden för sig själv. Det enda dåliga alternativet är att inte gå alls."
+    ],
+    "author": "Redaktionen",
+    "publishedAt": "2026-05-01",
+    "category": "Natur",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hyssna_gamla_kyrka_-_KMB_-_16001000033019.jpg/1280px-Hyssna_gamla_kyrka_-_KMB_-_16001000033019.jpg",
+    "additionalImages": [],
+    "googleMapsUrl": "https://www.google.com/maps/place/Hyssna+gamla+kyrka/@57.5572,12.5327,14z"
+  },
+  {
+    "id": "13",
+    "slug": "k-bunsik-koreansk-streetfood-anna-kim-molndalsvagen-goteborg",
+    "title": "Från IT-utbrändhet till matsuccé – Anna Kims K-Bunsik har förändrat Göteborgs koreanska scen",
+    "excerpt": "På Mölndalsvägen 87G ringlar köerna oavsett väder. Anna Kim lämnade femton år som IT-konsult för att starta en koreansk food truck – idag är K-Bunsik Göteborgs självklara adress för tteokbokki, koreansk friterad kyckling och osannolika korndogs.",
+    "content": [
+      "Det började med en utbrändhet. Anna Kim, koreanskfödd och bosatt i Göteborg sedan länge, hade arbetat femton år inom IT när hon bestämde sig för att lämna karriären. Det enda hon kunde tänka på, sa hon i en intervju med Enterprise Magazine, var att Göteborg saknade en plats där man kunde äta koreansk gatumat på riktigt. Hon byggde själv en food truck och rullade ut den 2023.",
+      "Två år senare hade kön blivit en del av varumärket. Hösten 2025 öppnade Anna Kim ett permanent tvåvåningsställe på Mölndalsvägen 87G, mittemot ICA Maxi Mölndalsvägen och precis tvärs över gatan från den ursprungliga food trucken. Trucken står kvar – köerna gör nu det också, året om, oavsett väder.",
+      "Bunsik (분식) är det koreanska ordet för enkel snabbmat. Det är gatuhörnens tteokbokki, kimbap-rullarna, hotteok-pannkakorna och friterade kycklingbitarna – inte den finare bordsmaten man får på en koreansk grillrestaurang. K-Bunsik är göteborgs första riktiga bunsik-specialist; staden har visserligen Gogogaga, Jacy'z och Omami Central för bredare koreansk meny, men ingen som fokuserar lika hårt på gatumatens snabbhet och busighet.",
+      "Det är korndogen som har gått viralt. Korean corn dogs – wienerkorvar i sötsalt deg, doppade i sockerströssel eller ostkrispigt panerad – är basen, från originalet på 69 kronor till mozzarella-versionen på 85 och \"halv & halv\" på 75. Vid sidan av står den koreanska friterade kycklingen Sweet & Spicy eller Soy Mayo (179 kronor), en tteokbokki med eomuk-fiskkaka för 139, och en bibimbap med bulgogi för 179. Allt halal-certifierat – något Anna Kim explicit lyfter fram i sin TikTok-närvaro.",
+      "Öppettiderna är typiska för en restaurang som också serverar lunch: tisdag till fredag elva till två, eftermiddagsstängt, sedan fyra till halv nio på kvällen. Lördagar tretton till halv nio. Söndag och måndag stängt. Köket stänger en timme före.",
+      "K-pop och K-drama gör resten. På TikTok har taggen #bunsiktok följts av tiotusentals göteborgare och utomstående; gäster har rest från Stockholm, Malmö, Island och Lettland för att äta här. Anna Kim har explicit avstått från att franchisa konceptet. \"Jag vill kunna stå för kvaliteten\", har hon sagt i lokalpressen.",
+      "Tripadvisor ger blandade omdömen – några klagar på prissättningen, andra hyllar autenticiteten. \"Awesome street food! Awesome staff! Popular food truck so there's often queues. You won't leave hungry\", skriver John L i juni 2025. På TikTok är beskedet enklare: @minnasmt skrev kort \"Authentic korean food in Gothenburg – K-BUNSIK i love you!! #mustvisit\"",
+      "Närmaste hållplats är Lana, spårvagnslinje 2 och 4 mot Mölndal. Det är en kort stunds resa från centrum men en lång resa från IT-konsultens skrivbord till en queue av folk som vill prata om sina favorit-K-dramas medan de väntar på sin korndog."
+    ],
+    "author": "Peter",
+    "publishedAt": "2026-04-29",
+    "category": "Mat & Dryck",
+    "imageUrl": "https://imageproxy.wolt.com/assets/692956da4be0f0d2140f65da",
+    "additionalImages": [],
+    "googleMapsUrl": "https://www.google.com/maps/place/K-Bunsik/@57.680647,12.002018,17z"
+  },
+  {
+    "id": "14",
+    "slug": "fairways-and-friends-trackman-golfsimulator-avenyn-goteborg",
+    "title": "Trackman 4 mitt på Avenyn – Fairways and Friends gör golfen till en privat klubbupplevelse",
+    "excerpt": "På Chalmersgatan 17, ett par steg från Valand, har golfen flyttat in i fyra privata loungesalonger. Fairways and Friends har öppet från fem på morgonen till elva på kvällen – och har på kort tid blivit Göteborgs mest tillgängliga simulatorgolf.",
+    "content": [
+      "Det är en sak att slå bollar på en uppslagen mata vid en gallerias entré, omgiven av ungar med popcorn och spökgolfens rörliga väderkvarnar. Det är en helt annan sak att kliva in i ett rum för fyra personer, med eget ljud, egen bardisk, en Trackman 4-radar och hela världens golfbanor på skärmen. Fairways and Friends på Chalmersgatan 17, snett över Valand på Avenyn, satsar uteslutande på det andra.",
+      "Konceptet bygger på fyra simulatorer, var och en placerad i en egen stängd lounge. Det är ovanligt på den svenska marknaden – konkurrenterna Out of Bounds i Mölndal och Fairway Fusion på Jacy'z använder båda öppna salslayouter där flera bayer delar samma rum. Här är det privatlounge som gäller: musik, mat och samtal stannar inom rummet, och bollen syns bara på din egen skärm.",
+      "Tekniken är Trackman 4, dopplerradar-systemet som idag används av världstourens spelare och som anses vara branschstandard för bollspårning. Du kan spela på snart sagt vilken stor golfbana som helst – Pebble Beach, St Andrews, Augusta National, hela majorsuiten – eller köra övning på range, med exakt utfall för bollens hastighet, spinn, attack-vinkel och launch.",
+      "Prismodellen bygger på prepaid-spelpotter. Birdie-paketet kostar 5 000 kronor och ger 6 000 kronor i speltid (17 procents rabatt); Eagle är 10 000 för 12 500 (20 procent); Albatross 15 000 för 20 000 (25 procent). Bokning sker via Sweetspot, alla simulatorer kan bokas dygnet runt mellan klockan fem och elva.",
+      "Företagsmarknaden är en uttalad del av strategin. Hela anläggningen rymmer femtio gäster och kan bokas för after work, kick-offer och hela konferensdagar med konferensrum, lunch och två timmars simulator-tid. För större tävlingar finns paket med tre eller fem deltävlingar och prisutdelning. Klubbor finns för både höger- och vänsterhänta – något som inte alltid gäller på indoor-golf-anläggningar.",
+      "Att lägga sig på Chalmersgatan är ett medvetet val. Avenyn betyder att golfsessionen passar in i en arbetsdag eller en kväll på stan utan att kräva resa. Lunchsving före möte, kvällssession efter middag, tidig morgonrundning före kontoret. Få golfanläggningar i Sverige har samma fönster av tillgänglighet.",
+      "Mottagandet är blygsamt men positivt. På Google ligger snittet på 4,4 av 5 (fem recensioner i maj 2026). \"Härligt att spela i ett eget rum med den senaste tekniken mitt i city\", skriver Mattias Kvarnström. En annan gäst, Anna R, lyfter att hennes barn också gillade upplevelsen.",
+      "Valand-spårvagnen stannar etthundra meter från entrén, linjerna 2, 3, 4, 5, 7 och 10. Snacks och dryck finns i baren. Allt övrigt – startupp av tävling, kuren mot slicen, biträdande caddie i form av en surfplatta – får kunden själv besluta om innan minst en hel runda är slagen."
+    ],
+    "author": "Peter AI assisted",
+    "publishedAt": "2026-04-28",
+    "category": "Aktiviteter",
+    "imageUrl": "https://www.fairwaysandfriends.se/assets/hero-b6-mbaoI.jpg",
+    "additionalImages": [
+      "https://www.fairwaysandfriends.se/assets/benefit01--JOAaW6G.jpg",
+      "https://www.fairwaysandfriends.se/assets/benefit02-DMpAqJSv.jpg"
+    ],
+    "googleMapsUrl": "https://www.google.com/maps/place/Fairways+and+Friends/@57.699558,11.9731295,17z"
+  },
+  {
+    "id": "15",
+    "slug": "sushi-lee-g-tryffelmaki-linnegatan-goteborg",
+    "title": "Tryffelmaki på Linné – Sushi Lee G gör sushin om till hand- och hjärtearbete",
+    "excerpt": "Sedan 2024 har en liten plats på Linnégatan 60 ändrat förväntningarna på vad sushin i Göteborg kan vara. Sushi Lee G:s tryffelnigiri är ett av stadens mest omtalade matminnen – och du behöver knappt boka bord.",
+    "content": [
+      "Linnégatan har länge varit en gata som bär upp Göteborgs sushiscen. Cheri-Lee, Yoko Lee, Hos Lee, Golden Lee – \"Lee\" är blivit ett slags mjukt prefix för stadens sushibruk. Sedan 2024 finns det ytterligare ett namn med samma efternamn fast som inte hör hemma i någon kedja: Sushi Lee G på Linnégatan 60, en liten ensam restaurang i nedre delen av Olivedal.",
+      "Det är inte ett spektakulärt rum. Få bord, dimrad belysning, ett uteservering om sommaren och ett välkomnande för hundar. Det som gör Sushi Lee G till en omtalad adress är inte miljön utan en enskild ingrediens: tryffel.",
+      "Tryffelnigiri är husets signaturrätt – en tunn skiva svart eller vit tryffel ovanpå en handformad rispåd, ibland med en touch av honung eller en tydlig droppe ponzu. Tryffelmaki följer samma logik: en rulle med skaldjur, en skiva tryffel, och inte mycket mer. Den mest omtalade rätten på menyn är en \"tryffel x svamp\" crispy shrimp maki där varma och kalla element möts på ett sätt som är ovanligt för sushi i den här prisklassen.",
+      "Och prisklassen är just värd att nämna. Sushi Lee G håller sig till $$ – ungefär samma nivå som en standard sushilunch i Göteborg. Det är inte omakase-pris. Tryffel är annars en garanterad genväg till en fyrsiffrig nota; här är det ett tillägg till menyn som ändå håller sig kring 200–300 kronor per person.",
+      "På sidan av tryffelfokuset finns en grundmeny med sashimi av lax och tonfisk i ponzu, vegetariska rullar och dagens specials. Lunchpriserna under veckan är förmånliga; restaurangen är aktiv på Foodora, Wolt och Uber Eats för dem som hellre äter hemma.",
+      "Ratingen är 4,4 av 5 på Novacircle. En medlem skriver att det är \"modern sushi med ett nytänk, mycket goda och välbalanserade smaker\". På TikTok formulerade @aveestaaa det enklare: \"Sushi Lee på Linnegatan får 9/10 av oss! Så fräsch sushi, unika smaker och super mysigt ställe!\"",
+      "Sushi Lee G är också ett bevis på att en ny restaurang inte måste vara stor för att hitta en publik. Den öppnade 2024 utan stort marknadsbuller och har vuxit på ett ord-i-mun-sätt som påminner om hur Göteborgs bästa kaféer brukade etableras. Linnéplatsen-spårvagnen ligger fem minuter bort. Bordet får man oftast utan att boka. Tryffeln däremot brukar vara slut sent på kvällen om man inte är tidig.",
+      "För Göteborg är detta intressant. Staden har Hoze i den absoluta toppen och en hel rad sushibufféer i botten. Däremellan har det funnits ett tomrum som Sushi Lee G nu fyller – platsen för ett fint sushikvällsmål som inte kostar en hel veckopeng. Det är en glimt av hur mellansegmentet kan se ut när någon bryr sig om detaljerna."
+    ],
+    "author": "Peter AI assisted",
+    "publishedAt": "2026-04-27",
+    "category": "Mat & Dryck",
+    "imageUrl": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1280&auto=format&fit=crop",
+    "additionalImages": [],
+    "googleMapsUrl": "https://www.google.com/maps/place/Sushi+Lee+G/@57.6930554,11.9529655,17z"
+  },
+  {
+    "id": "16",
+    "slug": "stranger-cocktailbar-speakeasy-kungstorget-goteborg",
+    "title": "Göteborgs sämst bevarade hemlighet – Stranger är cocktailbaren utan namnskylt",
+    "excerpt": "På Kungstorget 14 finns ingen skylt. Bara en intercom, en svart dörr och en trappa ner. Bakom den ligger Stranger – en av landets mest hyllade cocktailbarer, sedan 2017 utsedd till Sveriges Bar of the Year och idag rankad som White Guide Masters.",
+    "content": [
+      "På Kungstorget 14, mellan saluhallen och Stora Teatern, finns ingen skylt som avslöjar vad som ligger en trappa ner. Bara en svart dörr, en intercom och en mässingsknapp som man trycker på och hoppas att någon svarar. Är det fullt får man komma tillbaka. Är det inte fullt får man stiga ner i ett av Göteborgs mest hyllade cocktailrum.",
+      "Stranger är en speakeasy i den klassiska meningen – ett dolt rum, en avsiktligt anonym entré, en känsla av att man har hittat något som inte alla har tillgång till. Lokalpressen har länge kallat baren \"Göteborgs sämst bevarade hemlighet\". Det är en formulering som Stranger själva uppskattat snarare än protesterat mot.",
+      "Bakom konceptet står ursprungligen Leo Lahti och Martin Alexandersson. Lahti har sedan dess flyttat vidare och plockats upp av Hobo i Stockholm, där han kallas \"Gothenburg's finest\" av sina nya kollegor. Bakom disken idag står bland andra Nathan \"Nath\" Colby, tidigare på Mr P och Dorsia, som blivit lokalt känd för att kunna mixa en daiquiri med ögonen förbundna.",
+      "Lokalen är inredd i 1920- och 30-talsstil med diskret prohibition-känsla. Mörkbruna läderstolar, taklampor som ger lågt ljus, en bardisk där produktionen sker öppet inför gästerna. En recensent kallade det \"en lyxvariant av en mancave\". Det är inte ett rum att ta selfies i – och det är ungefär det som är poängen.",
+      "Drinklistan byts varje månad och leker med klassikerna. Negroni-varianter, Old Fashioned-tolkningar, Jungle Bird (mörk rom, Campari, lime, ananas), Kung Fu Pandan, Corpse Reviver No. 2, Sherry Cobbler, Sidecar. Vid sidan av hantverket står en slush-maskin – ett medvetet anti-elitistiskt tilltag. Filosofin är, med teamets egna ord, att \"sprit ska vara roligt, vi står inte bakom ett dryckesaltare\".",
+      "Det finns husregler. De är inte uppslagna men cirkulerar i pressrecensionerna: inget namedropping, håll rösten nere, \"Tranquilo serverar mojitos, vi gör det inte\", avbryt inte andra gäster. Berusade gäster serveras inte. Det låter snobbigt på papper men fungerar i rummet – Stranger har ett klimat som är mer Berlin än efterfest.",
+      "Utmärkelserna har radat upp sig. Bar of the Year 2017 i Metro Magazine. Bartender's Choice Awards-nomineringar 2016 i kategorierna Best Swedish Cocktail Bar och Barfly. White Guide Nordic ger Masters-nivå med kommentaren: \"Hantverket och drinkråvarorna är lika högkvalitativa som dryckeslistan är spännande.\"",
+      "Öppet onsdag till lördag arton till tre, söndag tjugoett till tre. Måndag och tisdag stängt. Inga onlinebokningar – walk-in via intercom är vägen in, plus en buffert om man kommer en helg. Telefon för privata bokningar och cocktailtastingar finns på strangergbg.com. Närmaste hållplats är Kungsportsplatsen, hundra meter bort. Vägen tillbaka uppåt sker i nästan samma tystnad som vägen ner."
+    ],
+    "author": "Peter",
+    "publishedAt": "2026-04-26",
+    "category": "Mat & Dryck",
+    "imageUrl": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=1280&auto=format&fit=crop",
+    "additionalImages": [],
+    "googleMapsUrl": "https://www.google.com/maps/place/Stranger/@57.7027,11.9686,17z"
+  },
+  {
+    "id": "17",
+    "slug": "shotluckan-show-och-shot-bar-viktoriagatan-goteborg",
+    "title": "Eld, rök och äppelpaj – Shotluckan blandar bartendrarbete med scenshow på Viktoriagatan",
+    "excerpt": "På Viktoriagatan 3 brinner det bokstavligen om dryckesvalet. Shotluckans bartendrar bjuder på shower – flammor, gasmasker, marshmallows över bardisken – och en shotmeny som blivit kult i hela Sverige.",
+    "content": [
+      "På Viktoriagatan 3, mitt mellan Vasaplatsen och Avenyn, är det inte ovanligt att se rök slå ut genom ett öppet fönster och en grupp tjugofemåringar applådera mot bardisken. Shotluckan är inget vanligt nattlivsställe. Konceptet är ett \"show and shot bar\" – ett baranknytet tilltag där varje shot serveras med en liten teaterföreställning.",
+      "Husets älskade är Äppelpajen – en söt cinnamon-baserad shot som flammas vid bordet med en story om bartenderns mormor. Breaking Bad serveras av en bartender i labbrock med gasmask, omgiven av rök ur torris. Scout är en marshmallow som rostas över bardisken med en gaslåga. Devil's Touch innebär att bartendern släpper en flamma över hela disken med blotta handen. Allt går att beställa alkoholfritt, något Shotluckan medvetet lyfter.",
+      "Konceptet startades 2010 i Halmstad av kusinerna Kim och Johan Strömberg, som hade arbetat på Hotel Tylösands bar året innan och bestämde sig för att blanda kultiverat hotellbar-arbete med någonting mer extrovert. På femton år har Shotluckan vuxit till nio anläggningar runt om i Sverige – Halmstad, Lund, Malmö, Helsingborg, Linköping, Uppsala, Stockholm, Sundsvall och Göteborg. Den nuvarande planen är tre till fyra nya öppningar per år.",
+      "Göteborgsfilialen öppnade den 8 juli 2022. Sedan dess är 4,5 av 5 stjärnor på Google ett ovanligt högt snitt för en plats med sin tonalitet – och en stark indikation på att gästerna går därifrån glada.",
+      "Bokningen funkar enligt en modell som är lika tydlig som strikt. Reservationer går endast för sällskap från fyra personer; minimispend är 195 kronor per gäst på tvåtimmarsslot. Walk-ins under fyra personer är välkomna. Privata rummet \"Innerummet\" har en miniminota på 10 000 kronor. Maten är taco och nachos – inget mer.",
+      "Pandemin nästan bröt företaget. Under 2020 och 2021 förlorade Shotluckan ungefär 90 procent av intäkterna och drog på sig en skatteskuld på sju miljoner. Företaget betalade av skulden inom arton månader och gick sedan ut med rekordförsäljning – en historia som Nöjesguiden täckte i en längre artikel om \"succésagan Shotluckan\".",
+      "Onsdag och torsdag öppnar baren klockan sex på kvällen och stänger ett. Fredag och lördag har de öppet till tre på natten. Söndag, måndag och tisdag är det stängt. Eighteen plus, alltid. Vid sidan av shotmenyn finns Jenga, Cards Against Humanity, Herd Mentality, beerpong, dart och karaokekvällar.",
+      "Filosofin, säger grundarna, är att anställa personligheter snarare än tekniska bartendrar. Det märks. När någon ropar \"Äppelpaj!\" från ett bord i hörnet hörs det i hela rummet – och nästa två minuter handlar bara om eld, rök, och berättelser om mormor. Vasaplatsens spårvagnshållplats är två minuters promenad bort. Resten är en kväll man lättare minns än beskriver."
+    ],
+    "author": "Peter AI assisted",
+    "publishedAt": "2026-04-25",
+    "category": "Mat & Dryck",
+    "imageUrl": "https://shotluckan.se/wp-content/uploads/2025/06/Shotluckan-31-1-1-scaled.jpg",
+    "additionalImages": [
+      "https://shotluckan.se/wp-content/uploads/2025/06/Shotluckan-26-1-scaled.jpg"
+    ],
+    "googleMapsUrl": "https://www.google.com/maps/place/Shotluckan+G%C3%B6teborg/@57.6986,11.9656,17z"
+  },
+  {
+    "id": "18",
+    "slug": "shiro-by-takame-japansk-fusion-lindholmen-goteborg",
+    "title": "Shiro by Takame – Lindholmens japansk-asiatiska köksprojekt på en av stadens trendigaste adresser",
+    "excerpt": "På Lindholmsallén 45, i Takames skugga och med samma DNA, har Shiro skapat en helt egen scen. Sushi, asiatiska delade rätter och en miljö som blir vit som namnet – Lindholmens nya stjärnskott på matkartan.",
+    "content": [
+      "Det finns en logik i hur Lindholmen byggs ut. Forskningsparken växer, älvtrafiken ökar, en ny spårvagnslinje – linje 12 – passerar Lindholmsallén sedan december 2025. Stadsdelen är inte längre bara industri och campus. Den är också en matdestination, och en av de senaste pjäserna på det brädet heter Shiro by Takame.",
+      "Shiro öppnade som en systerlokal till den etablerade Takame-restaurangen, även den på Lindholmen. Idén är inte att kopiera moderskeppet utan att tolka samma asiatiska impulser i en egen miljö. Namnet \"Shiro\" betyder vit på japanska – och rummet är konsekvent inrett efter logiken: ljust trä, vita ytor, mjukt ljus.",
+      "Köket arbetar i två spår. Det ena är högklassisk sushi: nigiri, sashimi och rullar med tonvikt på råvarans kvalitet snarare än på exotiska tilltag. Det andra är sydostasiatiska delningsrätter – tapas-format med påverkan från Vietnam och Thailand, varma och kalla skålar. Beskrivningen restaurangen själv ger är att maten har \"rötter i 1800-talets Tokyo\" – en framing som bjuder på bordet en känsla av historia samtidigt som tallrikarna är samtida.",
+      "Beställningen sker à la carte via QR-kod vid bordet. Prisbilden ligger mellan $$ och $$$ enligt Tripadvisor – ungefär 100 till 200 kronor per rätt. Brunchen kostar 279 kronor per vuxen. Shiro finns på TheFork med upp till 30 procents rabatt (utöver tasting-menyn) – ett tilltag som funkat bra för att driva trafik till en relativt nyöppnad adress.",
+      "Mottagandet är gott. På Tripadvisor ligger snittet på 4,1 av 5; på TheFork 9,3 av 10 med jämn fördelning mellan service, atmosfär och mat. \"Cosy restaurant delicious sushi, and sweetest service\", skrev SteenUM i juli 2025. Simon T en månad tidigare: \"Det är extremt trevligt där, både personalen och maten var fantastisk... 100 procent värt det extra priset.\"",
+      "Öppettiderna är generösa: måndag till torsdag elva till nio, fredag elva till tio, lördag tolv till tio, söndag tolv till nio. Takeaway sker via HappyOrder, catering kan beställas via hello@shirogbg.se eller på 0766 44 19 75.",
+      "Att äta på Shiro är inte bara en matupplevelse utan också ett litet stadsporträtt. Lindholmen i 2026 är en plats där forskningsstuderande, Volvo-anställda och stadsboar äter samma sushi i samma ljusa rum. Älvsnabben från Stenpiren tar fyra minuter över; tram 10 och 12 stannar 200 meter bort. När man går ut igen ligger Centralstationen tio minuters resa bort, eller den nya Jubileumsparken vid älvkanten en kort promenad ner.",
+      "Det är, kort sagt, en restaurang som fungerar lika bra som en arbetslunch som en helgmiddag. Det är inte ett fyrverkeri. Det är något bättre – en plats som rätar ut sushikvällen utan att kräva en speciell anledning."
+    ],
+    "author": "Peter AI assisted",
+    "publishedAt": "2026-04-24",
+    "category": "Mat & Dryck",
+    "imageUrl": "https://images.unsplash.com/photo-1553621042-f6e147245754?w=1280&auto=format&fit=crop",
+    "additionalImages": [],
+    "googleMapsUrl": "https://www.google.com/maps/place/Shiro/@57.7077,11.9387,17z"
+  },
+  {
+    "id": "19",
+    "slug": "grekiska-foreningen-goteborg-fyrtio-ar-grekisk-kultur-hisings-backa",
+    "title": "Fyrtio år av grekiskt Göteborg – Grekiska Föreningen samlar 500 medlemmar i Hisings Backa",
+    "excerpt": "På Wadköpingsgatan 2 finns en plats du aldrig hittar på Tripadvisor men där grekisk kultur i Göteborg har sitt hjärta. Grekiska Föreningen är inte en kommersiell restaurang – men det är där det dansas, äts och firas namnsdagar i fyrtio år nu.",
+    "content": [
+      "På Wadköpingsgatan 2 i Hisings Backa, en bit norr om Hjalmar Brantingsplatsen och nästan i kanten av Lillhagen, ligger en byggnad som de flesta göteborgare aldrig hör talas om. Skylten utanför säger Grekiska Föreningen i Göteborg – på grekiska Ελληνική Κοινότητα του Γκέτεμποργκ – och bakom dörrarna har en av stadens mest livaktiga kulturföreningar samlats sedan 1984.",
+      "Föreningen är inte en restaurang. Den är en ideell förening med drygt femhundra medlemmar, en grekisk skola, ett bibliotek och en festlokal. Det är samtidigt en av få platser i Göteborg där du kan äta riktig grekisk husmanskost lagad av människor som lärt sig recepten i Thessaloniki, Aten, Korint, Kreta. Inte på en meny – men på en festlokal-buffé på påsk, vid en konfirmation eller en bröllopsmiddag, eller vid en av föreningens öppna kvällar med dans och bouzouki.",
+      "Verksamheten är bred. Den grekiska skolan undervisar barn i andra och tredje generationen, biblioteket har grekiska böcker och filmer, och religiösa högtider firas i samspel med den närliggande grekisk-ortodoxa församlingen Kristi Uppståndelse på Sehlstedtsgatan 10. Påsken är årets största händelse, med midnattsmässa, lammgrillning och rödmålade ägg som bryts ända in i tidiga morgontimmarna.",
+      "Föreningen växte fram på 1980-talet som en samlingspunkt för det grekiska Göteborg som etablerade sig under arbetskraftsinvandringens decennier. När Volvo, varven och industrin behövde händer kom familjer från grekiska byar via Aten och söderut. Den grekiska kolonin blev aldrig stor i absoluta tal – kanske ett par tusen göteborgare med grekiska rötter idag – men har blivit påfallande sammanhållen.",
+      "Det dansas mycket. Syrtaki och hasapiko är klassiker, men föreningen lär även ut kalamatianos och tsamiko vid sina dansaftnar. Bouzouki spelas live ibland; oftare står ljudet via högtalare och en oväntat lokal jukebox med 1970- och 80-talets grekiska populärmusik. Generationsmixen är stark – tonåringar dansar med farmödrar utan något besvär.",
+      "Vid sidan av föreningen finns Göteborgs publikt drivna grekiska tavernor: Panos Panos, Lilla Tavernan, Posidonas, Athena, Efessos, Mykonos och Yamas. De serverar souvlaki, moussaka, dolmades och grekisk vin på menykort öppna för alla. Grekiska Föreningen är något annat – kulturankaret som samlar diasporans gemensamma minne snarare än turistens kvällsmiddag.",
+      "För den som inte är medlem finns ändå sätt in. Föreningen håller tidvis öppna evenemang – dansaftnar, julmarknad, kunskapskvällar om grekisk historia. Telefon 031-21 09 63 leder till en information som inte är digital, eller så får man söka kontakt via föreningens Facebook-grupp. För den som vill smaka grekiskt Göteborg på riktigt – inte den glättade utan den vardagliga, hemmagjorda – är det här adressen.",
+      "Närmaste spårvagn är Hjalmar Brantingsplatsen, en kort buss bort. På YouTube finns föreningens egen kanal med videor från fester och högtider; det är ett ovanligt fönster in till en del av staden som de flesta göteborgare aldrig får se."
+    ],
+    "author": "Redaktionen",
+    "publishedAt": "2026-04-22",
+    "category": "Kultur",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Greek_dance_in_Greece.jpg/1280px-Greek_dance_in_Greece.jpg",
+    "additionalImages": [],
+    "googleMapsUrl": "https://www.google.com/maps/place/Grekiska+F%C3%B6reningen+i+G%C3%B6teborg/@57.7565,11.9580,15z"
   }
 ];
