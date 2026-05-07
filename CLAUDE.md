@@ -47,4 +47,5 @@ Netlify, site `gotoburg` (https://gotoburg.netlify.app/, custom domains `www.got
 ## Notes on the codebase shape
 
 - Two parallel "constants" surfaces exist: root `constants.ts` (older, contains an inline `ARTICLES` array fallback) and `src/constants.ts` (current, what the app imports from). Treat `src/constants.ts` + `src/data/articles.ts` as the source of truth.
+- Production deployment note: the three articles added in May 2026 (Hyssnaleden, Hoze, Activate Nordstan) required a rebuild to include in the production bundle.
 - `index.html` contains an unused importmap (CDN versions of React 19 / Vite 7) — the actual build uses the npm React 18 from `package.json`. Don't be misled by it.
