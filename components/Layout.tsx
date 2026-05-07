@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AdSense from './AdSense';
 import { ADSENSE_CONFIG } from '../src/constants';
@@ -9,8 +9,11 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
+const NAV_CATEGORIES = ['Mat & Dryck', 'Natur', 'Arbete', 'Aktiviteter', 'Kultur', 'Sport', 'Vad är på gång', 'Event'];
+
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const currentYear = new Date().getFullYear();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -29,8 +32,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <header className="border-b border-gray-200 sticky top-0 bg-white/95 backdrop-blur-sm z-50 transition-all">
         <div className="max-w-6xl mx-auto px-4 py-4 md:py-6">
           <div className="flex justify-between items-center">
-            {/* Mobile Menu Icon (Placeholder) */}
-            <button className="md:hidden text-gray-800">
+            {/* Mobile Menu Toggle */}
+            <button className="md:hidden text-gray-800" onClick={() => setMobileMenuOpen(open => !open)} aria-label="Meny">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
             </button>
 
@@ -50,17 +53,31 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </button>
           </div>
 
-          {/* Navigation */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex justify-center mt-6 space-x-4 text-sm font-bold uppercase tracking-widest text-gray-600 border-t border-gray-100 pt-4">
             <Link to="/explore" className="text-blue-600 hover:text-blue-800 cursor-pointer transition-colors duration-200">
               Utforska Staden
             </Link>
-            {['Mat & Dryck', 'Natur', 'Arbete', 'Aktiviteter', 'Kultur', 'Sport', 'Vad är på gång', 'Event'].map((item) => (
+            {NAV_CATEGORIES.map((item) => (
               <Link key={item} to={`/?category=${item}`} className="hover:text-blue-600 cursor-pointer transition-colors duration-200">
                 {item}
               </Link>
             ))}
           </nav>
+
+          {/* Mobile Navigation */}
+          {mobileMenuOpen && (
+            <nav className="md:hidden border-t border-gray-100 mt-4 pt-4 flex flex-col space-y-3 text-sm font-bold uppercase tracking-widest text-gray-600">
+              <Link to="/explore" className="text-blue-600 hover:text-blue-800" onClick={() => setMobileMenuOpen(false)}>
+                Utforska Staden
+              </Link>
+              {NAV_CATEGORIES.map((item) => (
+                <Link key={item} to={`/?category=${item}`} className="hover:text-blue-600" onClick={() => setMobileMenuOpen(false)}>
+                  {item}
+                </Link>
+              ))}
+            </nav>
+          )}
         </div>
       </header>
 
@@ -88,13 +105,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div>
               <h4 className="font-bold text-xs uppercase tracking-widest text-gray-900 mb-4">Kategorier</h4>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li><Link to="/?category=Mat & Dryck" className="hover:text-black cursor-pointer">Mat & Dryck</Link></li>
-                <li><Link to="/?category=Natur" className="hover:text-black cursor-pointer">Natur</Link></li>
-                <li><Link to="/?category=Aktiviteter" className="hover:text-black cursor-pointer">Aktiviteter</Link></li>
-                <li><Link to="/?category=Kultur" className="hover:text-black cursor-pointer">Kultur</Link></li>
-                <li><Link to="/?category=Sport" className="hover:text-black cursor-pointer">Sport</Link></li>
-                <li><Link to="/?category=Vad är på gång" className="hover:text-black cursor-pointer">Vad är på gång</Link></li>
-                <li><Link to="/?category=Event" className="hover:text-black cursor-pointer">Event</Link></li>
+                {NAV_CATEGORIES.map(cat => (
+                  <li key={cat}><Link to={`/?category=${cat}`} className="hover:text-black cursor-pointer">{cat}</Link></li>
+                ))}
               </ul>
             </div>
 
@@ -111,9 +124,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="border-t border-gray-300 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
             <p>&copy; {currentYear} GotoBurg. Alla rättigheter förbehållna.</p>
             <div className="mt-4 md:mt-0 space-x-4">
-              <span>Integritet</span>
-              <span>Villkor</span>
-              <span>Webbplatskarta</span>
+              <span className="text-gray-400 cursor-default">Integritet</span>
+              <span className="text-gray-400 cursor-default">Villkor</span>
+              <span className="text-gray-400 cursor-default">Webbplatskarta</span>
               <a href="mailto:peter@gotoburg.se" className="hover:text-gray-800 transition-colors">Kontakt</a>
             </div>
           </div>

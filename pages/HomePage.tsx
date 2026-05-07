@@ -20,6 +20,18 @@ const HomePage: React.FC = () => {
   const secondaryArticles = articles.slice(1, 3);
   const remainingArticles = articles.slice(3);
 
+  if (categoryFilter && articles.length === 0) {
+    return (
+      <Layout>
+        <div className="min-h-[50vh] flex flex-col items-center justify-center text-center">
+          <h1 className="text-4xl font-serif font-bold mb-4">Inga artiklar hittades</h1>
+          <p className="text-gray-600 mb-8">Det finns inga artiklar i kategorin "{categoryFilter}" än.</p>
+          <Link to="/" className="text-blue-600 hover:underline font-bold">Till startsidan</Link>
+        </div>
+      </Layout>
+    );
+  }
+
   return (
     <Layout>
       <section className="mb-12 border-b border-gray-200 pb-12">
