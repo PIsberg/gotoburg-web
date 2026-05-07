@@ -26,7 +26,10 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, featured = false }) 
       <div className="flex flex-col justify-center">
         {/* Category badge */}
         <div className="mb-2">
-          <span className={`inline-block text-xs font-bold tracking-widest uppercase px-2 py-0.5 rounded-sm ${getCategoryBadge(article.category)}`}>
+          <span
+            data-testid="article-category"
+            className={`inline-block text-xs font-bold tracking-widest uppercase px-2 py-0.5 rounded-sm ${getCategoryBadge(article.category)}`}
+          >
             {article.category}
           </span>
         </div>

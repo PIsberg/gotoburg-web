@@ -77,7 +77,10 @@ const HomePage: React.FC = () => {
                       />
                     </Link>
                     <div className="flex flex-col justify-center min-w-0">
-                      <span className={`text-xs font-bold uppercase tracking-wider mb-1 ${getCategoryText(article.category)}`}>
+                      <span
+                        data-testid="article-category"
+                        className={`text-xs font-bold uppercase tracking-wider mb-1 ${getCategoryText(article.category)}`}
+                      >
                         {article.category}
                       </span>
                       <Link to={`/${article.slug}`} className="block">
