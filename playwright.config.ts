@@ -13,6 +13,17 @@ export default defineConfig({
   use: {
     baseURL,
     trace: 'on-first-retry',
+    // Pre-answer the cookie banner so it does not sit over the footer and
+    // swallow clicks. consent.spec.ts opts back out to exercise the banner.
+    storageState: {
+      cookies: [],
+      origins: [
+        {
+          origin: baseURL,
+          localStorage: [{ name: 'gotoburg:consent', value: 'granted' }],
+        },
+      ],
+    },
   },
   projects: [
     {

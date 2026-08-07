@@ -9,8 +9,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run build` — build the static site to `dist/` (this is what gets deployed to Netlify, not the source folder)
 - `npm run preview` — preview the production build
 - `npm run admin` — start the local admin tool on http://localhost:3001 (loads `.env.local` via `node --env-file`)
+- `npm run test:e2e` — run the Playwright suite in `tests/e2e/` against a production preview build on port 4173 (`npm run test:e2e:ui` for the UI runner). This also runs in CI on every PR.
 
-There is no test runner, linter, or typechecker wired into npm scripts.
+There is no linter or typechecker wired into npm scripts. `npx tsc --noEmit` currently fails with TS6305 on `vite.config.ts`, a pre-existing project-reference config issue, not a code error.
 
 ## Architecture
 
@@ -18,7 +19,7 @@ GotoBurg is a Swedish-language local-news/lifestyle SPA (Gothenburg, "wetcoasten
 
 ### Routing and content flow
 
-- `App.tsx` uses `HashRouter` deliberately so the deployed site does not need server-side URL rewrites. Routes: `/` (HomePage), `/explore` (ExplorePage with Google Maps view), `/:slug` (ArticlePage).
+- `App.tsx` uses `HashRouter` deliberately so the deployed site does not need server-side URL rewrites. Routes: `/` (HomePage), `/explore` (ExplorePage with Google Maps view), the static pages `/om-oss`, `/kontakt`, `/integritetspolicy` and `/villkor`, and `/:slug` (ArticlePage) as the catch-all. The static pages share `components/StaticPage.tsx`; react-router ranks literal segments above `:slug`, so declaration order does not matter, but keep the catch-all last for readability.
 - The article store is a single static array. Read path:
   - `src/data/articles.ts` exports `articles` (array literal).
   - `src/constants.ts` re-exports it as `ARTICLES: Article[]` and also defines `ADSENSE_CONFIG`.
@@ -39,6 +40,7 @@ GotoBurg is a Swedish-language local-news/lifestyle SPA (Gothenburg, "wetcoasten
 - **Google Maps** (`components/GoogleMapSection.tsx`, used by ExplorePage): requires `VITE_GOOGLE_MAPS_API_KEY` in `.env.local` locally, and as a Netlify env var in production. Uses Maps JavaScript API + Geocoding API. Articles can carry an optional `googleMapsUrl`.
 - **Google Analytics**: gtag is hardcoded in `index.html` (`G-E8GTTBK08V`). `components/AnalyticsTracker.tsx` fires SPA pageviews on route change.
 - **AdSense**: publisher ID `ca-pub-2203695397498260` is wired into `index.html` and `src/constants.ts` (`ADSENSE_CONFIG`). Ad slots are inserted via `components/AdSense.tsx` at: header (`Layout.tsx`), home feed middle + sidebar (`HomePage.tsx`), in-article + sidebar (`ArticlePage.tsx`). The README's "replace ca-pub-XXXX" instructions are stale — the real publisher ID is already in place.
+- **Consent Mode v2**: `index.html` sets `ad_storage`, `ad_user_data`, `ad_personalization` and `analytics_storage` to `denied` *before* `gtag.js` and `adsbygoogle.js` load. `components/CookieConsent.tsx` sends the `consent` `update` after the visitor chooses and stores the choice in `localStorage` under `gotoburg:consent`. Anything that loads a Google tag earlier in `<head>`, or that drops the default block, breaks EEA compliance and the AdSense application with it. `playwright.config.ts` pre-answers the banner via `storageState` so it does not overlay the footer during tests; `tests/e2e/consent.spec.ts` opts back out.
 
 ### Deployment
 

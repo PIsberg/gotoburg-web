@@ -6,7 +6,8 @@ test.describe('Navigation', () => {
     await page.locator('main a[href^="#/"]').first().click();
     await expect(page.getByText('Läs också')).toBeVisible();
 
-    await page.getByRole('link', { name: 'GotoBurg' }).click();
+    // Scoped to the header: the footer also links to "Om GotoBurg".
+    await page.locator('header').getByRole('link', { name: 'GotoBurg' }).click();
 
     await expect(page).toHaveURL(/#\/$/);
     await expect(page.getByText('Senaste nytt')).toBeVisible();
