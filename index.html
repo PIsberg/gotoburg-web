@@ -2,18 +2,32 @@
 <html lang="sv">
 
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E8GTTBK08V"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-E8GTTBK08V');
-  </script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
   <title>GotoBurg</title>
+  <meta name="description"
+    content="GotoBurg är en fristående guide till Göteborg: mat och dryck, natur, kultur, sport och evenemang i staden och Västsverige." />
+
+  <!-- Google Consent Mode v2. Everything is denied until the visitor chooses in the
+       cookie banner; components/CookieConsent.tsx sends the 'update'. Both gtag.js and
+       adsbygoogle.js read these defaults, so nothing is stored before consent. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+    gtag('js', new Date());
+    gtag('config', 'G-E8GTTBK08V');
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E8GTTBK08V"></script>
   <meta name="google-adsense-account" content="ca-pub-2203695397498260">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2203695397498260"
     crossorigin="anonymous"></script>

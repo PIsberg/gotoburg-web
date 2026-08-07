@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AdSense from './AdSense';
 import { ADSENSE_CONFIG } from '../src/constants';
+import { openConsentSettings } from './CookieConsent';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -146,8 +147,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div>
               <h4 className="text-xs font-bold uppercase tracking-widest text-gray-300 mb-4 pb-2 border-b border-gray-800">Om oss</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="mailto:peter@gotoburg.se" className="text-gray-500 hover:text-white transition-colors">Kontakta oss</a></li>
-                <li><a href="mailto:peter@gotoburg.se" className="text-gray-500 hover:text-white transition-colors">Annonsera</a></li>
+                <li><Link to="/om-oss" className="text-gray-500 hover:text-white transition-colors">Om GotoBurg</Link></li>
+                <li><Link to="/kontakt" className="text-gray-500 hover:text-white transition-colors">Kontakta oss</Link></li>
+                <li><a href="mailto:peter@gotoburg.se?subject=Annonsering" className="text-gray-500 hover:text-white transition-colors">Annonsera</a></li>
+                <li><Link to="/integritetspolicy" className="text-gray-500 hover:text-white transition-colors">Integritetspolicy</Link></li>
+                <li><Link to="/villkor" className="text-gray-500 hover:text-white transition-colors">Användarvillkor</Link></li>
               </ul>
             </div>
           </div>
@@ -155,9 +159,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-600">
             <p>&copy; {currentYear} GotoBurg. Alla rättigheter förbehållna.</p>
             <div className="flex items-center gap-4">
-              <span>Integritet</span>
-              <span>Villkor</span>
-              <a href="mailto:peter@gotoburg.se" className="hover:text-gray-400 transition-colors">Kontakt</a>
+              <Link to="/integritetspolicy" className="hover:text-gray-400 transition-colors">Integritet</Link>
+              <Link to="/villkor" className="hover:text-gray-400 transition-colors">Villkor</Link>
+              <Link to="/kontakt" className="hover:text-gray-400 transition-colors">Kontakt</Link>
+              <button
+                type="button"
+                onClick={openConsentSettings}
+                className="hover:text-gray-400 transition-colors"
+              >
+                Cookie-inställningar
+              </button>
             </div>
           </div>
         </div>
