@@ -1,14 +1,18 @@
 /**
- * Single source of truth for the canonical origin and the site-wide identity used
- * in <link rel="canonical">, Open Graph tags, JSON-LD and sitemap.xml.
+ * Single source of truth for the canonical origin used in <link rel="canonical">,
+ * Open Graph tags, JSON-LD and sitemap.xml.
  *
- * Google treats https://www.gotoburg.se/ and https://goteburg.se/ as different
- * sites. Every generated URL points at SITE_URL so the AdSense crawl, the sitemap
- * and the social cards all agree on one origin.
+ * The apex, not www. Checked against the live site: https://www.gotoburg.se/om-oss
+ * returns 301 to https://gotoburg.se/om-oss, so naming www here would have pointed
+ * every canonical, every og:url and all 35 sitemap entries at a URL that redirects
+ * before it resolves.
+ *
+ * https://gotoburg.netlify.app/ also serves the site and is a duplicate of it; the
+ * canonical tags generated from this value are what tell Google which one counts.
  */
 export const SITE_URL = (
   (typeof process !== 'undefined' && process.env?.SITE_URL) ||
-  'https://www.gotoburg.se'
+  'https://gotoburg.se'
 ).replace(/\/$/, '');
 
 export const SITE_NAME = 'GotoBurg';

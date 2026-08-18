@@ -40,7 +40,7 @@ GotoBurg is a Swedish-language local-news/lifestyle SPA (Gothenburg, "wetcoasten
 
 This is the part the AdSense rejection was about, so it is worth knowing before changing anything near it.
 
-- `src/site.ts` holds the canonical origin (`SITE_URL`, currently `https://www.gotoburg.se`, overridable with a `SITE_URL` env var at build time). Every canonical link, Open Graph URL, JSON-LD id and sitemap entry is derived from it. Google treats `www.gotoburg.se` and `goteburg.se` as different sites, so this must name exactly one.
+- `src/site.ts` holds the canonical origin (`SITE_URL`, currently `https://gotoburg.se`, overridable with a `SITE_URL` env var at build time). Every canonical link, Open Graph URL, JSON-LD id and sitemap entry is derived from it. It must name the hostname that actually answers 200: `https://www.gotoburg.se/om-oss` 301s to `https://gotoburg.se/om-oss`, so pointing this at www would send every canonical through a redirect.
 - `src/seo.ts` builds the per-route metadata. `allRoutes(articles)` returns every URL the site publishes with its title, description, canonical, OG fields and JSON-LD. It is the single source for both what gets prerendered and what goes in `sitemap.xml`, so a route missing from it is a route Google never sees.
 - `scripts/prerender.mjs` walks that list, renders each route via `scripts/entry-server.tsx`, injects the head tags into the built `index.html` shell and writes the file. It also emits `sitemap.xml`, `robots.txt` and `404.html`, and it fails the build if any route renders under 500 bytes.
 - Structured data per page type: `NewsArticle` + `BreadcrumbList` on articles, `CollectionPage` on categories, `ProfilePage` on author pages, `WebSite` + `Organization` on the home page.
@@ -80,11 +80,11 @@ Every article image is a Wikimedia Commons file under a licence that permits com
 
 ### Deployment
 
-Netlify, site `gotoburg` (https://gotoburg.netlify.app/, custom domains `www.gotoburg.se` / `goteburg.se`). Deploy = upload the `dist/` output, not the source. `VITE_GOOGLE_MAPS_API_KEY` must be configured in Netlify env vars; `.env.local` must not be committed.
+Netlify, site `gotoburg` (https://gotoburg.netlify.app/, custom domain `gotoburg.se` with `www.` redirecting to it). Deploy = upload the `dist/` output, not the source. `VITE_GOOGLE_MAPS_API_KEY` must be configured in Netlify env vars; `.env.local` must not be committed.
 
 `dist/` now contains a directory per route rather than a single `index.html`. Netlify's default static resolution handles that (`/om-oss` serves `dist/om-oss/index.html`, unmatched paths serve `dist/404.html` with a 404 status), so do not add a catch-all `/* /index.html 200` rewrite: it would turn every prerendered page back into the empty SPA shell and every 404 into a soft 200.
 
-Only one hostname should serve the site. `SITE_URL` in `src/site.ts` names `www.gotoburg.se` as canonical, so the other domains should 301 to it in Netlify's domain settings rather than serving duplicate copies.
+Only one hostname should serve the site. Measured on 2026-08-18: `gotoburg.se` answers 200, `www.gotoburg.se` 301s to it (path preserved), and `gotoburg.netlify.app` serves an unredirected duplicate. `SITE_URL` therefore names the apex. `goteburg.se` did not resolve at all, so treat the claim that it is a live custom domain as stale.
 
 ## Notes on the codebase shape
 
