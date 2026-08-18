@@ -24,7 +24,10 @@ const AdSense: React.FC<AdSenseProps> = ({
     label,
     style = { display: 'block' }
 }) => {
-    const isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    // Read at render time, so it must survive the prerender pass where there is
+    // no window at all.
+    const hostname = typeof window === 'undefined' ? '' : window.location.hostname;
+    const isDev = hostname === 'localhost' || hostname === '127.0.0.1';
     const initialized = useRef(false);
 
     useEffect(() => {

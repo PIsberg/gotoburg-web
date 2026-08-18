@@ -32,7 +32,11 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: `npm run preview -- --port=${PORT} --strictPort`,
+    // Not `vite preview`: it serves the SPA fallback index.html for every path,
+    // so the per-route HTML from scripts/prerender.mjs is never exercised and
+    // tests/e2e/seo.spec.ts would pass against a completely broken prerender.
+    // scripts/serve-dist.mjs resolves URLs the way Netlify does.
+    command: `npm run build && npm run serve -- ${PORT}`,
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

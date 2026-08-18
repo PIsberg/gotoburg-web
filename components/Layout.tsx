@@ -1,19 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AdSense from './AdSense';
 import { ADSENSE_CONFIG } from '../src/constants';
+import { populatedCategories, categoryPath } from '../src/categories';
+import { getAllArticles } from '../services/articleService';
 import { openConsentSettings } from './CookieConsent';
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
-export const NAV_CATEGORIES = ['Mat & Dryck', 'Natur', 'Arbete', 'Aktiviteter', 'Kultur', 'Sport', 'Vad är på gång', 'Event'];
+/**
+ * Only categories that have articles. Linking to an empty category produced a
+ * "no articles found" dead end, which is both a poor visit and exactly the kind
+ * of empty page a crawler counts against the site.
+ */
+export const NAV_CATEGORIES = populatedCategories(getAllArticles()).map(c => c.name);
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const currentYear = new Date().getFullYear();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const dateStr = new Date().toLocaleDateString('sv-SE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  // Filled in after mount. Rendering it during the prerender would freeze the
+  // build date into every deployed HTML file and serve it as today's date.
+  const [dateStr, setDateStr] = useState('');
+  useEffect(() => {
+    setDateStr(new Date().toLocaleDateString('sv-SE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }));
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -75,7 +87,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             {NAV_CATEGORIES.map(item => (
               <Link
                 key={item}
-                to={`/?category=${item}`}
+                to={categoryPath(item)}
                 className="px-3 py-1.5 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded transition-colors duration-150"
               >
                 {item}
@@ -96,7 +108,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               {NAV_CATEGORIES.map(item => (
                 <Link
                   key={item}
-                  to={`/?category=${item}`}
+                  to={categoryPath(item)}
                   className="px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -137,7 +149,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <ul className="space-y-2 text-sm columns-2">
                 {NAV_CATEGORIES.map(cat => (
                   <li key={cat}>
-                    <Link to={`/?category=${cat}`} className="text-gray-500 hover:text-white transition-colors">{cat}</Link>
+                    <Link to={categoryPath(cat)} className="text-gray-500 hover:text-white transition-colors">{cat}</Link>
                   </li>
                 ))}
               </ul>
@@ -148,6 +160,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <h4 className="text-xs font-bold uppercase tracking-widest text-gray-300 mb-4 pb-2 border-b border-gray-800">Om oss</h4>
               <ul className="space-y-2 text-sm">
                 <li><Link to="/om-oss" className="text-gray-500 hover:text-white transition-colors">Om GotoBurg</Link></li>
+                <li><Link to="/redaktionen" className="text-gray-500 hover:text-white transition-colors">Redaktionen</Link></li>
                 <li><Link to="/kontakt" className="text-gray-500 hover:text-white transition-colors">Kontakta oss</Link></li>
                 <li><a href="mailto:peter@gotoburg.se?subject=Annonsering" className="text-gray-500 hover:text-white transition-colors">Annonsera</a></li>
                 <li><Link to="/integritetspolicy" className="text-gray-500 hover:text-white transition-colors">Integritetspolicy</Link></li>

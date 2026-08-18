@@ -3,6 +3,10 @@ import { useParams, Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import AdSense from '../components/AdSense';
 import { getArticleBySlug, getRelatedArticles } from '../services/articleService';
+import NotFoundPage from './NotFoundPage';
+import { absoluteUrl } from '../src/site';
+import { categoryPath } from '../src/categories';
+import { authorByName } from '../src/authors';
 import { ADSENSE_CONFIG } from '../src/constants';
 import { formatDate } from '../src/utils/dateUtils';
 import { getCategoryText, getCategoryBadge } from '../src/utils/categoryColors';
@@ -14,22 +18,14 @@ const ArticlePage: React.FC = () => {
 
   useEffect(() => { window.scrollTo(0, 0); }, [slug]);
 
-  if (!article) {
-    return (
-      <Layout>
-        <div className="min-h-[50vh] flex flex-col items-center justify-center text-center py-16">
-          <div className="w-16 h-1 bg-gray-900 mb-8" />
-          <h1 className="text-4xl font-serif font-bold mb-4">Sidan hittades inte</h1>
-          <p className="text-gray-500 mb-8">Vi kunde inte hitta artikeln du letade efter.</p>
-          <Link to="/" className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 text-sm font-bold uppercase tracking-widest hover:bg-gray-700 transition-colors">
-            ← Till startsidan
-          </Link>
-        </div>
-      </Layout>
-    );
-  }
+  if (!article) return <NotFoundPage />;
 
   const midPoint = Math.ceil(article.content.length / 2);
+  // Share the canonical URL rather than window.location.href: it is correct
+  // regardless of which domain the visitor arrived on, and it is readable during
+  // the prerender pass where window does not exist.
+  const shareUrl = absoluteUrl('/' + article.slug);
+  const author = authorByName(article.author);
 
   return (
     <Layout>
@@ -39,7 +35,7 @@ const ArticlePage: React.FC = () => {
         <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-6">
           <Link to="/" className="text-gray-400 hover:text-gray-700 transition-colors">Hem</Link>
           <span className="text-gray-300">/</span>
-          <Link to={`/?category=${article.category}`} className={`${getCategoryText(article.category)} hover:opacity-70 transition-opacity`}>
+          <Link to={categoryPath(article.category)} className={`${getCategoryText(article.category)} hover:opacity-70 transition-opacity`}>
             {article.category}
           </Link>
         </div>
@@ -57,9 +53,15 @@ const ArticlePage: React.FC = () => {
                 {article.author.charAt(0).toUpperCase()}
               </div>
               <div>
-                <span className="font-semibold text-gray-900">{article.author}</span>
+                {author ? (
+                  <Link to={`/redaktionen/${author.slug}`} className="font-semibold text-gray-900 hover:text-blue-700 transition-colors">
+                    {article.author}
+                  </Link>
+                ) : (
+                  <span className="font-semibold text-gray-900">{article.author}</span>
+                )}
                 <span className="mx-2 text-gray-300">•</span>
-                <span>{formatDate(article.publishedAt)}</span>
+                <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
               </div>
             </div>
 
@@ -67,7 +69,7 @@ const ArticlePage: React.FC = () => {
             <div className="flex items-center gap-2">
               <span className="text-xs text-gray-400 font-sans uppercase tracking-wider hidden sm:inline">Dela</span>
               <a
-                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(article.title)}`}
+                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(article.title)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:border-blue-400 hover:text-blue-500 transition-colors"
@@ -76,7 +78,7 @@ const ArticlePage: React.FC = () => {
                 <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" /></svg>
               </a>
               <a
-                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:border-blue-700 hover:text-blue-700 transition-colors"
@@ -128,12 +130,31 @@ const ArticlePage: React.FC = () => {
               </div>
             )}
 
+            {/* Byline box */}
+            {author && (
+              <aside className="mt-10 p-6 bg-gray-50 border border-gray-200 rounded-sm">
+                <div className="flex items-start gap-4">
+                  <div className="w-11 h-11 rounded-full bg-gray-900 flex items-center justify-center text-sm font-bold text-white flex-shrink-0">
+                    {author.name.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">{author.name}</p>
+                    <p className="text-xs uppercase tracking-widest text-gray-400 mb-2">{author.role}</p>
+                    <p className="text-sm text-gray-600 font-serif leading-relaxed">{author.bio}</p>
+                    <Link to={`/redaktionen/${author.slug}`} className="inline-block mt-2 text-sm text-blue-600 hover:underline">
+                      Fler artiklar av {author.name}
+                    </Link>
+                  </div>
+                </div>
+              </aside>
+            )}
+
             {/* Tags */}
             <div className="mt-10 pt-8 border-t border-gray-200">
               <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Kategorier</h4>
               <div className="flex flex-wrap gap-2">
                 <Link
-                  to={`/?category=${article.category}`}
+                  to={categoryPath(article.category)}
                   className={`px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-sm hover:opacity-80 transition-opacity ${getCategoryBadge(article.category)}`}
                 >
                   {article.category}

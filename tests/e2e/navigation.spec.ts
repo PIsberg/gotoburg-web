@@ -3,13 +3,13 @@ import { test, expect } from '@playwright/test';
 test.describe('Navigation', () => {
   test('header logo returns to the home page from an article', async ({ page }) => {
     await page.goto('/');
-    await page.locator('main a[href^="#/"]').first().click();
+    await page.locator('main a[href^="/"]').first().click();
     await expect(page.getByText('Läs också')).toBeVisible();
 
     // Scoped to the header: the footer also links to "Om GotoBurg".
     await page.locator('header').getByRole('link', { name: 'GotoBurg' }).click();
 
-    await expect(page).toHaveURL(/#\/$/);
+    await expect(page).toHaveURL(/localhost:\d+\/$/);
     await expect(page.getByText('Senaste nytt')).toBeVisible();
   });
 
@@ -18,18 +18,19 @@ test.describe('Navigation', () => {
 
     await page.getByRole('link', { name: 'Utforska Staden' }).click();
 
-    await expect(page).toHaveURL(/#\/explore$/);
+    await expect(page).toHaveURL(/\/explore$/);
     await expect(page.getByRole('heading', { name: 'Utforska Staden' })).toBeVisible();
     await expect(
       page.getByText('Här kan du se var våra artiklar utspelar sig.')
     ).toBeVisible();
   });
 
-  test('footer category link filters the home page', async ({ page }) => {
+  test('footer category link reaches the category page', async ({ page }) => {
     await page.goto('/');
 
     await page.locator('footer').getByRole('link', { name: 'Kultur' }).click();
 
-    await expect(page).toHaveURL(/category=Kultur/);
+    await expect(page).toHaveURL(/\/kategori\/kultur$/);
+    await expect(page.getByRole('heading', { level: 1, name: 'Kultur i Göteborg' })).toBeVisible();
   });
 });

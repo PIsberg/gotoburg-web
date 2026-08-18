@@ -10,7 +10,7 @@ const PAGES = [
 test.describe('Static pages', () => {
   for (const { path, heading, marker } of PAGES) {
     test(`${path} renders its own content, not the article catch-all`, async ({ page }) => {
-      await page.goto(`/#${path}`);
+      await page.goto(path);
 
       await expect(page.getByRole('heading', { level: 1, name: heading })).toBeVisible();
       await expect(page.getByRole('heading', { level: 2, name: marker })).toBeVisible();
@@ -21,10 +21,10 @@ test.describe('Static pages', () => {
   }
 
   const FOOTER_LINKS = [
-    { name: 'Om GotoBurg', url: /#\/om-oss$/, heading: 'Om GotoBurg' },
-    { name: 'Kontakta oss', url: /#\/kontakt$/, heading: 'Kontakta oss' },
-    { name: 'Integritetspolicy', url: /#\/integritetspolicy$/, heading: 'Integritetspolicy och cookies' },
-    { name: 'Användarvillkor', url: /#\/villkor$/, heading: 'Användarvillkor' },
+    { name: 'Om GotoBurg', url: /\/om-oss$/, heading: 'Om GotoBurg' },
+    { name: 'Kontakta oss', url: /\/kontakt$/, heading: 'Kontakta oss' },
+    { name: 'Integritetspolicy', url: /\/integritetspolicy$/, heading: 'Integritetspolicy och cookies' },
+    { name: 'Användarvillkor', url: /\/villkor$/, heading: 'Användarvillkor' },
   ];
 
   for (const { name, url, heading } of FOOTER_LINKS) {
@@ -39,7 +39,7 @@ test.describe('Static pages', () => {
   }
 
   test('the privacy page discloses the AdSense and Analytics ids in use', async ({ page }) => {
-    await page.goto('/#/integritetspolicy');
+    await page.goto('/integritetspolicy');
 
     await expect(page.getByText('ca-pub-2203695397498260')).toBeVisible();
     await expect(page.getByText('G-E8GTTBK08V')).toBeVisible();
