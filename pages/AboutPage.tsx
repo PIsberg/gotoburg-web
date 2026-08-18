@@ -22,8 +22,10 @@ const AboutPage: React.FC = () => (
 
         <Section heading="Vem som står bakom">
             <p>
-                GotoBurg drivs av Peter Isberg, som är ansvarig utgivare och redaktör. Har du frågor om
-                en artikel, ett tips eller ett samarbete når du oss på{' '}
+                GotoBurg drivs av Peter Isberg, som är ansvarig utgivare och redaktör. Vilka som
+                skriver på sajten, och vad var och en bevakar, står på{' '}
+                <Link to="/redaktionen" className="text-blue-600 hover:underline">redaktionssidan</Link>.
+                Har du frågor om en artikel, ett tips eller ett samarbete når du oss på{' '}
                 <a href="mailto:peter@gotoburg.se" className="text-blue-600 hover:underline">peter@gotoburg.se</a>{' '}
                 eller via <Link to="/kontakt" className="text-blue-600 hover:underline">kontaktsidan</Link>.
             </p>

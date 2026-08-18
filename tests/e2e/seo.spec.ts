@@ -33,7 +33,7 @@ test.describe('Served HTML is crawlable', () => {
     const text = visibleText(html);
 
     // A sentence from the middle of the article, not the excerpt or the title.
-    expect(text).toContain('Brunchoteket är ett populärt val');
+    expect(text).toContain('Brunchoteket passar den som inte vill ha en buffé');
     expect(text.split(' ').length).toBeGreaterThan(300);
   });
 
@@ -124,6 +124,35 @@ test.describe('Served HTML is crawlable', () => {
     const response = await page.request.get('/this-url-does-not-exist');
     expect(response.status()).toBe(404);
     expect(visibleText(await response.text())).toContain('Sidan hittades inte');
+  });
+
+  test('every article has real depth and renders its subheadings as headings', async ({ page }) => {
+    // Guards the two shapes that made the original articles read as thin:
+    // ~350 words of unbroken text, and markdown that shipped as literal
+    // asterisks because ArticlePage rendered every content entry as a <p>.
+    const xml = await (await page.request.get('/sitemap.xml')).text();
+    const articlePaths = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)]
+      .map(m => new URL(m[1]).pathname)
+      .filter(p => p !== '/' && !p.startsWith('/kategori/') && !p.startsWith('/redaktionen')
+        && !['/om-oss', '/kontakt', '/villkor', '/integritetspolicy', '/explore'].includes(p));
+
+    expect(articlePaths.length).toBe(19);
+
+    for (const path of articlePaths) {
+      const html = await fetchHtml(page.request, path);
+      const body = html.slice(html.indexOf('<div id="root">'));
+      const text = visibleText(body);
+
+      expect(text.split(' ').length, `word count on ${path}`).toBeGreaterThan(450);
+      // "## " would mean the heading convention leaked through as plain text.
+      expect(text, `unrendered heading marker on ${path}`).not.toContain('## ');
+      expect(text, `unrendered bold marker on ${path}`).not.toContain('**');
+      // At least one subheading, rendered as an h2 the crawler can read.
+      expect(
+        (body.match(/<h2[^>]*class="font-serif/g) || []).length,
+        `subheadings on ${path}`
+      ).toBeGreaterThan(0);
+    }
   });
 
   test('ads.txt is served for AdSense verification', async ({ page }) => {
