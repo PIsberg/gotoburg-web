@@ -5,11 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run build:client && npm run build:ssr && npm run prerender",
     "preview": "vite preview",
     "admin": "node --env-file=.env.local admin/server.js",
     "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui"
+    "test:e2e:ui": "playwright test --ui",
+    "build:client": "vite build",
+    "build:ssr": "vite build --ssr scripts/entry-server.tsx --outDir .ssr",
+    "prerender": "node scripts/prerender.mjs",
+    "serve": "node scripts/serve-dist.mjs"
   },
   "dependencies": {
     "react": "^18.2.0",

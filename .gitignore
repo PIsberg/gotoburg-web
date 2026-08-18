@@ -28,3 +28,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# SSR bundle used only by scripts/prerender.mjs
+.ssr/

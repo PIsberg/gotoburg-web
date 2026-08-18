@@ -4,7 +4,7 @@ test.describe('Home page', () => {
   test('renders header, nav and a featured article', async ({ page }) => {
     await page.goto('/');
 
-    await expect(page).toHaveTitle('GotoBurg');
+    await expect(page).toHaveTitle(/^GotoBurg — guide till Göteborg/);
     await expect(page.getByRole('heading', { level: 1, name: 'GotoBurg' })).toBeVisible();
     await expect(page.getByText('Det senaste från wetcoasten')).toBeVisible();
 
@@ -28,13 +28,13 @@ test.describe('Home page', () => {
 
     await featuredHeading.click();
 
-    await expect(page).toHaveURL(/#\/[^/]+/);
+    await expect(page).toHaveURL(/localhost:\d+\/[^/]+/);
     await expect(page.getByRole('heading', { level: 1, name: titleText! })).toBeVisible();
     await expect(page.getByRole('link', { name: 'Hem' })).toBeVisible();
   });
 
-  test('category filter via query string narrows the feed', async ({ page }) => {
-    await page.goto('/#/?category=Mat%20%26%20Dryck');
+  test('the category page narrows the feed to one category', async ({ page }) => {
+    await page.goto('/kategori/mat-och-dryck');
 
     const categoryLabels = page.locator('[data-testid="article-category"]');
     await expect(categoryLabels.first()).toBeVisible();

@@ -1,4 +1,4 @@
-import { useLocation, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import ArticleCard from '../components/ArticleCard';
 import AdSense from '../components/AdSense';
@@ -7,33 +7,15 @@ import { getAllArticles } from '../services/articleService';
 import { getCategoryText, getCategoryBadge } from '../src/utils/categoryColors';
 
 const HomePage: React.FC = () => {
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const categoryFilter = searchParams.get('category');
-
+  // Category filtering lives on /kategori/:slug, not on a ?category= query
+  // string: Google indexes paths, and the query form collapsed every section
+  // into the same URL.
   const allArticles = getAllArticles();
-  const articles = categoryFilter
-    ? allArticles.filter(a => a.category === categoryFilter)
-    : allArticles;
+  const articles = allArticles;
 
   const featuredArticle = articles[0];
   const secondaryArticles = articles.slice(1, 3);
   const remainingArticles = articles.slice(3);
-
-  if (categoryFilter && articles.length === 0) {
-    return (
-      <Layout>
-        <div className="min-h-[50vh] flex flex-col items-center justify-center text-center py-16">
-          <div className="w-16 h-1 bg-gray-900 mb-8" />
-          <h1 className="text-4xl font-serif font-bold mb-4">Inga artiklar hittades</h1>
-          <p className="text-gray-500 mb-8 text-lg">Det finns inga artiklar i kategorin <span className="font-semibold text-gray-700">"{categoryFilter}"</span> än.</p>
-          <Link to="/" className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 text-sm font-bold uppercase tracking-widest hover:bg-gray-700 transition-colors">
-            ← Till startsidan
-          </Link>
-        </div>
-      </Layout>
-    );
-  }
 
   return (
     <Layout>

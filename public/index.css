@@ -1,0 +1,51 @@
+/*
+ * index.html has always linked /index.css; until now the file did not exist, so
+ * every page load fetched a 404. These are the few rules the components assume
+ * beyond Tailwind's CDN build.
+ */
+
+/* Used by components/StaticPage.tsx for the legal and editorial pages. */
+.prose-gotoburg h2 {
+  margin-top: 1.75rem;
+}
+
+.prose-gotoburg p + p {
+  margin-top: 0.75rem;
+}
+
+.prose-gotoburg ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.prose-gotoburg li + li {
+  margin-top: 0.35rem;
+}
+
+.prose-gotoburg a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose-gotoburg .not-prose a {
+  text-decoration: none;
+}
+
+/*
+ * The prerendered HTML is replaced by the client render on load. Without a
+ * reserved height the ad containers collapse first and push the article text
+ * around, which counts against Cumulative Layout Shift.
+ */
+.adsense-container {
+  min-height: 100px;
+}
+
+/* Respect the visitor's motion preference for the hover transitions. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

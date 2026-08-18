@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Article } from '../types';
 
 interface GoogleMapSectionProps {
@@ -31,6 +32,7 @@ const useGoogleMapsScript = (apiKey: string) => {
 };
 
 const GoogleMapSection: React.FC<GoogleMapSectionProps> = ({ articles }) => {
+    const navigate = useNavigate();
     const mapRef = useRef<HTMLDivElement>(null);
     const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
     const isLoaded = useGoogleMapsScript(apiKey || '');
@@ -106,7 +108,9 @@ const GoogleMapSection: React.FC<GoogleMapSectionProps> = ({ articles }) => {
 
                     // Direct navigation on click
                     marker.addListener('click', () => {
-                        window.location.hash = `/${article.slug}`;
+                        // Was `window.location.hash = ...`, which only navigated
+                        // while the app used HashRouter.
+                        navigate(`/${article.slug}`);
                     });
 
                     markers.push(marker);

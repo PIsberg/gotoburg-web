@@ -93,7 +93,7 @@ test.describe('Cookie consent', () => {
   });
 
   test('the privacy page can re-open the banner too', async ({ page }) => {
-    await page.goto('/#/integritetspolicy');
+    await page.goto('/integritetspolicy');
     await page.getByRole('button', { name: 'Acceptera alla' }).click();
     await expect(page.getByTestId('cookie-consent')).toHaveCount(0);
 
