@@ -11,6 +11,22 @@ import { ADSENSE_CONFIG } from '../src/constants';
 import { formatDate } from '../src/utils/dateUtils';
 import { getCategoryText, getCategoryBadge } from '../src/utils/categoryColors';
 
+/**
+ * One entry of Article.content. A leading "## " marks a subheading; everything
+ * else is a paragraph. Kept as a string convention rather than a richer type so
+ * admin/server.js can still JSON-parse and rewrite src/data/articles.ts.
+ */
+const Block: React.FC<{ text: string }> = ({ text }) => {
+  if (text.startsWith('## ')) {
+    return (
+      <h2 className="font-serif text-2xl md:text-3xl font-bold text-gray-900 mt-10 mb-4 leading-snug">
+        {text.slice(3)}
+      </h2>
+    );
+  }
+  return <p className="mb-5 leading-[1.85]">{text}</p>;
+};
+
 const ArticlePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const article = slug ? getArticleBySlug(slug) : undefined;
@@ -20,7 +36,12 @@ const ArticlePage: React.FC = () => {
 
   if (!article) return <NotFoundPage />;
 
-  const midPoint = Math.ceil(article.content.length / 2);
+  // The in-article ad goes at the halfway mark, but never between a subheading
+  // and the paragraph it introduces.
+  let midPoint = Math.ceil(article.content.length / 2);
+  while (midPoint > 0 && article.content[midPoint - 1]?.startsWith('## ')) {
+    midPoint += 1;
+  }
   // Share the canonical URL rather than window.location.href: it is correct
   // regardless of which domain the visitor arrived on, and it is readable during
   // the prerender pass where window does not exist.
@@ -105,13 +126,13 @@ const ArticlePage: React.FC = () => {
               </p>
 
               {article.content.slice(0, midPoint).map((para, i) => (
-                <p key={`p1-${i}`} className="mb-5 leading-[1.85]">{para}</p>
+                <Block key={`p1-${i}`} text={para} />
               ))}
 
               <AdSense slot={ADSENSE_CONFIG.IN_ARTICLE_FLUID} format="fluid" className="my-8 py-4 border-y border-gray-100" label="Annons" />
 
               {article.content.slice(midPoint).map((para, i) => (
-                <p key={`p2-${i}`} className="mb-5 leading-[1.85]">{para}</p>
+                <Block key={`p2-${i}`} text={para} />
               ))}
             </div>
 
