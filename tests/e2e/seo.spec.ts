@@ -134,7 +134,7 @@ test.describe('Served HTML is crawlable', () => {
     const articlePaths = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)]
       .map(m => new URL(m[1]).pathname)
       .filter(p => p !== '/' && !p.startsWith('/kategori/') && !p.startsWith('/redaktionen')
-        && !['/om-oss', '/kontakt', '/villkor', '/integritetspolicy', '/explore'].includes(p));
+        && !['/om-oss', '/kontakt', '/villkor', '/integritetspolicy', '/explore', '/bildkredit'].includes(p));
 
     expect(articlePaths.length).toBe(19);
 
@@ -159,5 +159,90 @@ test.describe('Served HTML is crawlable', () => {
     const response = await page.request.get('/ads.txt');
     expect(response.status()).toBe(200);
     expect(await response.text()).toContain('pub-2203695397498260');
+  });
+});
+
+/**
+ * The articles used to hotlink 25 images from media.cylex.se, fbcdn.net,
+ * via.tt.se, cms.goteborg.com, imageproxy.wolt.com and the venues' own sites.
+ * None of it was licensed, two already 404'd, and even the freely licensed
+ * Wikimedia files carried no attribution, which breaches CC BY and CC BY-SA.
+ */
+test.describe('Images are self-hosted and attributed', () => {
+  const ARTICLE = '/basta-brunchstallena-goteborg';
+
+  const articlePaths = async (request: any) => {
+    const xml = await (await request.get('/sitemap.xml')).text();
+    return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)]
+      .map(m => new URL(m[1]).pathname)
+      .filter(
+        p =>
+          p !== '/' &&
+          !p.startsWith('/kategori/') &&
+          !p.startsWith('/redaktionen') &&
+          !['/om-oss', '/kontakt', '/villkor', '/integritetspolicy', '/explore', '/bildkredit'].includes(p)
+      );
+  };
+
+  test('no page loads an image from a third-party host', async ({ page }) => {
+    for (const path of ['/', ARTICLE, '/kategori/mat-och-dryck']) {
+      const html = await fetchHtml(page.request, path);
+      const srcs = [...html.matchAll(/<img[^>]+src="([^"]+)"/g)].map(m => m[1]);
+      expect(srcs.length, `images on ${path}`).toBeGreaterThan(0);
+      for (const src of srcs) {
+        expect(src, `${src} on ${path} is not self-hosted`).toMatch(/^\/img\//);
+      }
+    }
+  });
+
+  test('every article lead image is served and credited', async ({ page }) => {
+    const paths = await articlePaths(page.request);
+    expect(paths.length).toBe(19);
+
+    for (const path of paths) {
+      const html = await fetchHtml(page.request, path);
+
+      // Search the body only: the head also mentions the image in og:image.
+      const body = html.slice(html.indexOf('<div id="root">'));
+
+      const src = body.match(/<img src="(\/img\/[^"]+)"[^>]*loading="eager"/)?.[1];
+      expect(src, `lead image on ${path}`).toBeTruthy();
+      const img = await page.request.get(src!);
+      expect(img.status(), `GET ${src}`).toBe(200);
+      expect(img.headers()['content-type']).toContain('image/');
+
+      // Attribution: a named author linking to the Commons file page, and the
+      // licence. Public domain files carry no licence URL, so assert the name.
+      const figure = body.slice(body.indexOf(src!));
+      expect(figure, `credit on ${path}`).toContain('commons.wikimedia.org/wiki/File:');
+      expect(figure, `photographer on ${path}`).toContain('Foto:');
+      expect(figure, `licence on ${path}`).toMatch(/CC BY|CC0|Public domain/);
+    }
+  });
+
+  test('og:image and schema.org image are absolute URLs', async ({ page }) => {
+    const html = await fetchHtml(page.request, ARTICLE);
+    const og = html.match(/property="og:image" content="([^"]+)"/)?.[1];
+    expect(og).toBeTruthy();
+    // A relative /img/... would be unusable to Facebook, Slack or Google.
+    expect(og!.startsWith('https://')).toBe(true);
+
+    const article = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+      .map(m => JSON.parse(m[1]))
+      .find(b => b['@type'] === 'NewsArticle');
+    for (const img of article.image) {
+      expect(img.startsWith('https://')).toBe(true);
+    }
+  });
+
+  test('the credits page lists every image on the site', async ({ page }) => {
+    const paths = await articlePaths(page.request);
+    const html = await fetchHtml(page.request, '/bildkredit');
+    const listed = new Set(
+      [...html.matchAll(/commons\.wikimedia\.org\/wiki\/(File:[^"]+)/g)].map(m => m[1])
+    );
+    // One lead image per article, plus any extras.
+    expect(listed.size).toBeGreaterThanOrEqual(paths.length);
+    expect(visibleText(html)).toContain('Bildkrediter');
   });
 });

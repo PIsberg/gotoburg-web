@@ -18,5 +18,18 @@ export const SITE_DESCRIPTION =
 export const SITE_LOCALE = 'sv_SE';
 export const CONTACT_EMAIL = 'redaktionen@gotoburg.se';
 
+/**
+ * Google Search Console ownership token, from the "HTML tag" verification
+ * method. scripts/prerender.mjs emits it as
+ * <meta name="google-site-verification"> on every page.
+ *
+ * Set GOOGLE_SITE_VERIFICATION as a Netlify build environment variable, or
+ * paste the token here as the fallback if you would rather have it in the repo.
+ * Google only reads it on the URL you claim, so the property you verify must
+ * match SITE_URL above.
+ */
+export const GOOGLE_SITE_VERIFICATION =
+  (typeof process !== 'undefined' && process.env?.GOOGLE_SITE_VERIFICATION) || '';
+
 export const absoluteUrl = (path: string): string =>
   `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;

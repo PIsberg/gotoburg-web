@@ -8,6 +8,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
+import ImageCreditsPage from './pages/ImageCreditsPage';
 import EditorialTeamPage from './pages/EditorialTeamPage';
 import AuthorPage from './pages/AuthorPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -32,6 +33,7 @@ export const AppRoutes: React.FC = () => (
       <Route path="/kontakt" element={<ContactPage />} />
       <Route path="/integritetspolicy" element={<PrivacyPage />} />
       <Route path="/villkor" element={<TermsPage />} />
+      <Route path="/bildkredit" element={<ImageCreditsPage />} />
       {/* Article slugs are the catch-all; ArticlePage renders NotFoundPage for
           a slug that does not resolve. */}
       <Route path="/:slug" element={<ArticlePage />} />

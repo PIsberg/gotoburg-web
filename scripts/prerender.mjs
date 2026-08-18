@@ -17,7 +17,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 const ssrEntry = path.join(root, '.ssr', 'entry-server.js');
 
-const { render, routes } = await import(pathToFileURL(ssrEntry).href);
+const { render, routes, siteVerification } = await import(pathToFileURL(ssrEntry).href);
 
 
 const template = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
@@ -31,6 +31,8 @@ const escapeAttr = str =>
 
 /** JSON-LD sits in a <script>, so the only dangerous sequence is a closing tag. */
 const escapeJsonLd = obj => JSON.stringify(obj).split('<').join('\\u003c');
+
+const verification = siteVerification();
 
 const headFor = meta => {
   const tags = [
@@ -47,6 +49,11 @@ const headFor = meta => {
     `<meta name="twitter:title" content="${escapeAttr(meta.title)}" />`,
     `<meta name="twitter:description" content="${escapeAttr(meta.description)}" />`,
   ];
+  // Search Console checks this on the exact URL being claimed, so it goes on
+  // every page rather than only the home page.
+  if (verification) {
+    tags.push(`<meta name="google-site-verification" content="${escapeAttr(verification)}" />`);
+  }
   if (meta.image) {
     tags.push(`<meta property="og:image" content="${escapeAttr(meta.image)}" />`);
     tags.push(`<meta name="twitter:image" content="${escapeAttr(meta.image)}" />`);
@@ -171,3 +178,8 @@ fs.writeFileSync(path.join(dist, 'robots.txt'), robots, 'utf8');
 
 console.log(`\nPrerendered ${pages.length} routes + 404.html, sitemap.xml, robots.txt`);
 console.log(`Canonical origin: ${siteOrigin}`);
+console.log(
+  verification
+    ? 'Search Console verification tag: present'
+    : 'Search Console verification tag: NOT SET (set GOOGLE_SITE_VERIFICATION to emit it)'
+);

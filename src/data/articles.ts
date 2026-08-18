@@ -30,9 +30,16 @@ export const articles = [
     "author": "Peter Isberg",
     "publishedAt": "2026-04-25",
     "category": "Mat & Dryck",
-    "imageUrl": "https://media.cylex.se/companies/1241/8152/logo/logo43403652.jpg",
+    "imageUrl": "/img/haklapp-pa-goteboil-levererar-en-festlig-skaldjursupplevelse-utover-det-vanliga-i-goteborg.jpg",
     "additionalImages": [],
-    "googleMapsUrl": "https://www.google.com/maps/place/G%C3%B6teboil/@57.7002417,11.9542399,17z/data=!4m6!3m5!1s0x464ff34fbbe95c5b:0x9d11ced83c05f64b!8m2!3d57.7002389!4d11.9568202!16s%2Fg%2F11zj34925s?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D"
+    "googleMapsUrl": "https://www.google.com/maps/place/G%C3%B6teboil/@57.7002417,11.9542399,17z/data=!4m6!3m5!1s0x464ff34fbbe95c5b:0x9d11ced83c05f64b!8m2!3d57.7002389!4d11.9568202!16s%2Fg%2F11zj34925s?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D",
+    "imageCredit": {
+      "file": "Crawfish boil.jpeg",
+      "author": "User:zacearly",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crawfish_boil.jpeg"
+    }
   },
   {
     "id": "7",
@@ -60,9 +67,16 @@ export const articles = [
     "author": "Peter Isberg",
     "publishedAt": "2025-12-14",
     "category": "Mat & Dryck",
-    "imageUrl": "https://billetto.imgix.net/pg5tsie3jrdr9bbdj01cvj7q8xec?w=1440&h=810&fit=crop&auto=compress%2Cformat&rect=0%2C130%2C940%2C529&s=59aed5ac5b51035e2cf62b3f8bdfc428",
+    "imageUrl": "/img/goteborg-far-en-alkoholfri-oas-jarn-mocktail-bar-oppnar-i-feskekorka.jpg",
     "additionalImages": [],
-    "googleMapsUrl": "https://www.google.com/maps/place/Feskek%C3%B4rka,+411+20+G%C3%B6teborg/@57.7011008,11.9551992,17z/data=!3m1!4b1!4m6!3m5!1s0x464ff369ad5ca32d:0x1c0d4c405eda660a!8m2!3d57.701098!4d11.9577741!16s%2Fg%2F1q67s49_z?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D"
+    "googleMapsUrl": "https://www.google.com/maps/place/Feskek%C3%B4rka,+411+20+G%C3%B6teborg/@57.7011008,11.9551992,17z/data=!3m1!4b1!4m6!3m5!1s0x464ff369ad5ca32d:0x1c0d4c405eda660a!8m2!3d57.701098!4d11.9577741!16s%2Fg%2F1q67s49_z?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D",
+    "imageCredit": {
+      "file": "Feskekôrka September 2016 01.jpg",
+      "author": "Arild Vågen",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Feskek%C3%B4rka_September_2016_01.jpg"
+    }
   },
   {
     "id": "6",
@@ -94,10 +108,15 @@ export const articles = [
     "author": "Peter Isberg",
     "publishedAt": "2025-12-14",
     "category": "Vad är på gång",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Sp%C3%A5rvagnslinje_12.svg/500px-Sp%C3%A5rvagnslinje_12.svg.png",
-    "additionalImages": [
-      "https://via.tt.se/data/images/public/3072694/3831745/f66aa4fe-702f-4a41-a159-871265ebe5ce-w_960.jpg"
-    ]
+    "imageUrl": "/img/goteborgs-nya-sparvagnslinje-12-ar-har.jpg",
+    "additionalImages": [],
+    "imageCredit": {
+      "file": "M33 Göteborg.jpg",
+      "author": "LeoLikesTrains",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:M33_G%C3%B6teborg.jpg"
+    }
   },
   {
     "id": "1",
@@ -107,7 +126,7 @@ export const articles = [
     "author": "GotoBurgs redaktion",
     "publishedAt": "2025-11-10",
     "category": "Mat & Dryck",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/G%C3%B6teborg_Panorama.jpg/1280px-G%C3%B6teborg_Panorama.jpg",
+    "imageUrl": "/img/goteborg-hantverksolens-huvudstad.jpg",
     "additionalImages": [],
     "content": [
       "Göteborg har på ungefär ett decennium gått från att vara en stad med ett par bryggerier till att vara den svenska adress ölentusiaster reser till. Internationella rankningslistor placerar återkommande göteborgsöl högt, och flera av bryggerierna säljer i dag mer utomlands än hemma.",
@@ -133,7 +152,14 @@ export const articles = [
       "## Var man börjar",
       "Har du en eftermiddag i Göteborg och vill förstå stadens öl räcker Majorna och Ringön långt. Områdena ligger nära varandra, tätheten av bryggerier är hög och avstånden går att gå.",
       "Har du bara ett glas, ta en färsk West Coast IPA. Det är den öl som gjorde staden känd, och den fungerar fortfarande som förklaring till varför."
-    ]
+    ],
+    "imageCredit": {
+      "file": "Göteborg Panorama.jpg",
+      "author": "Amjad Sheikh",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:G%C3%B6teborg_Panorama.jpg"
+    }
   },
   {
     "id": "2",
@@ -143,7 +169,7 @@ export const articles = [
     "author": "GotoBurgs redaktion",
     "publishedAt": "2025-10-15",
     "category": "Natur",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/Delsj%C3%B6n.jpg",
+    "imageUrl": "/img/guide-delsjoomradet-naturreservat-goteborg.jpg",
     "additionalImages": [],
     "content": [
       "Delsjöområdets naturreservat ligger ett par kilometer öster om Göteborgs stadskärna och är den friluftsmiljö flest göteborgare faktiskt använder. Inte den mest dramatiska i regionen, men den som går att nå på en kvart efter jobbet, vilket i praktiken betyder mer.",
@@ -170,7 +196,14 @@ export const articles = [
       "## Fika och avslutning",
       "Nordost om Stora Delsjön ligger en kaffestuga som är den klassiska avslutningen på rundan. Öppettiderna är säsongsbetonade, så räkna inte med den som lunchplan en tisdag i november.",
       "Ta med vatten. Det finns långa partier utan service, och sjövattnet är inte dricksvatten oavsett hur klart det ser ut."
-    ]
+    ],
+    "imageCredit": {
+      "file": "Delsjön.jpg",
+      "author": "Stuart Chalmers from Paisley, Scotland",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Delsj%C3%B6n.jpg"
+    }
   },
   {
     "id": "3",
@@ -180,7 +213,7 @@ export const articles = [
     "author": "GotoBurgs redaktion",
     "publishedAt": "2025-09-20",
     "category": "Arbete",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/45/Lindholmen_Science_Park.jpg",
+    "imageUrl": "/img/lindholmen-science-park-goteborg-framtidens-arbetsplats.jpg",
     "additionalImages": [],
     "content": [
       "Lindholmen ligger på Hisingssidan av Göta älv, rakt över vattnet från centrala Göteborg. På den ytan finns drygt 250 företag med sammanlagt 24 000 anställda, och varje dag rör sig omkring 30 000 personer i området.",
@@ -203,7 +236,14 @@ export const articles = [
       "## För dig som inte jobbar här",
       "Lindholmen är ingen sluten anläggning. Kajstråket längs älven är öppet, utsikten mot centrala Göteborg är en av de bättre i staden och flera av lunchställena tar emot vem som helst.",
       "Det arrangeras också konferenser, mässor och öppna evenemang i området under året. Vad som är på gång just nu står hos Lindholmen Science Park själva, inte här."
-    ]
+    ],
+    "imageCredit": {
+      "file": "Lindholmen Science Park.jpg",
+      "author": "Bulver",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lindholmen_Science_Park.jpg"
+    }
   },
   {
     "id": "4",
@@ -213,9 +253,9 @@ export const articles = [
     "author": "GotoBurgs redaktion",
     "publishedAt": "2025-08-05",
     "category": "Aktiviteter",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/14/Universeum2.JPG",
+    "imageUrl": "/img/basta-familjeaktiviteterna-goteborg-universeum-liseberg.jpg",
     "additionalImages": [
-      "https://cms.goteborg.com/uploads/2021/05/Liseberg_Kaninoppet_Flygis_1_s2025-1_43.jpg"
+      "/img/basta-familjeaktiviteterna-goteborg-universeum-liseberg-2.jpg"
     ],
     "content": [
       "Göteborg är byggt så att en familjedag faktiskt går att genomföra. Avstånden är korta, spårvagnarna går ofta och de tre tyngsta besöksmålen för barn ligger nära varandra. Det är en större fördel än något enskilt av dem.",
@@ -240,6 +280,22 @@ export const articles = [
       "Universeum och Liseberg ligger båda vid Korsvägen och nås av flera spårvagnslinjer. Slottsskogen ligger några hållplatser bort vid Linnéplatsen. Hela triangeln går att röra sig i på under tjugo minuter åt gången.",
       "Försök inte klämma in två stora betalattraktioner samma dag med barn under sex år. Universeum tar tre till fyra timmar om man gör det ordentligt, och Liseberg äter en hel dag. Kombinationen som brukar fungera är ett betalt besök på förmiddagen och Slottsskogen på eftermiddagen, när alla ändå behöver springa av sig.",
       "Ta med regnkläder oavsett prognos. Göteborg heter wetcoasten av en anledning."
+    ],
+    "imageCredit": {
+      "file": "Universeum2.JPG",
+      "author": "Erik031",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Universeum2.JPG"
+    },
+    "additionalImageCredits": [
+      {
+        "file": "Slottsskogen Göteborg.jpg",
+        "author": "unknown photograf",
+        "licence": "Public domain",
+        "licenceUrl": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Slottsskogen_G%C3%B6teborg.jpg"
+      }
     ]
   },
   {
@@ -250,7 +306,7 @@ export const articles = [
     "author": "GotoBurgs redaktion",
     "publishedAt": "2025-07-12",
     "category": "Mat & Dryck",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Haganygata.jpg",
+    "imageUrl": "/img/basta-brunchstallena-goteborg.jpg",
     "additionalImages": [],
     "content": [
       "Brunchen har en stadigare position i Göteborg än i de flesta svenska städer. Varje lördag och söndag fylls restauranger runt om i staden av gäster som inte har någon brådska alls, och utbudet har vuxit från hotellfrukost till en egen kategori med bufféer, à la carte och allt däremellan.",
@@ -279,7 +335,14 @@ export const articles = [
       "Kolla vad som ingår. Kaffe och juice ingår ofta i buffépriset men inte alltid, och bubbel eller mimosa är nästan aldrig inkluderat. Det är den vanligaste orsaken till att notan blir en annan än man räknat med.",
       "Har någon i sällskapet allergi eller äter växtbaserat är en buffé svårare än à la carte, eftersom serveringsredskap delas mellan faten. Ring i förväg i stället för att fråga vid bordet.",
       "Öppettider, priser och sittningar ändras löpande. Kontrollera hos respektive ställe innan du planerar helgen efter dem."
-    ]
+    ],
+    "imageCredit": {
+      "file": "Haganygata.jpg",
+      "author": "Photographer: Erik of Gothenburg, EVL.",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Haganygata.jpg"
+    }
   },
   {
     "id": "10",
@@ -314,9 +377,16 @@ export const articles = [
     "author": "Peter Isberg",
     "publishedAt": "2026-05-07",
     "category": "Vad är på gång",
-    "imageUrl": "https://cms.goteborg.com/uploads/2026/01/activatenordstan.jpg",
+    "imageUrl": "/img/activate-nordstan-skandinaviens-forsta-aktivitetscenter-postgatan-goteborg.jpg",
     "additionalImages": [],
-    "googleMapsUrl": "https://www.google.com/maps/place/Postgatan+39,+411+13+G%C3%B6teborg/@57.7085,11.9695,17z"
+    "googleMapsUrl": "https://www.google.com/maps/place/Postgatan+39,+411+13+G%C3%B6teborg/@57.7085,11.9695,17z",
+    "imageCredit": {
+      "file": "Entrance to Nordstan from Brunnsparken in Gothenburg.jpg",
+      "author": "W.carter",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Entrance_to_Nordstan_from_Brunnsparken_in_Gothenburg.jpg"
+    }
   },
   {
     "id": "9",
@@ -352,9 +422,16 @@ export const articles = [
     "author": "Peter Isberg",
     "publishedAt": "2026-05-05",
     "category": "Mat & Dryck",
-    "imageUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/147f14b64ec24fbdbb7a35557654e40d.jpg?w=1200&h=1200&org_if_sml=1",
+    "imageUrl": "/img/hoze-michelinstjarna-sushi-omakase-masthugget-goteborg.jpg",
     "additionalImages": [],
-    "googleMapsUrl": "https://www.google.com/maps/place/Hoze/@57.699405,11.9350685,17z"
+    "googleMapsUrl": "https://www.google.com/maps/place/Hoze/@57.699405,11.9350685,17z",
+    "imageCredit": {
+      "file": "Stigbergsliden september 2010.jpg",
+      "author": "Ankara",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stigbergsliden_september_2010.jpg"
+    }
   },
   {
     "id": "11",
@@ -389,11 +466,16 @@ export const articles = [
     "author": "Peter Isberg",
     "publishedAt": "2026-05-03",
     "category": "Mat & Dryck",
-    "imageUrl": "https://izakaya.nu/wp-content/uploads/Izakaya-greewall-n-table-hero-1024x683.webp",
-    "additionalImages": [
-      "https://izakaya.nu/wp-content/uploads/IZAKAYA-private-wooden-booths-edited.webp"
-    ],
-    "googleMapsUrl": "https://www.google.com/maps/place/Izakaya+by+KOMO/@57.7095,11.9628,17z"
+    "imageUrl": "/img/izakaya-by-komo-japansk-gastropub-sankt-eriksgatan-goteborg.jpg",
+    "additionalImages": [],
+    "googleMapsUrl": "https://www.google.com/maps/place/Izakaya+by+KOMO/@57.7095,11.9628,17z",
+    "imageCredit": {
+      "file": "GoteborgsOperan.jpg",
+      "author": "Krm500",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:GoteborgsOperan.jpg"
+    }
   },
   {
     "id": "12",
@@ -431,9 +513,16 @@ export const articles = [
     "author": "GotoBurgs redaktion",
     "publishedAt": "2026-05-01",
     "category": "Natur",
-    "imageUrl": "https://www.vastsverige.com/globalassets/migratedresources/mark/en-mossig-skog-i-marks-kommun.jpg?w=670&h=380&m=Crop&f=webp&q=75",
+    "imageUrl": "/img/hyssnaleden-europas-basta-vandringsleder-marks-kommun.jpg",
     "additionalImages": [],
-    "googleMapsUrl": "https://www.google.com/maps/place/Hyssna+gamla+kyrka/@57.5572,12.5327,14z"
+    "googleMapsUrl": "https://www.google.com/maps/place/Hyssna+gamla+kyrka/@57.5572,12.5327,14z",
+    "imageCredit": {
+      "file": "Hyssna gamla kyrka.jpg",
+      "author": "Kemitsv",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyssna_gamla_kyrka.jpg"
+    }
   },
   {
     "id": "13",
@@ -468,9 +557,16 @@ export const articles = [
     "author": "Peter Isberg",
     "publishedAt": "2026-04-29",
     "category": "Mat & Dryck",
-    "imageUrl": "https://imageproxy.wolt.com/assets/692956da4be0f0d2140f65da",
+    "imageUrl": "/img/k-bunsik-koreansk-streetfood-anna-kim-molndalsvagen-goteborg.jpg",
     "additionalImages": [],
-    "googleMapsUrl": "https://www.google.com/maps/place/K-Bunsik/@57.680647,12.002018,17z"
+    "googleMapsUrl": "https://www.google.com/maps/place/K-Bunsik/@57.680647,12.002018,17z",
+    "imageCredit": {
+      "file": "Mölndalsvägen 89.jpg",
+      "author": "Vogler",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:M%C3%B6lndalsv%C3%A4gen_89.jpg"
+    }
   },
   {
     "id": "14",
@@ -507,12 +603,16 @@ export const articles = [
     "author": "Peter Isberg",
     "publishedAt": "2026-04-28",
     "category": "Aktiviteter",
-    "imageUrl": "https://www.fairwaysandfriends.se/assets/hero-b6-mbaoI.jpg",
-    "additionalImages": [
-      "https://www.fairwaysandfriends.se/assets/benefit01--JOAaW6G.jpg",
-      "https://www.fairwaysandfriends.se/assets/benefit02-DMpAqJSv.jpg"
-    ],
-    "googleMapsUrl": "https://www.google.com/maps/place/Fairways+and+Friends/@57.699558,11.9731295,17z"
+    "imageUrl": "/img/fairways-and-friends-trackman-golfsimulator-avenyn-goteborg.jpg",
+    "additionalImages": [],
+    "googleMapsUrl": "https://www.google.com/maps/place/Fairways+and+Friends/@57.699558,11.9731295,17z",
+    "imageCredit": {
+      "file": "Kungsportsavenyn (Avenyn) Göteborg (2009).JPG",
+      "author": "Gumisza",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kungsportsavenyn_(Avenyn)_G%C3%B6teborg_(2009).JPG"
+    }
   },
   {
     "id": "15",
@@ -546,9 +646,16 @@ export const articles = [
     "author": "Peter Isberg",
     "publishedAt": "2026-04-27",
     "category": "Mat & Dryck",
-    "imageUrl": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1280&auto=format&fit=crop",
+    "imageUrl": "/img/sushi-lee-g-tryffelmaki-linnegatan-goteborg.jpg",
     "additionalImages": [],
-    "googleMapsUrl": "https://www.google.com/maps/place/Sushi+Lee+G/@57.6930554,11.9529655,17z"
+    "googleMapsUrl": "https://www.google.com/maps/place/Sushi+Lee+G/@57.6930554,11.9529655,17z",
+    "imageCredit": {
+      "file": "Linnégatan July 2024 01.jpg",
+      "author": "ArildV",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Linn%C3%A9gatan_July_2024_01.jpg"
+    }
   },
   {
     "id": "16",
@@ -584,9 +691,16 @@ export const articles = [
     "author": "Peter Isberg",
     "publishedAt": "2026-04-26",
     "category": "Mat & Dryck",
-    "imageUrl": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=1280&auto=format&fit=crop",
+    "imageUrl": "/img/stranger-cocktailbar-speakeasy-kungstorget-goteborg.jpg",
     "additionalImages": [],
-    "googleMapsUrl": "https://www.google.com/maps/place/Stranger/@57.7027,11.9686,17z"
+    "googleMapsUrl": "https://www.google.com/maps/place/Stranger/@57.7027,11.9686,17z",
+    "imageCredit": {
+      "file": "Kungstorget 10-14.jpg",
+      "author": "Vogler",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kungstorget_10-14.jpg"
+    }
   },
   {
     "id": "17",
@@ -623,11 +737,16 @@ export const articles = [
     "author": "Peter Isberg",
     "publishedAt": "2026-04-25",
     "category": "Mat & Dryck",
-    "imageUrl": "https://shotluckan.se/wp-content/uploads/2025/06/Shotluckan-31-1-1-scaled.jpg",
-    "additionalImages": [
-      "https://shotluckan.se/wp-content/uploads/2025/06/Shotluckan-26-1-scaled.jpg"
-    ],
-    "googleMapsUrl": "https://www.google.com/maps/place/Shotluckan+G%C3%B6teborg/@57.6986,11.9656,17z"
+    "imageUrl": "/img/shotluckan-show-och-shot-bar-viktoriagatan-goteborg.jpg",
+    "additionalImages": [],
+    "googleMapsUrl": "https://www.google.com/maps/place/Shotluckan+G%C3%B6teborg/@57.6986,11.9656,17z",
+    "imageCredit": {
+      "file": "Göteborg Vasaplatsen.jpg",
+      "author": "Henrik Sendelbach",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:G%C3%B6teborg_Vasaplatsen.jpg"
+    }
   },
   {
     "id": "18",
@@ -662,9 +781,16 @@ export const articles = [
     "author": "Peter Isberg",
     "publishedAt": "2026-04-24",
     "category": "Mat & Dryck",
-    "imageUrl": "https://images.unsplash.com/photo-1553621042-f6e147245754?w=1280&auto=format&fit=crop",
+    "imageUrl": "/img/shiro-by-takame-japansk-fusion-lindholmen-goteborg.jpg",
     "additionalImages": [],
-    "googleMapsUrl": "https://www.google.com/maps/place/Shiro/@57.7077,11.9387,17z"
+    "googleMapsUrl": "https://www.google.com/maps/place/Shiro/@57.7077,11.9387,17z",
+    "imageCredit": {
+      "file": "Lindholmsallén 39-31.jpg",
+      "author": "Vogler",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lindholmsall%C3%A9n_39-31.jpg"
+    }
   },
   {
     "id": "19",
@@ -703,8 +829,15 @@ export const articles = [
     "author": "GotoBurgs redaktion",
     "publishedAt": "2026-04-22",
     "category": "Kultur",
-    "imageUrl": "https://scontent.fmmx3-1.fna.fbcdn.net/v/t39.30808-6/550168255_24661949673424819_3881198572181805278_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=25d718&_nc_ohc=BhGguB761BQQ7kNvwE72RcY&_nc_oc=Adrh17SG3JqhlUNKv1Nc9jhNCmRwHYJWvrXs2J1U0JWzkjzry7uo2xpEKT7SjgbfWqw&_nc_zt=23&_nc_ht=scontent.fmmx3-1.fna&_nc_gid=47bBh_KBfuYFgDL8c5FT9w&_nc_ss=7b2a8&oh=00_Af5tNJjvkR1zE4A8tVR7yoZ6MP6XHcmvq4YNKLbISrcm1g&oe=6A0296E3",
+    "imageUrl": "/img/grekiska-foreningen-goteborg-fyrtio-ar-grekisk-kultur-hisings-backa.jpg",
     "additionalImages": [],
-    "googleMapsUrl": "https://www.google.com/maps/place/Grekiska+F%C3%B6reningen+i+G%C3%B6teborg/@57.7565,11.9580,15z"
+    "googleMapsUrl": "https://www.google.com/maps/place/Grekiska+F%C3%B6reningen+i+G%C3%B6teborg/@57.7565,11.9580,15z",
+    "imageCredit": {
+      "file": "Kalamatianos 92nd Tokyo Yushun.jpg",
+      "author": "nakashi",
+      "licence": "CC BY-SA 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kalamatianos_92nd_Tokyo_Yushun.jpg"
+    }
   }
 ];

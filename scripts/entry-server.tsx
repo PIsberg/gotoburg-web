@@ -4,6 +4,7 @@ import { StaticRouter } from 'react-router-dom/server';
 import { AppRoutes } from '../App';
 import { getAllArticles } from '../services/articleService';
 import { allRoutes } from '../src/seo';
+import { GOOGLE_SITE_VERIFICATION } from '../src/site';
 
 /**
  * Server half of the prerender. scripts/prerender.mjs calls render() once per
@@ -18,3 +19,5 @@ export const render = (url: string): string =>
   );
 
 export const routes = () => allRoutes(getAllArticles());
+
+export const siteVerification = () => GOOGLE_SITE_VERIFICATION;

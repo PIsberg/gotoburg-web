@@ -1,0 +1,61 @@
+{
+  "_comment": "slug -> Wikimedia Commons files used as that article's imagery, in order (first is the lead image). scripts/fetch-images.mjs verifies each licence against an allowlist, downloads a 1600px-wide rendition into public/img/ and writes the attribution back into src/data/articles.ts. Every entry must stay a Commons file so provenance is checkable; do not point this at a random URL.",
+  "haklapp-pa-goteboil-levererar-en-festlig-skaldjursupplevelse-utover-det-vanliga-i-goteborg": [
+    "File:Crawfish boil.jpeg"
+  ],
+  "goteborg-far-en-alkoholfri-oas-jarn-mocktail-bar-oppnar-i-feskekorka": [
+    "File:Feskekôrka September 2016 01.jpg"
+  ],
+  "goteborgs-nya-sparvagnslinje-12-ar-har": [
+    "File:M33 Göteborg.jpg"
+  ],
+  "goteborg-hantverksolens-huvudstad": [
+    "File:Göteborg Panorama.jpg"
+  ],
+  "guide-delsjoomradet-naturreservat-goteborg": [
+    "File:Delsjön.jpg"
+  ],
+  "lindholmen-science-park-goteborg-framtidens-arbetsplats": [
+    "File:Lindholmen Science Park.jpg"
+  ],
+  "basta-familjeaktiviteterna-goteborg-universeum-liseberg": [
+    "File:Universeum2.JPG",
+    "File:Slottsskogen Göteborg.jpg"
+  ],
+  "basta-brunchstallena-goteborg": [
+    "File:Haganygata.jpg"
+  ],
+  "activate-nordstan-skandinaviens-forsta-aktivitetscenter-postgatan-goteborg": [
+    "File:Entrance to Nordstan from Brunnsparken in Gothenburg.jpg"
+  ],
+  "hoze-michelinstjarna-sushi-omakase-masthugget-goteborg": [
+    "File:Stigbergsliden september 2010.jpg"
+  ],
+  "izakaya-by-komo-japansk-gastropub-sankt-eriksgatan-goteborg": [
+    "File:GoteborgsOperan.jpg"
+  ],
+  "hyssnaleden-europas-basta-vandringsleder-marks-kommun": [
+    "File:Hyssna gamla kyrka.jpg"
+  ],
+  "k-bunsik-koreansk-streetfood-anna-kim-molndalsvagen-goteborg": [
+    "File:Mölndalsvägen 89.jpg"
+  ],
+  "fairways-and-friends-trackman-golfsimulator-avenyn-goteborg": [
+    "File:Kungsportsavenyn (Avenyn) Göteborg (2009).JPG"
+  ],
+  "sushi-lee-g-tryffelmaki-linnegatan-goteborg": [
+    "File:Linnégatan July 2024 01.jpg"
+  ],
+  "stranger-cocktailbar-speakeasy-kungstorget-goteborg": [
+    "File:Kungstorget 10-14.jpg"
+  ],
+  "shotluckan-show-och-shot-bar-viktoriagatan-goteborg": [
+    "File:Göteborg Vasaplatsen.jpg"
+  ],
+  "shiro-by-takame-japansk-fusion-lindholmen-goteborg": [
+    "File:Lindholmsallén 39-31.jpg"
+  ],
+  "grekiska-foreningen-goteborg-fyrtio-ar-grekisk-kultur-hisings-backa": [
+    "File:Kalamatianos 92nd Tokyo Yushun.jpg"
+  ]
+}

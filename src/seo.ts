@@ -48,6 +48,10 @@ const authorNode = (name: string) => {
   };
 };
 
+/** og:image and schema.org image must be absolute; article.imageUrl is now /img/... */
+const imageUrl = (src?: string) =>
+  !src ? undefined : src.startsWith('http') ? src : absoluteUrl(src);
+
 const truncate = (text: string, max = 158) => {
   const clean = text.replace(/\s+/g, ' ').trim();
   if (clean.length <= max) return clean;
@@ -66,7 +70,7 @@ export const articleMeta = (article: Article): PageMeta => {
     description: truncate(article.excerpt),
     canonical,
     ogType: 'article',
-    image: article.imageUrl,
+    image: imageUrl(article.imageUrl),
     published: article.publishedAt,
     priority: '0.8',
     jsonLd: [
@@ -76,7 +80,7 @@ export const articleMeta = (article: Article): PageMeta => {
         mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
         headline: article.title,
         description: article.excerpt,
-        image: [article.imageUrl, ...(article.additionalImages || [])],
+        image: [article.imageUrl, ...(article.additionalImages || [])].map(imageUrl),
         datePublished: article.publishedAt,
         dateModified: article.publishedAt,
         author: authorNode(article.author),
@@ -101,7 +105,7 @@ const homeMeta = (articles: Article[]): PageMeta => ({
   description: truncate(SITE_DESCRIPTION),
   canonical: absoluteUrl('/'),
   ogType: 'website',
-  image: articles[0] && articles[0].imageUrl,
+  image: imageUrl(articles[0] && articles[0].imageUrl),
   priority: '1.0',
   jsonLd: [
     {
@@ -133,7 +137,7 @@ const categoryMeta = (category: Category, articles: Article[]): PageMeta => {
     description: truncate(category.description),
     canonical: absoluteUrl(path),
     ogType: 'website',
-    image: inCategory[0] && inCategory[0].imageUrl,
+    image: imageUrl(inCategory[0] && inCategory[0].imageUrl),
     published: inCategory[0] && inCategory[0].publishedAt,
     priority: '0.6',
     jsonLd: [
@@ -205,6 +209,13 @@ const STATIC_PAGES: StaticPageSpec[] = [
     title: 'Integritetspolicy',
     description:
       'Hur GotoBurg behandlar personuppgifter, vilka cookies som används och hur du ändrar ditt samtycke.',
+    priority: '0.3',
+  },
+  {
+    path: '/bildkredit',
+    title: 'Bildkrediter — fotografer och licenser',
+    description:
+      'Varje bild på GotoBurg med fotograf, licens och länk till originalet på Wikimedia Commons.',
     priority: '0.3',
   },
   {

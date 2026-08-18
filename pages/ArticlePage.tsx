@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import AdSense from '../components/AdSense';
+import ImageCredit from '../components/ImageCredit';
 import { getArticleBySlug, getRelatedArticles } from '../services/articleService';
 import NotFoundPage from './NotFoundPage';
 import { absoluteUrl } from '../src/site';
@@ -113,8 +114,20 @@ const ArticlePage: React.FC = () => {
 
         {/* Featured Image */}
         <figure className="mb-10">
-          <img src={article.imageUrl} alt={article.title} className="w-full h-[400px] md:h-[520px] object-cover rounded-sm" />
-          <figcaption className="text-center text-xs text-gray-400 mt-3 italic">{article.title}</figcaption>
+          <img
+            src={article.imageUrl}
+            alt={article.title}
+            className="w-full h-[400px] md:h-[520px] object-cover rounded-sm"
+            width={1200}
+            height={520}
+            // The lead image is the largest contentful paint on an article page,
+            // so it must not be lazy or deprioritised.
+            loading="eager"
+            // Lowercase and spread: React 18 warns on unknown camelCase props,
+            // and fetchPriority only became a known prop in React 19.
+            {...{ fetchpriority: 'high' }}
+          />
+          <ImageCredit credit={article.imageCredit} />
         </figure>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -145,7 +158,15 @@ const ArticlePage: React.FC = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {article.additionalImages.map((img, i) => (
-                    <img key={i} src={img} alt={`Bild ${i + 1}`} className="w-full h-64 object-cover rounded-sm" />
+                    <figure key={i}>
+                      <img
+                        src={img}
+                        alt={`${article.title}, bild ${i + 2}`}
+                        className="w-full h-64 object-cover rounded-sm"
+                        loading="lazy"
+                      />
+                      <ImageCredit credit={article.additionalImageCredits?.[i]} />
+                    </figure>
                   ))}
                 </div>
               </div>

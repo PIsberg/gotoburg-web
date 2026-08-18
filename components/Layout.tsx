@@ -165,6 +165,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <li><a href="mailto:peter@gotoburg.se?subject=Annonsering" className="text-gray-500 hover:text-white transition-colors">Annonsera</a></li>
                 <li><Link to="/integritetspolicy" className="text-gray-500 hover:text-white transition-colors">Integritetspolicy</Link></li>
                 <li><Link to="/villkor" className="text-gray-500 hover:text-white transition-colors">Användarvillkor</Link></li>
+                <li><Link to="/bildkredit" className="text-gray-500 hover:text-white transition-colors">Bildkrediter</Link></li>
               </ul>
             </div>
           </div>

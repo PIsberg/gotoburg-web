@@ -8,6 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run dev` — start the Vite dev server for the public site
 - `npm run build` — full production build: `build:client` (Vite), then `build:ssr` (an SSR bundle of `scripts/entry-server.tsx` into `.ssr/`), then `prerender`. This is what gets deployed to Netlify, not the source folder.
 - `npm run prerender` — run `scripts/prerender.mjs` alone against an existing `dist/` and `.ssr/`
+- `node scripts/fetch-images.mjs` — re-download the article imagery from Wikimedia Commons and rewrite the attribution into `src/data/articles.ts`. Maintenance tool, not part of the build. Edit `scripts/images.manifest.json` first.
 - `npm run serve` — serve `dist/` on port 4173 with Netlify's URL resolution (`scripts/serve-dist.mjs`). Use this, not `npm run preview`, when checking the built site: `vite preview` serves the SPA fallback for every path and hides prerender breakage.
 - `npm run preview` — Vite's own preview. Only useful for the client bundle; it does not serve the prerendered per-route files.
 - `npm run admin` — start the local admin tool on http://localhost:3001 (loads `.env.local` via `node --env-file`)
@@ -44,6 +45,23 @@ This is the part the AdSense rejection was about, so it is worth knowing before 
 - `scripts/prerender.mjs` walks that list, renders each route via `scripts/entry-server.tsx`, injects the head tags into the built `index.html` shell and writes the file. It also emits `sitemap.xml`, `robots.txt` and `404.html`, and it fails the build if any route renders under 500 bytes.
 - Structured data per page type: `NewsArticle` + `BreadcrumbList` on articles, `CollectionPage` on categories, `ProfilePage` on author pages, `WebSite` + `Organization` on the home page.
 - `tests/e2e/seo.spec.ts` asserts all of this against the served HTML using `page.request`, which runs no JavaScript. If a change makes the site client-rendered again, those tests go red where the rest of the suite would stay green.
+
+### Images
+
+Every article image is a Wikimedia Commons file under a licence that permits commercial reuse, downloaded into `public/img/` and served from our own origin.
+
+- `scripts/images.manifest.json` maps each article slug to its Commons file titles, lead image first. It is the only place images are chosen.
+- `node scripts/fetch-images.mjs` reads that manifest, queries the Commons API for licence and author, **aborts the whole run** if any file is missing, unattributed, or under a licence outside the allowlist (CC0, CC BY, CC BY-SA, public domain), then downloads a 1200px rendition and writes `imageCredit` back onto the article.
+- `article.imageUrl` must stay a site-relative `/img/...` path. Do not hotlink. Before August 2026 the articles pulled 25 images from `media.cylex.se`, `scontent.fbcdn.net`, `via.tt.se`, `cms.goteborg.com`, `imageproxy.wolt.com` and the venues' own sites; none was licensed, and two already returned 403.
+- CC BY and CC BY-SA require attribution wherever the work appears. `components/ImageCredit.tsx` renders it under the image on the article page, and `/bildkredit` lists every image on the site. Removing either breaks the licence terms, not just the styling.
+- Public domain files have no `licenceUrl`. Handle that case rather than rendering an empty `href`.
+
+### Google Search Console
+
+- The ownership token goes in `GOOGLE_SITE_VERIFICATION`, read at build time by `src/site.ts` and emitted by `scripts/prerender.mjs` as `<meta name="google-site-verification">` on every prerendered page. Set it as a Netlify build environment variable, or paste it as the fallback in `src/site.ts`.
+- The build prints whether the tag is present. If it says `NOT SET`, verification will fail no matter what Search Console says.
+- The property you verify must match `SITE_URL`. Verifying `gotoburg.netlify.app` does nothing for `www.gotoburg.se`.
+- `sitemap.xml` is generated on every build, so it never needs re-submitting after a content change; Google re-fetches it.
 
 ### Admin tool (separate process, not part of the deployed site)
 

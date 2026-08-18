@@ -1,3 +1,19 @@
+/**
+ * Attribution for one image. CC BY and CC BY-SA both require naming the author
+ * and the licence and linking back to the source, so an image without this is
+ * an image the site is not allowed to publish. scripts/fetch-images.mjs fills
+ * it in from the Wikimedia Commons API; do not hand-write it.
+ */
+export interface ImageCredit {
+  /** Commons file name, e.g. "Haganygata.jpg" */
+  file: string;
+  author: string;
+  licence: string;
+  licenceUrl: string;
+  /** Commons file description page */
+  sourceUrl: string;
+}
+
 export interface Article {
   id: string;
   slug: string;
@@ -7,8 +23,11 @@ export interface Article {
   author: string;
   publishedAt: string;
   category: string;
+  /** Site-relative path under /img/. Never an external URL: see scripts/images.manifest.json. */
   imageUrl: string;
+  imageCredit?: ImageCredit;
   additionalImages?: string[];
+  additionalImageCredits?: ImageCredit[];
   googleMapsUrl?: string; // Optional Google Maps URL
 }
 
