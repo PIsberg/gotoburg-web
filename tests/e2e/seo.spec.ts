@@ -160,6 +160,29 @@ test.describe('Served HTML is crawlable', () => {
     expect(response.status()).toBe(200);
     expect(await response.text()).toContain('pub-2203695397498260');
   });
+
+  /**
+   * The Search Console property is verified twice over: by Google Analytics,
+   * which depends on the gtag.js snippet staying in index.html, and by this
+   * meta tag. If the tag silently stops being emitted the build still passes
+   * and the site still works, so nothing else would notice until the day the
+   * analytics snippet is removed and the property unverifies.
+   */
+  test('every page carries the Search Console verification tag', async ({ page }) => {
+    const paths = ['/', ARTICLE_PATH, '/kategori/mat-och-dryck', '/om-oss'];
+
+    for (const path of paths) {
+      const html = await fetchHtml(page.request, path);
+      const tags = html.match(
+        /<meta name="google-site-verification" content="([^"]+)"/g,
+      );
+
+      expect(tags?.length, `verification tag on ${path}`).toBe(1);
+      expect(tags![0], `token on ${path}`).toContain(
+        '92VWYdQb7d01q3BXJtJnAht912sz-uRBpmArZ0Lshh4',
+      );
+    }
+  });
 });
 
 /**
