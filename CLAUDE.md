@@ -60,12 +60,14 @@ Every article image is a Wikimedia Commons file under a licence that permits com
 
 The property is a **URL-prefix property for `https://gotoburg.se/`**, created on 2026-08-19 and verified. URL prefix rather than Domain because Domain requires a DNS TXT record; URL prefix accepts the two methods the site can carry itself.
 
-- It is verified **twice**. Google Analytics verified it automatically off the `G-E8GTTBK08V` gtag.js snippet in `index.html`, and the HTML tag is the second method. Google drops the analytics verification if that snippet ever goes away, which is why both are in place; do not treat either as redundant.
+- It is verified **twice**, both methods confirmed in the console. Google Analytics verified it automatically off the `G-E8GTTBK08V` gtag.js snippet in `index.html`; the HTML tag was confirmed once the meta tag went live in production. Google drops the analytics verification if that snippet ever goes away, which is why both are in place; do not treat either as redundant.
 - The ownership token lives in `GOOGLE_SITE_VERIFICATION` in `src/site.ts` (`92VWYdQb...`), emitted by `scripts/prerender.mjs` as `<meta name="google-site-verification">` on every prerendered page. It is public by design. A `GOOGLE_SITE_VERIFICATION` build environment variable overrides it, which is what a second property on another host would use.
 - `tests/e2e/seo.spec.ts` asserts the tag on four routes. Without it a dropped tag passes the build silently and nothing notices until the analytics snippet is removed and the property unverifies.
 - The build prints whether the tag is present. If it says `NOT SET`, verification will fail no matter what Search Console says.
 - The property you verify must match `SITE_URL`. Verifying `gotoburg.netlify.app` does nothing for `gotoburg.se`.
-- `sitemap.xml` is generated on every build, so it never needs re-submitting after a content change; Google re-fetches it. Submitting it required the prerender work to be live: measured on 2026-08-19, production still served the old SPA, where `/sitemap.xml`, `/robots.txt` and `/om-oss` all returned 404 and only `/` answered 200.
+- `sitemap.xml` is submitted and reads **Success, 35 discovered pages**, which matches the route count the build prints. It is regenerated on every build, so it never needs re-submitting after a content change; Google re-fetches it.
+- The homepage was already indexed, but with the pre-fix crawl, so it was pushed into the priority crawl queue via URL inspection. Requesting indexing again for the same URL does not improve its queue position, so do not re-request it in the hope of speeding things up.
+- Measured immediately before the merge on 2026-08-19, production still served the old SPA: `/sitemap.xml`, `/robots.txt` and `/om-oss` all returned 404 and only `/` answered 200. That was the state AdSense reviewed. After the deploy all 35 routes answer 200 and an unknown path returns a real 404.
 
 ### Admin tool (separate process, not part of the deployed site)
 
