@@ -13,7 +13,9 @@ import { fileURLToPath } from 'node:url';
  *
  * Netlify's rules, and therefore these:
  *   /path        -> dist/path            (exact file)
- *   /path        -> dist/path/index.html (directory index, "pretty URLs")
+ *   /path        -> dist/path.html       (extension inferred; this is the one
+ *                                         scripts/prerender.mjs writes)
+ *   /path        -> dist/path/index.html (directory index)
  *   anything else-> dist/404.html with a 404 status
  */
 
@@ -51,7 +53,11 @@ const resolve = urlPath => {
   // Reject anything that climbs out of dist/.
   const target = path.normalize(path.join(root, decoded));
   if (!target.startsWith(root)) return null;
-  return readable(target) ?? readable(path.join(target, 'index.html'));
+  return (
+    readable(target) ??
+    readable(`${target}.html`) ??
+    readable(path.join(target, 'index.html'))
+  );
 };
 
 http

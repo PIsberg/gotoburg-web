@@ -78,11 +78,20 @@ const buildPage = (meta, appHtml) => {
   return html;
 };
 
+/**
+ * Flat files (`dist/some-slug.html`), not `dist/some-slug/index.html`.
+ *
+ * Netlify serves /some-slug straight from some-slug.html with a 200, but for a
+ * directory it 301s /some-slug to /some-slug/ first. The canonical URLs in
+ * src/seo.ts carry no trailing slash, so the directory layout made every
+ * canonical point at a URL that redirects before it resolves. Verified against
+ * the deploy preview, which is the only place this behaviour is observable.
+ */
 const writePage = (routePath, html) => {
   const target =
     routePath === '/'
       ? path.join(dist, 'index.html')
-      : path.join(dist, routePath, 'index.html');
+      : path.join(dist, `${routePath.replace(/^\//, '')}.html`);
   fs.mkdirSync(path.dirname(target), { recursive: true });
   fs.writeFileSync(target, html, 'utf8');
   return path.relative(dist, target).split(path.sep).join('/');
