@@ -226,6 +226,51 @@ test.describe('Served HTML is crawlable', () => {
  * So this resolves every same-origin asset the head and the JSON-LD reference,
  * rather than trusting that a path written in a string points at a file.
  */
+/**
+ * /explore is the first item in the nav and its content was a Google map, which
+ * renders nothing at all without JavaScript and, as it turned out, nothing with
+ * it either: the Cloud project has no billing, so the Maps API answers
+ * BillingNotEnabledMapError and the page painted an empty grey box. That left
+ * 97 words of prerendered content on the thinnest page in the sitemap, on a
+ * site rejected for thin content.
+ *
+ * The places are now real markup rendered from the same parsed coordinates the
+ * markers use, so the page carries its content whether or not the map works.
+ */
+test.describe('The map page carries its content without the map', () => {
+  test('every mapped place is in the served HTML with a link to its article', async ({ page }) => {
+    const html = await fetchHtml(page.request, '/explore');
+    const places = ARTICLES.filter((article) =>
+      /@(-?\d+\.\d+),(-?\d+\.\d+)/.test(article.googleMapsUrl ?? ''),
+    );
+
+    expect(places.length, 'articles with coordinates').toBeGreaterThan(0);
+
+    const body = html.slice(html.indexOf('<div id="root">'));
+    const missing = places
+      .filter((article) => !body.includes(`href="/${article.slug}"`))
+      .map((article) => article.slug);
+
+    expect(missing, 'mapped places missing from /explore').toEqual([]);
+  });
+
+  test('the page is not a stub around an empty map container', async ({ page }) => {
+    const text = visibleText(await fetchHtml(page.request, '/explore'));
+    // The map contributes nothing to a crawler, so anything above a stub has to
+    // come from the markup around it.
+    expect(text.split(' ').length).toBeGreaterThan(400);
+  });
+
+  test('no build instruction is shown to visitors', async ({ page }) => {
+    // The map fallback used to tell whoever hit it to edit .env.local and read
+    // README.md, which is what production would have served had the key gone
+    // missing from the Netlify environment.
+    const html = await fetchHtml(page.request, '/explore');
+    expect(html).not.toContain('.env.local');
+    expect(html).not.toContain('README.md');
+  });
+});
+
 test.describe('Assets referenced by the markup exist', () => {
   const PAGES = ['/', ARTICLE_PATH, '/redaktionen/peter-isberg'];
 
