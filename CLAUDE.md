@@ -88,9 +88,16 @@ The property is a **URL-prefix property for `https://gotoburg.se/`**, created on
 
 Netlify, site `gotoburg` (https://gotoburg.netlify.app/, custom domain `gotoburg.se` with `www.` redirecting to it). Deploy = upload the `dist/` output, not the source. `VITE_GOOGLE_MAPS_API_KEY` must be configured in Netlify env vars; `.env.local` must not be committed.
 
-`dist/` now contains a directory per route rather than a single `index.html`. Netlify's default static resolution handles that (`/om-oss` serves `dist/om-oss/index.html`, unmatched paths serve `dist/404.html` with a 404 status), so do not add a catch-all `/* /index.html 200` rewrite: it would turn every prerendered page back into the empty SPA shell and every 404 into a soft 200.
+`dist/` contains a flat `.html` file per route (`dist/om-oss.html`, `dist/kategori/mat-och-dryck.html`), not a directory per route. Netlify serves `/om-oss` from `dist/om-oss.html` with a 200 and no redirect; a directory would have 301ed `/om-oss` to `/om-oss/`, which every canonical URL on the site says is wrong. Unmatched paths serve `dist/404.html` with a real 404 status. Do not add a catch-all `/* /index.html 200` rewrite: it would turn every prerendered page back into the empty SPA shell and every 404 into a soft 200.
 
-Only one hostname should serve the site. Measured on 2026-08-18: `gotoburg.se` answers 200, `www.gotoburg.se` 301s to it (path preserved), and `gotoburg.netlify.app` serves an unredirected duplicate. `SITE_URL` therefore names the apex. `goteburg.se` did not resolve at all, so treat the claim that it is a live custom domain as stale.
+Only one hostname should serve the site. Measured on 2026-08-18: `gotoburg.se` answers 200, `www.gotoburg.se` 301s to it (path preserved), and `gotoburg.netlify.app` served an unredirected duplicate. `SITE_URL` therefore names the apex. `goteburg.se` did not resolve at all, so treat the claim that it is a live custom domain as stale.
+
+`netlify.toml` now 301s `gotoburg.netlify.app` to the apex on both schemes. Two things about those rules are load-bearing:
+
+- The host in `from` scopes a rule to that hostname. Deploy previews and branch deploys are served from `deploy-preview-N--gotoburg.netlify.app` and `branch--gotoburg.netlify.app`, which do not match, so previews keep serving themselves.
+- `force = true` is required. An unforced rule only fires when no file matches the path, and after prerendering every path has a file.
+
+Never write a rule whose `from` host is `gotoburg.se`: with `force` it redirects the apex to itself and takes the site down with a redirect loop. `tests/e2e/redirects.spec.ts` asserts exactly that, because the Playwright run serves `dist/` with `scripts/serve-dist.mjs`, which implements Netlify's file resolution but not its redirect engine, so no other test can reach these rules.
 
 ## Notes on the codebase shape
 
