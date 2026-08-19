@@ -6,21 +6,48 @@ interface GoogleMapSectionProps {
     articles: Article[];
 }
 
+/**
+ * Coordinates live inside the Google Maps share URL as `/@57.70,11.97,17z`.
+ * One parser for both the markers and the list under the map, so the two can
+ * never disagree about which places are on this page.
+ */
+export const placeCoordinates = (article: Article): { lat: number; lng: number } | null => {
+    const match = article.googleMapsUrl?.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
+    if (!match) return null;
+    return { lat: parseFloat(match[1]), lng: parseFloat(match[2]) };
+};
+
+export const mappedArticles = (articles: Article[]): Article[] =>
+    articles.filter(article => placeCoordinates(article) !== null);
+
 // Custom hook to load Google Maps script
 const useGoogleMapsScript = (apiKey: string) => {
     const [loaded, setLoaded] = useState(false);
+    const [failed, setFailed] = useState(false);
 
     useEffect(() => {
+        // The script tag loads and onload fires even when the API then refuses
+        // to draw anything, so onload alone is not evidence of a working map.
+        // Google calls this global on auth and billing failures; without it the
+        // page sat on an empty grey box, which is what production has been
+        // serving since billing was disabled (BillingNotEnabledMapError).
+        (window as any).gm_authFailure = () => setFailed(true);
+
         if ((window as any).google?.maps) {
             setLoaded(true);
             return;
         }
 
+        // loading=async is what Google asks for; without it the API logs a
+        // performance warning on every page view. libraries=places was loaded
+        // and never used, which widened the key's API surface to a separately
+        // billed product for nothing.
         const script = document.createElement('script');
-        script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&loading=async`;
         script.async = true;
         script.defer = true;
         script.onload = () => setLoaded(true);
+        script.onerror = () => setFailed(true);
         document.head.appendChild(script);
 
         return () => {
@@ -28,18 +55,18 @@ const useGoogleMapsScript = (apiKey: string) => {
         };
     }, [apiKey]);
 
-    return loaded;
+    return { loaded, failed };
 };
 
 const GoogleMapSection: React.FC<GoogleMapSectionProps> = ({ articles }) => {
     const navigate = useNavigate();
     const mapRef = useRef<HTMLDivElement>(null);
     const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-    const isLoaded = useGoogleMapsScript(apiKey || '');
+    const { loaded: isLoaded, failed } = useGoogleMapsScript(apiKey || '');
     const [map, setMap] = useState<google.maps.Map | null>(null);
 
     // Filter articles with map links and parse coordinates
-    const mapArticles = articles.filter(a => a.googleMapsUrl && a.googleMapsUrl.includes('@'));
+    const mapArticles = mappedArticles(articles);
 
     useEffect(() => {
         if (!isLoaded || !mapRef.current || !apiKey) return;
@@ -53,13 +80,8 @@ const GoogleMapSection: React.FC<GoogleMapSectionProps> = ({ articles }) => {
                 zoomControl: true,
                 streetViewControl: false,
                 mapTypeControl: false,
-                styles: [
-                    {
-                        "featureType": "poi",
-                        "elementType": "labels",
-                        "stylers": [{ "visibility": "off" }]
-                    }
-                ]
+                // No `styles` here: with a mapId present the API ignores it and
+                // warns. Styling belongs in the cloud console for this map id.
             });
             setMap(newMap);
         }
@@ -73,11 +95,9 @@ const GoogleMapSection: React.FC<GoogleMapSectionProps> = ({ articles }) => {
 
         mapArticles.forEach(article => {
             try {
-                // Extract lat/lng from URL: .../@57.712,11.958,...
-                const match = article.googleMapsUrl!.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
-                if (match) {
-                    const lat = parseFloat(match[1]);
-                    const lng = parseFloat(match[2]);
+                const position = placeCoordinates(article);
+                if (position) {
+                    const { lat, lng } = position;
 
                     const marker = new google.maps.Marker({
                         position: { lat, lng },
@@ -138,15 +158,14 @@ const GoogleMapSection: React.FC<GoogleMapSectionProps> = ({ articles }) => {
 
     }, [map, articles]);
 
-    if (!apiKey) {
+    // A visitor is not the audience for a build instruction. The old version of
+    // this panel told them to edit .env.local and read README.md, which is what
+    // production would have shown had the key ever gone missing from Netlify.
+    if (!apiKey || failed) {
         return (
-            <div className="w-full h-64 bg-yellow-50 border-2 border-yellow-200 rounded-xl mb-12 flex flex-col items-center justify-center text-center p-6 shadow-sm">
-                <div className="text-4xl mb-2">🗺️</div>
-                <h3 className="font-bold text-lg text-yellow-800">Google Maps är inte konfigurerad</h3>
-                <p className="text-sm text-yellow-700 max-w-md">
-                    Du behöver lägga till en API-nyckel i <code>.env.local</code> för att se kartan.
-                    <br />
-                    Se <code>README.md</code> för instruktioner.
+            <div className="w-full bg-gray-50 border border-gray-200 rounded-xl mb-8 p-6 text-center">
+                <p className="text-gray-600 font-serif">
+                    Kartan kan inte visas just nu. Alla platser finns i listan nedan.
                 </p>
             </div>
         );
