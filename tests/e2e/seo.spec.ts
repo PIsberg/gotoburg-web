@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 import { AUTHORS } from '../../src/authors';
 import { CATEGORIES } from '../../src/categories';
 import { ARTICLES } from '../../src/constants';
+import { SITE_URL as SITE_ORIGIN } from '../../src/site';
 
 /**
  * These assert what a crawler receives, not what the browser paints after
@@ -216,6 +217,68 @@ test.describe('Served HTML is crawlable', () => {
  * byline, and a stray article array at the repo root carried "Johan Andersson",
  * neither of whom is an author.
  */
+/**
+ * Structured data is not validated by anything at build time: schema.org will
+ * happily carry a logo URL that 404s, and the page still renders, the build
+ * still passes, and Google quietly drops the rich result. That is exactly what
+ * happened — publisher.logo pointed at /logo.png, which had never existed.
+ *
+ * So this resolves every same-origin asset the head and the JSON-LD reference,
+ * rather than trusting that a path written in a string points at a file.
+ */
+test.describe('Assets referenced by the markup exist', () => {
+  const PAGES = ['/', ARTICLE_PATH, '/redaktionen/peter-isberg'];
+
+  test('every same-origin asset in the head and JSON-LD is served', async ({ page }) => {
+    const missing: string[] = [];
+
+    for (const path of PAGES) {
+      const html = await fetchHtml(page.request, path);
+      const head = html.slice(0, html.indexOf('</head>'));
+
+      const refs = new Set<string>();
+      // stylesheet/icon hrefs and script srcs
+      for (const m of head.matchAll(/(?:href|src)="([^"]+)"/g)) refs.add(m[1]);
+      // og:image, and any absolute URL inside the JSON-LD blocks
+      for (const m of head.matchAll(/"(https:\/\/[^"]+\.(?:png|jpe?g|webp|svg|ico|css|js))"/g))
+        refs.add(m[1]);
+
+      for (const ref of refs) {
+        const url = ref.startsWith(SITE_ORIGIN)
+          ? ref.slice(SITE_ORIGIN.length)
+          : ref;
+        // Only same-origin assets; a third-party script is not ours to assert.
+        if (!url.startsWith('/')) continue;
+        // Routes are covered by the crawlability tests; this is about files.
+        if (!/\.[a-z0-9]+$/i.test(url)) continue;
+
+        const response = await page.request.get(url);
+        if (response.status() !== 200) {
+          missing.push(`${path} references ${url} -> ${response.status()}`);
+        }
+      }
+    }
+
+    expect(missing, 'assets referenced but not served').toEqual([]);
+  });
+
+  test('the site declares an icon instead of leaving browsers to guess', async ({ page }) => {
+    // Without a declared icon every browser requests /favicon.ico, which 404s.
+    const html = await fetchHtml(page.request, '/');
+    const head = html.slice(0, html.indexOf('</head>'));
+
+    const icons = [...head.matchAll(/<link[^>]+rel="[^"]*icon[^"]*"[^>]*>/g)];
+    expect(icons.length, 'icon link tags').toBeGreaterThan(0);
+
+    for (const icon of icons) {
+      const href = icon[0].match(/href="([^"]+)"/)?.[1];
+      expect(href, 'icon href').toBeTruthy();
+      const response = await page.request.get(href!);
+      expect(response.status(), `${href} is served`).toBe(200);
+    }
+  });
+});
+
 test.describe('Every byline resolves to a real person', () => {
   test('no article is signed by someone who has no profile', async ({ page }) => {
     const known = new Set(AUTHORS.map((author) => author.name));
