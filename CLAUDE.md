@@ -101,7 +101,7 @@ Never write a rule whose `from` host is `gotoburg.se`: with `force` it redirects
 
 ## Notes on the codebase shape
 
-- Two parallel "constants" surfaces exist: root `constants.ts` (older, contains an inline `ARTICLES` array fallback) and `src/constants.ts` (current, what the app imports from). Treat `src/constants.ts` + `src/data/articles.ts` as the source of truth.
+- `src/constants.ts` + `src/data/articles.ts` are the source of truth for articles. A second `constants.ts` used to sit at the repo root with its own inline `ARTICLES` array; nothing imported it, and its demo entries carried a byline (`Johan Andersson`) that is not in `AUTHORS` and dates in a different format (`24 oktober 2023`, not ISO), so anything that had started importing it would have rendered link-less bylines and broken sorting. Deleted 2026-08-19; do not reintroduce a second article array.
 - Articles run roughly 550 to 725 words with `## ` subheadings. They were rewritten from ~350-word stubs in August 2026 because AdSense rejected the site for low value content. Adding a new 300-word stub reopens that problem.
 - Production deployment note: the three articles added in May 2026 (Hyssnaleden, Hoze, Activate Nordstan) required a rebuild to include in the production bundle.
 - `index.html` contains an unused importmap (CDN versions of React 19 / Vite 7) — the actual build uses the npm React 18 from `package.json`. Don't be misled by it.
