@@ -2,3 +2,29 @@
   base = "."
   command = "npm run build"
   publish = "dist"
+
+# gotoburg.netlify.app serves the same site as gotoburg.se and was doing it
+# without a redirect, so every page existed twice on two hostnames. Canonical
+# tags tell Google which copy counts, but they are a hint; a 301 is not.
+#
+# The host in `from` scopes each rule to that hostname alone. Deploy previews
+# and branch deploys are served from deploy-preview-N--gotoburg.netlify.app
+# and branch--gotoburg.netlify.app, which do not match, so previews keep
+# serving themselves.
+#
+# force = true is required. Without it the rule only fires when no file
+# matches the path, and after prerendering every path has a file.
+#
+# Never add a rule whose `from` host is gotoburg.se: with force it would
+# redirect the apex to itself and take the site down with a redirect loop.
+[[redirects]]
+  from = "https://gotoburg.netlify.app/*"
+  to = "https://gotoburg.se/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://gotoburg.netlify.app/*"
+  to = "https://gotoburg.se/:splat"
+  status = 301
+  force = true
