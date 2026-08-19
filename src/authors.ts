@@ -18,11 +18,20 @@ export interface Author {
  * carried bylines like "Peter AI assisted", which answers neither question and
  * reads as a scaled-content signal. How AI is actually used is stated on /om-oss.
  *
- * TODO (Peter): the bios below only assert what the site already states publicly
- * (role, contact address, that the site started in 2025). Add the specifics that
- * make the byline worth trusting — how long you have lived in Göteborg, what you
- * did before this, anything you are actually an authority on — and fill in
- * `sameAs` with real profile URLs (LinkedIn, Instagram) once they exist.
+ * Nothing here may claim something the site cannot stand behind. The bios
+ * previously said the redaktionen guides were built on "flera besök" — first-hand
+ * visits nobody can evidence, and squarely at odds with /om-oss, which discloses
+ * that AI tools are used for research and drafting. That claim is gone. What
+ * replaces it is either checkable (role, contact address, founding year) or
+ * derived from the data: src/seo.ts builds each profile's schema.org knowsAbout
+ * from the categories the person actually has bylines in, and the author page
+ * lists every one of those articles, so the expertise claim and the evidence for
+ * it cannot drift apart.
+ *
+ * TODO (Peter): only you can supply the rest — a real credential or two, and
+ * `sameAs` profile URLs (LinkedIn, Instagram) once they exist. Leave `sameAs`
+ * empty rather than pointing it somewhere approximate; empty is omitted from the
+ * JSON-LD, wrong is not.
  */
 export const AUTHORS: Author[] = [
   {
@@ -41,9 +50,10 @@ export const AUTHORS: Author[] = [
     name: 'GotoBurgs redaktion',
     slug: 'gotoburgs-redaktion',
     role: 'Redaktionen',
-    bio: 'Guider och översikter som bygger på flera besök och kontroller mot flera källor, framtagna gemensamt av redaktionen.',
+    bio: 'Guider och översikter som tas fram gemensamt av redaktionen i stället för av en enskild skribent. Ansvarig utgivare är Peter Isberg.',
     longBio: [
-      'Guider och översikter som bygger på flera besök, kontrollerade öppettider och avstämning mot flera källor publiceras under redaktionens namn i stället för under en enskild skribent.',
+      'Artiklar som tas fram gemensamt, i stället för av en enskild skribent, publiceras under redaktionens namn. Det gäller framför allt guider och översikter som täcker flera platser eller ett helt område.',
+      'Öppettider, adresser och priser kontrolleras mot verksamheternas egna kanaler före publicering. Hur redaktionen arbetar med research, AI-verktyg och faktakontroll står i sin helhet på Om GotoBurg.',
       'Ansvarig utgivare för allt material på GotoBurg är Peter Isberg.',
     ],
     sameAs: [],

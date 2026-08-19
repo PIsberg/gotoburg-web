@@ -35,15 +35,29 @@ const breadcrumbs = (trail: { name: string; path: string }[]) => ({
   })),
 });
 
-const authorNode = (name: string) => {
+/**
+ * `articles` is passed only where the node is the subject of the page rather
+ * than a field on something else. When it is, the person's expertise is
+ * derived from what they have actually published instead of being asserted in
+ * prose: knowsAbout lists the categories they have bylines in, so it cannot
+ * drift away from the body of work the same page links to.
+ */
+const authorNode = (name: string, articles?: Article[]) => {
   const author = authorByName(name);
   if (!author) return { '@type': 'Person', name };
+
+  const knowsAbout = articles
+    ? [...new Set(articles.filter(a => a.author === author.name).map(a => a.category))]
+    : [];
+
   return {
     '@type': 'Person',
     name: author.name,
     url: absoluteUrl('/redaktionen/' + author.slug),
     jobTitle: author.role,
     description: author.bio,
+    ...(articles ? { worksFor: publisher } : {}),
+    ...(knowsAbout.length ? { knowsAbout } : {}),
     ...(author.sameAs && author.sameAs.length ? { sameAs: author.sameAs } : {}),
   };
 };
@@ -263,7 +277,7 @@ const authorMeta = (author: Author, articles: Article[]): PageMeta => {
       {
         '@context': 'https://schema.org',
         '@type': 'ProfilePage',
-        mainEntity: authorNode(author.name),
+        mainEntity: authorNode(author.name, articles),
         url: absoluteUrl(path),
         inLanguage: 'sv-SE',
       },

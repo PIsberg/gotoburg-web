@@ -1,5 +1,9 @@
 import { test, expect } from '@playwright/test';
 
+import { AUTHORS } from '../../src/authors';
+import { CATEGORIES } from '../../src/categories';
+import { ARTICLES } from '../../src/constants';
+
 /**
  * These assert what a crawler receives, not what the browser paints after
  * hydration. Google renders JavaScript but AdSense review and the initial crawl
@@ -191,6 +195,76 @@ test.describe('Served HTML is crawlable', () => {
  * None of it was licensed, two already 404'd, and even the freely licensed
  * Wikimedia files carried no attribution, which breaches CC BY and CC BY-SA.
  */
+/**
+ * The bylines exist to answer "who wrote this and why should I believe them".
+ * The weak version of that is prose in a bio, which can claim anything: the
+ * redaktionen bio used to say its guides were built on first-hand visits, which
+ * nothing evidences and /om-oss contradicts.
+ *
+ * So the expertise claim is derived rather than asserted, and this pins the two
+ * together from opposite ends: knowsAbout comes from the article data via
+ * src/seo.ts, the categories checked against it are scraped out of the rendered
+ * article list on the same page. Widening one without the other fails here.
+ */
+/**
+ * A byline only links to a profile if article.author matches an AUTHORS entry
+ * exactly. A mismatch degrades silently: the name renders as plain text, the
+ * article's schema.org author loses its url and jobTitle, and the author page
+ * simply does not list the piece. Nothing fails, so nothing tells you.
+ *
+ * This is not hypothetical. The data has carried "Peter AI assisted" as a
+ * byline, and a stray article array at the repo root carried "Johan Andersson",
+ * neither of whom is an author.
+ */
+test.describe('Every byline resolves to a real person', () => {
+  test('no article is signed by someone who has no profile', async ({ page }) => {
+    const known = new Set(AUTHORS.map((author) => author.name));
+    const orphans = ARTICLES.filter((article) => !known.has(article.author)).map(
+      (article) => `${article.slug} signed "${article.author}"`,
+    );
+
+    expect(orphans, 'articles whose byline has no profile').toEqual([]);
+
+    // And the byline on a served page is a link, not bare text.
+    const html = await fetchHtml(page.request, ARTICLE_PATH);
+    const article = ARTICLES.find((entry) => `/${entry.slug}` === ARTICLE_PATH)!;
+    const slug = AUTHORS.find((author) => author.name === article.author)!.slug;
+    expect(html).toContain(`/redaktionen/${slug}`);
+  });
+});
+
+test.describe('Author profiles claim only what their own work evidences', () => {
+  for (const author of AUTHORS) {
+    test(`${author.name} knowsAbout matches the articles listed on the page`, async ({ page }) => {
+      const html = await fetchHtml(page.request, `/redaktionen/${author.slug}`);
+
+      const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+        .map((match) => JSON.parse(match[1]));
+      const profile = blocks.find((block) => block['@type'] === 'ProfilePage');
+      expect(profile, 'ProfilePage block').toBeTruthy();
+
+      const person = profile.mainEntity as Record<string, any>;
+      expect(person['@type']).toBe('Person');
+      expect(person.worksFor?.name, 'worksFor').toBe('GotoBurg');
+
+      // Only the article listing, so the nav and footer category links do not
+      // count as evidence of anything.
+      const start = html.indexOf(`Artiklar av ${author.name}`);
+      const end = html.indexOf('Tillbaka till redaktionen');
+      expect(start, 'article listing heading').toBeGreaterThan(-1);
+      expect(end, 'end of listing').toBeGreaterThan(start);
+      const listing = html.slice(start, end);
+
+      const evidenced = CATEGORIES.map((category) => category.name).filter((name) =>
+        listing.includes(name.replace(/&/g, '&amp;')),
+      );
+
+      expect(evidenced.length, `${author.name} has articles listed`).toBeGreaterThan(0);
+      expect([...(person.knowsAbout ?? [])].sort()).toEqual([...evidenced].sort());
+    });
+  }
+});
+
 test.describe('Images are self-hosted and attributed', () => {
   const ARTICLE = '/basta-brunchstallena-goteborg';
 
