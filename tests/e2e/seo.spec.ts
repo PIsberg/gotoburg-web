@@ -99,7 +99,7 @@ test.describe('Served HTML is crawlable', () => {
     const xml = await response.text();
 
     const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
-    // 19 articles + home + 6 static + 2 authors + 6 populated categories.
+    // Articles + home + 6 static + 2 authors + the populated categories.
     expect(locs.length).toBeGreaterThanOrEqual(30);
     expect(new Set(locs).size, 'sitemap must not repeat a URL').toBe(locs.length);
 
@@ -141,7 +141,7 @@ test.describe('Served HTML is crawlable', () => {
       .filter(p => p !== '/' && !p.startsWith('/kategori/') && !p.startsWith('/redaktionen')
         && !['/om-oss', '/kontakt', '/villkor', '/integritetspolicy', '/explore', '/bildkredit'].includes(p));
 
-    expect(articlePaths.length).toBe(19);
+    expect(articlePaths.length).toBe(ARTICLES.length);
 
     for (const path of articlePaths) {
       const html = await fetchHtml(page.request, path);
@@ -402,7 +402,7 @@ test.describe('Images are self-hosted and attributed', () => {
 
   test('every article lead image is served and credited', async ({ page }) => {
     const paths = await articlePaths(page.request);
-    expect(paths.length).toBe(19);
+    expect(paths.length).toBe(ARTICLES.length);
 
     for (const path of paths) {
       const html = await fetchHtml(page.request, path);

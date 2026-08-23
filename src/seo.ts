@@ -76,7 +76,14 @@ export const articleMeta = (article: Article): PageMeta => {
   const path = '/' + article.slug;
   const canonical = absoluteUrl(path);
   const category = CATEGORIES.find(c => c.name === article.category);
-  const words = article.content.join(' ').split(/\s+/).filter(Boolean).length;
+  // schema.org wordCount is a count of the prose. Content entries may carry
+  // [etikett](href) links (see Block in pages/ArticlePage.tsx), so the href is
+  // dropped first — otherwise every link would add a "word" no reader sees.
+  const words = article.content
+    .join(' ')
+    .replace(/\[([^\]\n]+)\]\((?:https:\/\/[^\s)]+|\/[^\s)]*)\)/g, '$1')
+    .split(/\s+/)
+    .filter(Boolean).length;
 
   return {
     path,

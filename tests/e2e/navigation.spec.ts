@@ -6,8 +6,10 @@ test.describe('Navigation', () => {
     await page.locator('main a[href^="/"]').first().click();
     await expect(page.getByText('Läs också')).toBeVisible();
 
-    // Scoped to the header: the footer also links to "Om GotoBurg".
-    await page.locator('header').getByRole('link', { name: 'GotoBurg' }).click();
+    // getByRole('banner') rather than locator('header'): the footer also links
+    // to 'Om GotoBurg', and an article page has a second <header> around the
+    // byline, which matches 'GotoBurg' whenever the byline is GotoBurgs redaktion.
+    await page.getByRole('banner').getByRole('link', { name: 'GotoBurg' }).click();
 
     await expect(page).toHaveURL(/localhost:\d+\/$/);
     await expect(page.getByText('Senaste nytt')).toBeVisible();

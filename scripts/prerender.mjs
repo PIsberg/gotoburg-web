@@ -10,7 +10,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
  * single index.html whose body is an empty <div id="root">. Under the old
  * HashRouter every article also lived behind a URL fragment, which Google
  * discards. Between them, a crawl of the whole site returned one URL containing
- * no article text. This step is what makes the 19 articles crawlable.
+ * no article text. This step is what makes the articles crawlable.
  */
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');

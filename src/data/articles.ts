@@ -839,5 +839,56 @@ export const articles = [
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kalamatianos_92nd_Tokyo_Yushun.jpg"
     }
+  },
+  {
+    "id": "20",
+    "slug": "masthuggskajen-ny-stadsdel-goteborg-alvstranden",
+    "title": "Masthuggskajen: så växer Göteborgs nya stadsdel fram mellan Järntorget och älven",
+    "excerpt": "På hamnmark väster om Järntorget byggs omkring 1 300 bostäder, 30 000 kvadratmeter kontor och två parker. Bygget startade 2019 och hela området ska stå klart 2031. Här är vad som redan finns på plats och vad som återstår.",
+    "content": [
+      "Går du västerut från Järntorget, förbi Folkets Hus och ner mot vattnet, kommer du in i ett område som har bytt skepnad snabbare än någon annan del av centrala Göteborg. Masthuggskajen var hamn, parkering och lagerbyggnader. Nu står här bostadshus, kontorstorn och ett hotell på 33 våningar, och byggkranarna blir kvar i flera år till.",
+      "Projektet drivs av Älvstranden Utveckling, som ägs av Göteborgs Stad, tillsammans med ett tiotal byggherrar. Det ingår i Vision Älvstaden, planen på att fördubbla den centrala staden på båda sidor om Göta älv.",
+      "## Från hamnmark till stadsdel",
+      "Byggstarten var 2019. De första kontorshyresgästerna flyttade in 2022, samma år som arbetet med den nya halvön vid vattnet drog igång. De första boende kom 2024. Enligt tidplanen ska hela Masthuggskajen stå klart 2031.",
+      "En byggnad försvann på vägen. Kommersen, loppmarknaden på Järnvågsgatan som i decennier var en av stadens mest blandade mötesplatser, revs våren 2022 sedan huset dömts ut. På platsen anläggs Masthuggsparken.",
+      "## 1 300 bostäder, sex bostadsrättsföreningar hos en enda byggherre",
+      "Omkring 1 300 bostäder byggs i området. Riksbyggen står för ungefär 500 bostadsrätter fördelade på sex föreningar, Stena Fastigheter för 300 hyresrätter, Nordr för 129 bostadsrätter och Framtiden Byggutveckling för 126 hyresrätter som förvaltas av Poseidon. Elof Hansson Fastigheter bygger tillsammans med Riksbyggen 113 lägenheter i kvarteret The Parkside.",
+      "Först färdig blev Brf Ciceron på 17 våningar. De första hyresgästerna i hyresrätterna flyttar in i november 2026.",
+      "Arbetsplatserna är minst lika många. Stena Fastigheter bygger 30 000 kvadratmeter kontor, handel, service och restaurang. Elof Hansson Fastigheter står bakom kontorskomplexet Global Business Gate, NCC bakom tre kontorshus med namnen Våghuset, Brick Studios och Habitat 7. På ritningarna finns också Ancora, ett kontorshus i 23 våningar, och Sonyas, en tegelbyggnad i fyra våningar där kultur och kontor ska samsas. Hotellet, Clarion Hotel Draken, reser sig 33 våningar och runt hundra meter över Järntorget.",
+      "## Restauranger, bageri och Nordens största växtvägg",
+      "Området har börjat få innehåll som inte kräver bygglov för att märkas. I februari 2026 öppnade två restauranger på Masthamnsgatan, Fula Hummern och Restaurang BO. I juli 2026 öppnade det franska bageriet och kaféet Café Caillard i Habitat.",
+      "I april 2026 kläddes fasaden på Masthugget Väst med en växtvägg på 1 050 kvadratmeter, 32 000 plantor av 60 arter, enligt projektet den största i Norden. Samma byggnad får en idrottshall på sjunde våningen, planerad att stå klar våren 2027.",
+      "## Parker, träd och en Första Långgatan som byggs om",
+      "Två parker ingår i planen: Järnvågsparken, som blir stadsdelspark, och Masthuggsparken på gamla Kommersen-tomten. Sammanlagt planteras över 300 träd i området, som motvikt till de höga husen.",
+      "Första Långgatan görs om till boulevard med mer plats för gående, cyklister, kollektivtrafik och grönska. Ombyggnaden beräknas vara färdig i december 2026. De inre gatorna blir gångfartsområden, Masthamnsgatan byggs om för barn och unga, och separerade cykelbanor dras längs Första Långgatan och Emigrantvägen.",
+      "I november 2018 blev Masthuggskajen Sveriges första stadsutvecklingsprojekt med Citylab-certifiering, ett hållbarhetssystem som bedömer hela stadsdelar. I praktiken syns det i lånecyklar, bilpooler i tre parkeringshus, en uppgraderad hållplats vid Masthuggstorget och en planerad färjeterminal på halvön.",
+      "## Innan du går dit",
+      "Det här är fortfarande en byggarbetsplats med bostäder och kontor inuti. Gator stängs av och öppnas om, gångvägar flyttas och trafiken läggs om med kort varsel. Kollektivtrafiken tar dig hit via Järntorget eller Masthuggstorget, och de flesta besökare kommer enklast till fots från Långgatorna.",
+      "Bygg- och trafikinformation, nyheter från området och tidplanen för varje kvarter samlas på [projektets egen sajt masthuggskajen.se](https://masthuggskajen.se/), som drivs av Älvstranden Utveckling. Läs den innan du planerar besöket, särskilt om du tänker ta bilen."
+    ],
+    "author": "GotoBurgs redaktion",
+    "publishedAt": "2026-08-23",
+    "category": "Vad är på gång",
+    "imageUrl": "/img/masthuggskajen-ny-stadsdel-goteborg-alvstranden.jpg",
+    "googleMapsUrl": "https://www.google.com/maps/place/Masthuggskajen/@57.6994,11.9430,16z",
+    "imageCredit": {
+      "file": "Höghus på Masthuggskajen (S4023698).jpg",
+      "author": "Andersreilund",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:H%C3%B6ghus_p%C3%A5_Masthuggskajen_(S4023698).jpg"
+    },
+    "additionalImages": [
+      "/img/masthuggskajen-ny-stadsdel-goteborg-alvstranden-2.jpg"
+    ],
+    "additionalImageCredits": [
+      {
+        "file": "Skeppsbron och Masthuggskajen July 2024 01.jpg",
+        "author": "ArildV",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skeppsbron_och_Masthuggskajen_July_2024_01.jpg"
+      }
+    ]
   }
 ];
