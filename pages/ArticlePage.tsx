@@ -13,6 +13,58 @@ import { formatDate } from '../src/utils/dateUtils';
 import { getCategoryText, getCategoryBadge } from '../src/utils/categoryColors';
 
 /**
+ * The only inline markup a content entry may carry: [etikett](href), where href
+ * is either an https:// URL or a site-relative path. Deliberately narrower than
+ * markdown. Content entries are plain strings so admin/server.js can JSON-parse
+ * and rewrite src/data/articles.ts, and a real markdown parser would also claim
+ * the literal asterisks the pre-2026-08 articles ship inside their paragraphs.
+ * Anything that does not match renders verbatim, including a stray bracket.
+ */
+const INLINE_LINK = /\[([^\]\n]+)\]\((https:\/\/[^\s)]+|\/[^\s)]*)\)/g;
+
+const LINK_CLASS =
+  'text-blue-700 underline decoration-blue-300 underline-offset-4 hover:text-blue-900 hover:decoration-blue-600 transition-colors';
+
+/**
+ * Splits one entry into text and link nodes. External links open in a new tab
+ * with rel="noopener noreferrer"; internal ones go through react-router so they
+ * do not reload the app. Runs during the prerender pass too, so it must not
+ * touch window or document.
+ */
+const inlineNodes = (text: string): React.ReactNode[] => {
+  const nodes: React.ReactNode[] = [];
+  const pattern = new RegExp(INLINE_LINK.source, 'g');
+  let cursor = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > cursor) nodes.push(text.slice(cursor, match.index));
+    const [full, label, href] = match;
+    nodes.push(
+      href.startsWith('/') ? (
+        <Link key={`l${match.index}`} to={href} className={LINK_CLASS}>
+          {label}
+        </Link>
+      ) : (
+        <a
+          key={`l${match.index}`}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={LINK_CLASS}
+        >
+          {label}
+        </a>
+      )
+    );
+    cursor = match.index + full.length;
+  }
+
+  if (cursor < text.length) nodes.push(text.slice(cursor));
+  return nodes;
+};
+
+/**
  * One entry of Article.content. A leading "## " marks a subheading; everything
  * else is a paragraph. Kept as a string convention rather than a richer type so
  * admin/server.js can still JSON-parse and rewrite src/data/articles.ts.
@@ -21,11 +73,11 @@ const Block: React.FC<{ text: string }> = ({ text }) => {
   if (text.startsWith('## ')) {
     return (
       <h2 className="font-serif text-2xl md:text-3xl font-bold text-gray-900 mt-10 mb-4 leading-snug">
-        {text.slice(3)}
+        {inlineNodes(text.slice(3))}
       </h2>
     );
   }
-  return <p className="mb-5 leading-[1.85]">{text}</p>;
+  return <p className="mb-5 leading-[1.85]">{inlineNodes(text)}</p>;
 };
 
 const ArticlePage: React.FC = () => {
