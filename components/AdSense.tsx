@@ -8,6 +8,18 @@ interface AdSenseProps {
     className?: string;
     label?: string;
     style?: React.CSSProperties;
+    /**
+     * `data-ad-layout`. Required as "in-article" by an in-article unit; without
+     * it the unit still serves but renders as a plain display ad instead of the
+     * native format it was created as.
+     */
+    layout?: string;
+    /**
+     * `data-ad-layout-key`. Generated with an in-feed unit and specific to the
+     * layout picked when it was created, so it cannot be guessed or shared
+     * between units. Lives in ADSENSE_CONFIG next to the slot id it belongs to.
+     */
+    layoutKey?: string;
 }
 
 declare global {
@@ -38,7 +50,9 @@ const AdSense: React.FC<AdSenseProps> = ({
     responsive = 'true',
     className = '',
     label,
-    style = { display: 'block' }
+    style = { display: 'block' },
+    layout,
+    layoutKey
 }) => {
     // Read at render time, so it must survive the prerender pass where there is
     // no window at all.
@@ -88,6 +102,8 @@ const AdSense: React.FC<AdSenseProps> = ({
                 data-ad-client={ADSENSE_CONFIG.PUBLISHER_ID}
                 data-ad-slot={slot}
                 data-ad-format={format}
+                {...(layout ? { 'data-ad-layout': layout } : {})}
+                {...(layoutKey ? { 'data-ad-layout-key': layoutKey } : {})}
                 data-full-width-responsive={responsive}
                 data-adtest={isDev ? "on" : "off"}
             />}
