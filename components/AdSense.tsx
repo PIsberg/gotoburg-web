@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ADSENSE_CONFIG } from '../src/constants';
+import { ADSENSE_CONFIG, ADSENSE_ENABLED } from '../src/constants';
 
 interface AdSenseProps {
     slot: string;
@@ -59,7 +59,10 @@ const AdSense: React.FC<AdSenseProps> = ({
     const hostname = typeof window === 'undefined' ? '' : window.location.hostname;
     const isDev = hostname === 'localhost' || hostname === '127.0.0.1';
     const initialized = useRef(false);
-    const servable = isServableSlot(slot);
+    // A slot is only worth putting on the page if the id can fill AND the
+    // account can serve. Before approval the second is false for every slot,
+    // and an <ins> that will not fill still reserves its height.
+    const servable = ADSENSE_ENABLED && isServableSlot(slot);
 
     useEffect(() => {
         if (!servable) return;
