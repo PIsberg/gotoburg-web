@@ -71,6 +71,70 @@ test.describe('The map cannot take the page down with it', () => {
     await expect(page.getByRole('link', { name: withCoordinates[0].title })).toBeVisible();
   });
 
+  /**
+   * The bug in full, without depending on Google.
+   *
+   * `loading=async` makes the loader fetch libraries on demand, so the script's
+   * load event fires while `google.maps.Map` is still undefined. Asserting that
+   * against the live API is a race: whether Map happens to exist by the time the
+   * effect runs depends on Google's servers, and the same test has been observed
+   * both catching and missing the bug on consecutive runs. This stub pins the
+   * one property that matters, so the regression cannot come back unnoticed.
+   */
+  test('the page survives a loader whose load event beats google.maps.Map', async ({ page }) => {
+    await page.route('**/maps/api/js*', route =>
+      route.fulfill({
+        status: 200,
+        contentType: 'text/javascript',
+        body: `
+          window.google = window.google || {};
+          window.google.maps = window.google.maps || {};
+          // Deliberately no google.maps.Map yet. Code that constructs one on the
+          // script's load event throws here, which is the whole bug.
+          window.google.maps.importLibrary = function () {
+            return new Promise(function (resolve) {
+              setTimeout(function () {
+                function FakeMap() {}
+                FakeMap.prototype.fitBounds = function () {};
+                FakeMap.prototype.getZoom = function () { return 12; };
+                FakeMap.prototype.setZoom = function () {};
+                function FakeMarker() {}
+                FakeMarker.prototype.addListener = function () {};
+                FakeMarker.prototype.getPosition = function () { return {}; };
+                FakeMarker.prototype.setMap = function () {};
+                function FakeInfoWindow() {}
+                FakeInfoWindow.prototype.open = function () {};
+                FakeInfoWindow.prototype.close = function () {};
+                function FakeBounds() {}
+                FakeBounds.prototype.extend = function () {};
+                window.google.maps.Map = FakeMap;
+                window.google.maps.Marker = FakeMarker;
+                window.google.maps.InfoWindow = FakeInfoWindow;
+                window.google.maps.LatLngBounds = FakeBounds;
+                window.google.maps.event = {
+                  addListener: function () { return {}; },
+                  removeListener: function () {},
+                };
+                window.google.maps.Animation = { DROP: 'DROP' };
+                resolve({ Map: FakeMap });
+              }, 250);
+            });
+          };
+        `,
+      })
+    );
+
+    const crashes: string[] = [];
+    page.on('pageerror', err => crashes.push(err.message));
+
+    await page.goto('/explore');
+    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(2000);
+
+    await expect(page.getByRole('heading', { name: /Platser vi har skrivit om/i })).toBeVisible();
+    expect(crashes, `/explore threw: ${crashes.join(' | ')}`).toEqual([]);
+  });
+
   test('a map that never loads leaves no perpetual "Laddar karta"', async ({ page }) => {
     await page.goto('/explore');
     await page.waitForLoadState('networkidle');
