@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-import { ARTICLES } from '../../src/constants';
+import { ADSENSE_CONFIG, ARTICLES } from '../../src/constants';
 import { CATEGORIES, categoryPath, countByCategory } from '../../src/categories';
 import { MIN_ARTICLES_TO_INDEX_CATEGORY } from '../../src/seo';
 
@@ -164,43 +164,95 @@ test.describe('No ad slot reserves space it cannot fill', () => {
   }
 });
 
-test.describe('Native ad units carry the attributes that make them native', () => {
+test.describe('Ad slots follow the approval switch', () => {
   /**
-   * A slot id being right is not enough. An in-article unit needs
-   * `data-ad-layout="in-article"` and an in-feed unit needs the
-   * `data-ad-layout-key` generated with it; without them the unit still serves,
-   * but as a plain display ad rather than the native format it was created as.
-   * Nothing else here would notice, because the id and the format attribute
-   * both still look correct.
+   * Which branch runs follows the same env var the build under test was given,
+   * so flipping the switch on approval day moves the coverage with it rather
+   * than leaving a stale expectation behind.
+   *
+   * Read from process.env rather than by importing ADSENSE_ENABLED: that
+   * constant resolves `import.meta.env`, which Vite fills in at build time and
+   * which is undefined in the Node process the tests run in. Importing it would
+   * make this branch always take the disabled path, and the enabled path would
+   * silently never run.
    */
-  test('the in-article slot declares its layout', async ({ page }) => {
-    const html = await (await page.request.get('/' + ARTICLES[0].slug)).text();
-    const ins = html.match(/<ins[^>]*data-ad-slot="9483607882"[^>]*>/);
-    expect(ins, 'in-article slot not found in the served HTML').not.toBeNull();
-    expect(ins![0]).toContain('data-ad-layout="in-article"');
-    expect(ins![0]).toContain('data-ad-format="fluid"');
+  const adsEnabled = process.env.VITE_ADSENSE_ENABLED === 'true';
+
+  test('the slot ids and layout key in the config are real', async () => {
+    // Independent of the switch: these are what get served the moment it flips,
+    // and a placeholder creeping back in is the regression that cost 330px of
+    // blank white above the fold on every page.
+    for (const key of ['HEADER_BANNER', 'HOME_FEED_MIDDLE', 'SIDEBAR_RIGHT', 'IN_ARTICLE_FLUID', 'ARTICLE_SIDEBAR'] as const) {
+      expect(ADSENSE_CONFIG[key], `${key} is not a real ad unit id`).toMatch(/^\d{6,}$/);
+    }
+    // Generated with the in-feed unit; it cannot be guessed or shared.
+    expect(ADSENSE_CONFIG.HOME_FEED_MIDDLE_LAYOUT_KEY).toMatch(/^[-+A-Za-z0-9]+$/);
   });
 
-  test('the in-feed slot carries its layout key on every page that uses it', async ({ page }) => {
-    for (const path of ['/', categoryPath('Mat & Dryck')]) {
-      const html = await (await page.request.get(path)).text();
-      const ins = html.match(/<ins[^>]*data-ad-slot="7150300033"[^>]*>/);
-      expect(ins, `in-feed slot not found on ${path}`).not.toBeNull();
-      // Specific to the layout chosen when the unit was created, so it cannot
-      // be guessed and must not drift from the console.
-      expect(ins![0], path).toContain('data-ad-layout-key="-fb+5w+4e-db+86"');
-      expect(ins![0], path).toContain('data-ad-format="fluid"');
-    }
-  });
+  if (!adsEnabled) {
+    test('no ad slot is served, so none can reserve empty space', async ({ page }) => {
+      // Before approval adsbygoogle.js sets an inline height on every <ins> and
+      // then never fills it, because no ad comes back. data-ad-status is never
+      // set either, so the usual collapse-on-unfilled CSS cannot fire.
+      for (const path of ['/', '/' + ARTICLES[0].slug, '/explore']) {
+        const html = await (await page.request.get(path)).text();
+        expect(html.match(/<ins[^>]*class="adsbygoogle"/g), `ad slot served on ${path}`).toBeNull();
+      }
+    });
 
-  test('display slots declare no layout attributes', async ({ page }) => {
-    const html = await (await page.request.get('/')).text();
-    for (const slot of ['8006874685', '8362097902']) {
-      const ins = html.match(new RegExp(`<ins[^>]*data-ad-slot="${slot}"[^>]*>`));
-      expect(ins, `display slot ${slot} not found`).not.toBeNull();
-      expect(ins![0], slot).not.toContain('data-ad-layout');
-    }
-  });
+    test('the site-level AdSense script is still present', async ({ page }) => {
+      // This is what AdSense needs to verify the site. It is unaffected by
+      // whether any ad unit is on the page, and removing it would undo the
+      // Search Console and AdSense wiring both.
+      const html = await (await page.request.get('/')).text();
+      expect(html).toContain('adsbygoogle.js');
+      expect(html).toContain(ADSENSE_CONFIG.PUBLISHER_ID);
+    });
+
+    test('no page opens with a band of reserved empty space', async ({ page }) => {
+      await page.goto('/');
+      await page.waitForLoadState('networkidle');
+      await page.waitForTimeout(2000);
+      const gap = await page.evaluate(() => {
+        const header = document.querySelector('header')!.getBoundingClientRect().bottom;
+        const main = document.querySelector('main')!;
+        const first = [...main.querySelectorAll('*')]
+          .map(n => n.getBoundingClientRect())
+          .filter(r => r.height > 20)
+          .sort((a, b) => a.top - b.top)[0];
+        return Math.round(first.top - header);
+      });
+      // Production measured 312px on 2026-08-28 with real ids and no approval.
+      expect(gap, `${gap}px of dead space above the first content`).toBeLessThan(150);
+    });
+  } else {
+    test('the in-article slot declares its layout', async ({ page }) => {
+      const html = await (await page.request.get('/' + ARTICLES[0].slug)).text();
+      const ins = html.match(new RegExp(`<ins[^>]*data-ad-slot="${ADSENSE_CONFIG.IN_ARTICLE_FLUID}"[^>]*>`));
+      expect(ins, 'in-article slot not found in the served HTML').not.toBeNull();
+      expect(ins![0]).toContain('data-ad-layout="in-article"');
+      expect(ins![0]).toContain('data-ad-format="fluid"');
+    });
+
+    test('the in-feed slot carries its layout key on every page that uses it', async ({ page }) => {
+      for (const path of ['/', categoryPath('Mat & Dryck')]) {
+        const html = await (await page.request.get(path)).text();
+        const ins = html.match(new RegExp(`<ins[^>]*data-ad-slot="${ADSENSE_CONFIG.HOME_FEED_MIDDLE}"[^>]*>`));
+        expect(ins, `in-feed slot not found on ${path}`).not.toBeNull();
+        expect(ins![0], path).toContain(`data-ad-layout-key="${ADSENSE_CONFIG.HOME_FEED_MIDDLE_LAYOUT_KEY}"`);
+        expect(ins![0], path).toContain('data-ad-format="fluid"');
+      }
+    });
+
+    test('display slots declare no layout attributes', async ({ page }) => {
+      const html = await (await page.request.get('/')).text();
+      for (const slot of [ADSENSE_CONFIG.HEADER_BANNER, ADSENSE_CONFIG.SIDEBAR_RIGHT]) {
+        const ins = html.match(new RegExp(`<ins[^>]*data-ad-slot="${slot}"[^>]*>`));
+        expect(ins, `display slot ${slot} not found`).not.toBeNull();
+        expect(ins![0], slot).not.toContain('data-ad-layout');
+      }
+    });
+  }
 });
 
 test.describe('The chrome contains no controls that do nothing', () => {
