@@ -168,7 +168,10 @@ const ArticlePage: React.FC = () => {
         <figure className="mb-10">
           <img
             src={article.imageUrl}
-            alt={article.title}
+            // Describes the photograph, not the article. Using the headline
+            // here told a screen reader that a picture of a street was a
+            // picture of the restaurant the headline names.
+            alt={article.imageCaption || article.title}
             className="w-full h-[400px] md:h-[520px] object-cover rounded-sm"
             width={1200}
             height={520}
@@ -179,7 +182,7 @@ const ArticlePage: React.FC = () => {
             // and fetchPriority only became a known prop in React 19.
             {...{ fetchpriority: 'high' }}
           />
-          <ImageCredit credit={article.imageCredit} />
+          <ImageCredit credit={article.imageCredit} caption={article.imageCaption} />
         </figure>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">

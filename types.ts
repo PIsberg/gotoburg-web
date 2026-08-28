@@ -26,6 +26,21 @@ export interface Article {
   /** Site-relative path under /img/. Never an external URL: see scripts/images.manifest.json. */
   imageUrl: string;
   imageCredit?: ImageCredit;
+  /**
+   * What the lead photograph actually shows, when that is not the subject of
+   * the article.
+   *
+   * Most of the imagery is a Wikimedia Commons photograph of the street a venue
+   * stands on rather than the venue itself, because no free photograph of the
+   * venue exists. Presented with no caption and with the headline as its alt
+   * text, such a photograph reads as a picture of the place, which is a claim
+   * the site cannot support. A caption naming what is in the frame keeps the
+   * illustration and drops the claim.
+   *
+   * Absent means the photograph is of the subject, so do not add a caption that
+   * merely restates the headline: an empty caption is meaningful here.
+   */
+  imageCaption?: string;
   additionalImages?: string[];
   additionalImageCredits?: ImageCredit[];
   googleMapsUrl?: string; // Optional Google Maps URL

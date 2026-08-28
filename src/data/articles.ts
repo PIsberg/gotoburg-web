@@ -39,7 +39,8 @@ export const articles = [
       "licence": "CC BY-SA 3.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crawfish_boil.jpeg"
-    }
+    },
+    "imageCaption": "En seafood boil. Bilden är tagen i USA, där rätten kommer ifrån."
   },
   {
     "id": "7",
@@ -76,7 +77,8 @@ export const articles = [
       "licence": "CC BY-SA 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Feskek%C3%B4rka_September_2016_01.jpg"
-    }
+    },
+    "imageCaption": "Feskekörka, där popupen låg under december 2025."
   },
   {
     "id": "6",
@@ -116,7 +118,8 @@ export const articles = [
       "licence": "CC BY-SA 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:M33_G%C3%B6teborg.jpg"
-    }
+    },
+    "imageCaption": "En spårvagn av typen M33 i Göteborg."
   },
   {
     "id": "1",
@@ -159,7 +162,8 @@ export const articles = [
       "licence": "CC BY 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:G%C3%B6teborg_Panorama.jpg"
-    }
+    },
+    "imageCaption": "Göteborg sett från ovan."
   },
   {
     "id": "2",
@@ -296,7 +300,8 @@ export const articles = [
         "licenceUrl": "",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Slottsskogen_G%C3%B6teborg.jpg"
       }
-    ]
+    ],
+    "imageCaption": "Universeum, ett av ställena i guiden."
   },
   {
     "id": "5",
@@ -342,7 +347,8 @@ export const articles = [
       "licence": "CC BY-SA 3.0",
       "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Haganygata.jpg"
-    }
+    },
+    "imageCaption": "Haga, en av stadsdelarna i guiden."
   },
   {
     "id": "10",
@@ -386,7 +392,8 @@ export const articles = [
       "licence": "CC BY-SA 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Entrance_to_Nordstan_from_Brunnsparken_in_Gothenburg.jpg"
-    }
+    },
+    "imageCaption": "Nordstans entré från Brunnsparken. Activate ligger på Postgatan i köpcentrets västra hörn."
   },
   {
     "id": "9",
@@ -426,11 +433,11 @@ export const articles = [
     "additionalImages": [],
     "googleMapsUrl": "https://www.google.com/maps/place/Hoze/@57.699405,11.9350685,17z",
     "imageCredit": {
-      "file": "Stigbergsliden september 2010.jpg",
-      "author": "Ankara",
-      "licence": "CC BY-SA 3.0",
-      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stigbergsliden_september_2010.jpg"
+      "file": "Hoze, Göteborg.jpg",
+      "author": "Mattias Mattsson",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hoze,_G%C3%B6teborg.jpg"
     }
   },
   {
@@ -475,7 +482,8 @@ export const articles = [
       "licence": "CC BY-SA 3.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:GoteborgsOperan.jpg"
-    }
+    },
+    "imageCaption": "Göteborgsoperan, granne med restaurangen på Sankt Eriksgatan."
   },
   {
     "id": "12",
@@ -522,7 +530,8 @@ export const articles = [
       "licence": "CC BY-SA 3.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyssna_gamla_kyrka.jpg"
-    }
+    },
+    "imageCaption": "Hyssna gamla kyrka, nära ledens norra ände."
   },
   {
     "id": "13",
@@ -566,7 +575,8 @@ export const articles = [
       "licence": "CC BY-SA 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:M%C3%B6lndalsv%C3%A4gen_89.jpg"
-    }
+    },
+    "imageCaption": "Mölndalsvägen, gatan där K-Bunsik ligger."
   },
   {
     "id": "14",
@@ -612,7 +622,8 @@ export const articles = [
       "licence": "CC BY-SA 3.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kungsportsavenyn_(Avenyn)_G%C3%B6teborg_(2009).JPG"
-    }
+    },
+    "imageCaption": "Kungsportsavenyn, gatan där Fairways and Friends ligger."
   },
   {
     "id": "15",
@@ -655,7 +666,8 @@ export const articles = [
       "licence": "CC BY-SA 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Linn%C3%A9gatan_July_2024_01.jpg"
-    }
+    },
+    "imageCaption": "Linnégatan, gatan där Sushi Lee G ligger."
   },
   {
     "id": "16",
@@ -700,7 +712,8 @@ export const articles = [
       "licence": "CC BY-SA 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kungstorget_10-14.jpg"
-    }
+    },
+    "imageCaption": "Kungstorget, kvarteret där Stranger ligger."
   },
   {
     "id": "17",
@@ -746,7 +759,8 @@ export const articles = [
       "licence": "CC BY-SA 3.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:G%C3%B6teborg_Vasaplatsen.jpg"
-    }
+    },
+    "imageCaption": "Vasaplatsen, några kvarter från Viktoriagatan."
   },
   {
     "id": "18",
@@ -790,7 +804,8 @@ export const articles = [
       "licence": "CC BY-SA 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lindholmsall%C3%A9n_39-31.jpg"
-    }
+    },
+    "imageCaption": "Lindholmsallén, gatan där Shiro by Takame ligger."
   },
   {
     "id": "19",
@@ -838,7 +853,8 @@ export const articles = [
       "licence": "CC BY-SA 2.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kalamatianos_92nd_Tokyo_Yushun.jpg"
-    }
+    },
+    "imageCaption": "Kalamatianos, ringdansen som dansas på föreningens fester. Bilden är inte tagen i Göteborg."
   },
   {
     "id": "20",
@@ -982,7 +998,8 @@ export const articles = [
       "licence": "CC BY-SA 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vr%C3%A5ng%C3%B6_July_2025_01.jpg"
-    }
+    },
+    "imageCaption": "Vrångö, längst ut i södra skärgården."
   },
   {
     "id": "23",
@@ -1025,7 +1042,8 @@ export const articles = [
       "licence": "CC BY-SA 3.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lindholmspiren_i_G%C3%B6teborg_01.JPG"
-    }
+    },
+    "imageCaption": "Lindholmspiren, en av stadsdelarna i texten."
   },
   {
     "id": "24",
@@ -1067,7 +1085,8 @@ export const articles = [
       "licence": "CC BY 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Volvo_Torslanda,_Tuve.jpg"
-    }
+    },
+    "imageCaption": "Volvos anläggning i Torslanda."
   },
   {
     "id": "25",
@@ -1166,6 +1185,7 @@ export const articles = [
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pustervik.jpg"
       }
-    ]
+    ],
+    "imageCaption": "Nefertiti, en av scenerna i texten."
   }
 ];

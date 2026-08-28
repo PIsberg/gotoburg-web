@@ -389,6 +389,34 @@ test.describe('Images are self-hosted and attributed', () => {
       );
   };
 
+  /**
+   * Most lead images are a Commons photograph of the street a venue stands on
+   * rather than the venue, because no free photograph of the venue exists.
+   * Uncaptioned, and with the headline as alt text, such a photograph asserts
+   * that it shows the place. `imageCaption` names what is actually in the
+   * frame, and the alt text has to agree with it or a screen reader is told the
+   * thing the caption exists to deny.
+   */
+  test('an image that is not of its subject says what it is of', async ({ page }) => {
+    const captioned = ARTICLES.filter(a => a.imageCaption);
+    expect(captioned.length, 'no article carries an image caption').toBeGreaterThan(0);
+
+    for (const article of captioned) {
+      const html = await fetchHtml(page.request, '/' + article.slug);
+      const body = html.slice(html.indexOf('<div id="root">'));
+
+      expect(visibleText(body), `${article.slug} does not show its caption`).toContain(
+        article.imageCaption!
+      );
+
+      const lead = body.match(/<img[^>]+src="\/img\/[^"]+"[^>]*>/);
+      expect(lead, `${article.slug} has no lead image`).not.toBeNull();
+      expect(lead![0], `${article.slug} alt text contradicts its caption`).toContain(
+        `alt="${article.imageCaption!.replace(/"/g, '&quot;')}"`
+      );
+    }
+  });
+
   test('no page loads an image from a third-party host', async ({ page }) => {
     for (const path of ['/', ARTICLE, '/kategori/mat-och-dryck']) {
       const html = await fetchHtml(page.request, path);

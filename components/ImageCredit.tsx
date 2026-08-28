@@ -8,10 +8,20 @@ import { ImageCredit as Credit } from '../types';
  * source wherever the work is published. The article page previously used the
  * headline as its figcaption, which said nothing and satisfied nothing.
  */
-const ImageCredit: React.FC<{ credit?: Credit; className?: string }> = ({ credit, className = '' }) => {
-    if (!credit) return null;
+const ImageCredit: React.FC<{ credit?: Credit; caption?: string; className?: string }> = ({
+    credit,
+    caption,
+    className = '',
+}) => {
+    if (!credit && !caption) return null;
     return (
-        <figcaption className={`text-xs text-gray-400 mt-2 ${className}`}>
+        <figcaption className={`text-xs mt-2 ${className}`}>
+            {/* What is actually in the frame, when that is not the subject of
+                the article. Set in darker type than the attribution because it
+                is editorial content rather than a licence obligation. */}
+            {caption && <span className="block text-gray-600 mb-0.5">{caption}</span>}
+            {credit && (
+              <span className="block text-gray-400">
             Foto:{' '}
             <a
                 href={credit.sourceUrl}
@@ -35,6 +45,8 @@ const ImageCredit: React.FC<{ credit?: Credit; className?: string }> = ({ credit
                 </a>
             ) : (
                 <span>{credit.licence}</span>
+            )}
+              </span>
             )}
         </figcaption>
     );
