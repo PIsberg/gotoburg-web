@@ -34,10 +34,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <div className="bg-gray-900 text-white text-xs py-2 px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <span className="capitalize text-gray-300">{dateStr}</span>
+          {/* Was "Prenumerera | Logga in": two <span>s with a pointer cursor, no
+              handler and nothing behind them, since the site is static and has
+              neither a subscription nor accounts. Three dead controls in the
+              chrome (these two and the search icon) read as an unfinished site
+              to anyone evaluating it. These now go where they say they go. */}
           <div className="flex items-center space-x-1 text-gray-400">
-            <span className="hidden sm:inline px-3 py-0.5 hover:text-white cursor-pointer transition-colors">Prenumerera</span>
+            <Link to="/om-oss" className="hidden sm:inline px-3 py-0.5 hover:text-white transition-colors">Om oss</Link>
             <span className="hidden sm:inline text-gray-600">|</span>
-            <span className="hidden sm:inline px-3 py-0.5 hover:text-white cursor-pointer transition-colors">Logga in</span>
+            <Link to="/kontakt" className="hidden sm:inline px-3 py-0.5 hover:text-white transition-colors">Tipsa redaktionen</Link>
           </div>
         </div>
       </div>
@@ -70,10 +75,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </span>
             </Link>
 
-            {/* Search Icon */}
-            <button className="hidden md:flex items-center justify-center w-9 h-9 rounded-full text-gray-500 hover:text-black hover:bg-gray-100 transition-colors">
-              <svg className="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-            </button>
+            {/* Spacer keeping the masthead centred on desktop, where the mobile
+                menu button is hidden. This was a search button with no onClick
+                and no search to run; there is no index to search on a static
+                build, so it was a magnifying glass that did nothing. */}
+            <div className="hidden md:block w-9" aria-hidden="true" />
           </div>
 
           {/* Desktop Navigation */}

@@ -16,6 +16,22 @@ declare global {
     }
 }
 
+/**
+ * A real AdSense ad unit id is numeric (currently 10 digits). src/constants.ts
+ * has shipped placeholders since the ads were first wired in
+ * (`header-banner-12345`, `feed-middle-56789`, ...), and AdSense reserves layout
+ * space for an `<ins>` it cannot fill: measured in the browser on 2026-08-28,
+ * every page opened with roughly 330px of blank white between the nav and the
+ * first line of content, on the home page and on every article. That is the
+ * first thing a policy reviewer sees, and "low value content" is partly a
+ * judgement about the page a visitor lands on.
+ *
+ * Rendering nothing for a slot we know cannot fill is strictly better than
+ * reserving space for it. Drop the real ids into ADSENSE_CONFIG and every slot
+ * lights up with no other change.
+ */
+export const isServableSlot = (slot: string): boolean => /^\d{6,}$/.test(slot.trim());
+
 const AdSense: React.FC<AdSenseProps> = ({
     slot,
     format = 'auto',
@@ -29,8 +45,10 @@ const AdSense: React.FC<AdSenseProps> = ({
     const hostname = typeof window === 'undefined' ? '' : window.location.hostname;
     const isDev = hostname === 'localhost' || hostname === '127.0.0.1';
     const initialized = useRef(false);
+    const servable = isServableSlot(slot);
 
     useEffect(() => {
+        if (!servable) return;
         if (initialized.current) return;
         initialized.current = true;
         try {
@@ -38,7 +56,10 @@ const AdSense: React.FC<AdSenseProps> = ({
         } catch (err) {
             console.error('AdSense error:', err);
         }
-    }, []);
+    }, [servable]);
+
+    // No markup at all, so nothing reserves height.
+    if (!servable && !isDev) return null;
 
     return (
         <div
@@ -50,11 +71,18 @@ const AdSense: React.FC<AdSenseProps> = ({
             {isDev && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-xs text-gray-400 font-mono pointer-events-none z-10">
                     <span>AdSense Slot: {slot}</span>
-                    <span className="font-bold text-gray-500">(Test Mode)</span>
+                    <span className="font-bold text-gray-500">
+                        {servable ? '(Test Mode)' : '(placeholder id - hidden in production)'}
+                    </span>
                 </div>
             )}
 
-            <ins
+            {/* The <ins> is what AdSense reserves height for, so a slot that
+                cannot fill must not emit one anywhere, dev included. The dev
+                placeholder above still marks where the unit will sit; the tests
+                run against localhost, so gating this on isDev would assert the
+                fix on a page that never had it. */}
+            {servable && <ins
                 className="adsbygoogle"
                 style={{ width: '100%', ...style }}
                 data-ad-client={ADSENSE_CONFIG.PUBLISHER_ID}
@@ -62,7 +90,7 @@ const AdSense: React.FC<AdSenseProps> = ({
                 data-ad-format={format}
                 data-full-width-responsive={responsive}
                 data-adtest={isDev ? "on" : "off"}
-            />
+            />}
         </div>
     );
 };
