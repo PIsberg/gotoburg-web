@@ -13,7 +13,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run serve` — serve `dist/` on port 4173 with Netlify's URL resolution (`scripts/serve-dist.mjs`). Use this, not `npm run preview`, when checking the built site: `vite preview` serves the SPA fallback for every path and hides prerender breakage.
 - `npm run preview` — Vite's own preview. Only useful for the client bundle; it does not serve the prerendered per-route files.
 - `npm run admin` — start the local admin tool on http://localhost:3001 (loads `.env.local` via `node --env-file`)
-- `npm run test:e2e` — run the Playwright suite in `tests/e2e/`. `playwright.config.ts` builds the site and serves it with `scripts/serve-dist.mjs` on port 4173 (`npm run test:e2e:ui` for the UI runner). This also runs in CI on every PR.
+- `npm run test:e2e` — run the Playwright suite in `tests/e2e/`. **A server already listening on 4173 is reused and the build is skipped** (`reuseExistingServer: !process.env.CI`), so a stale `npm run serve` from an earlier session silently tests an old `dist/`. That has already produced a false green here: several runs "passed" against code that was not checked out. Kill anything on the port before trusting a local result, or check `dist/assets/index-*.js` for the change you expect. CI sets `CI`, so it always builds. `playwright.config.ts` builds the site and serves it with `scripts/serve-dist.mjs` on port 4173 (`npm run test:e2e:ui` for the UI runner). This also runs in CI on every PR.
 
 There is no linter or typechecker wired into npm scripts. `npx tsc --noEmit` currently fails with TS6305 on `vite.config.ts`, a pre-existing project-reference config issue, not a code error.
 

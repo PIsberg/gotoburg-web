@@ -49,12 +49,19 @@ export default defineConfig({
       // that /explore survives the map without ever loading a map. That is how
       // the blank-page bug lived in production while CI stayed green.
       //
-      // The key is deliberately invalid. What is under test is that the page
-      // survives whatever the Maps API does, which is the property that broke,
-      // not that the map draws. If maps.googleapis.com is unreachable the
-      // loader errors and the same fallback renders, so the test cannot flake
-      // into a false failure.
-      VITE_GOOGLE_MAPS_API_KEY: 'AIzaSyINVALID-for-tests-only-0000000000',
+      // Deliberately not key-shaped. Only two things matter here: that the
+      // value is non-empty, so GoogleMapSection does not short-circuit before
+      // it loads anything, and that the Maps API rejects it. A realistic
+      // `AIza...` string would do both, and would also match the regex GitHub's
+      // secret scanning uses, raising a false alert on a repository that
+      // already carries a real one for the browser key in the bundle. An alert
+      // people learn to ignore is worse than no alert.
+      //
+      // What is under test is that the page survives whatever the Maps API
+      // does, which is the property that broke, not that the map draws. If
+      // maps.googleapis.com is unreachable the loader errors and the same
+      // fallback renders, so the test cannot flake into a false failure.
+      VITE_GOOGLE_MAPS_API_KEY: 'invalid-key-for-tests-do-not-replace',
     },
   },
 });
