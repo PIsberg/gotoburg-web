@@ -40,5 +40,21 @@ export default defineConfig({
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
+    env: {
+      ...process.env,
+      // Pinned so the build always bakes a key in and /explore always takes the
+      // load-the-Maps-API path. Without this the value comes from .env.local,
+      // which CI does not have; the component then short-circuits on the empty
+      // key and renders its fallback, and tests/e2e/renders.spec.ts would assert
+      // that /explore survives the map without ever loading a map. That is how
+      // the blank-page bug lived in production while CI stayed green.
+      //
+      // The key is deliberately invalid. What is under test is that the page
+      // survives whatever the Maps API does, which is the property that broke,
+      // not that the map draws. If maps.googleapis.com is unreachable the
+      // loader errors and the same fallback renders, so the test cannot flake
+      // into a false failure.
+      VITE_GOOGLE_MAPS_API_KEY: 'AIzaSyINVALID-for-tests-only-0000000000',
+    },
   },
 });

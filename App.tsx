@@ -14,6 +14,7 @@ import AuthorPage from './pages/AuthorPage';
 import NotFoundPage from './pages/NotFoundPage';
 import AnalyticsTracker from './components/AnalyticsTracker';
 import CookieConsent from './components/CookieConsent';
+import ErrorBoundary from './components/ErrorBoundary';
 
 /**
  * Routes without a router around them, so the browser entry can wrap them in
@@ -23,22 +24,24 @@ import CookieConsent from './components/CookieConsent';
 export const AppRoutes: React.FC = () => (
   <>
     <AnalyticsTracker />
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/explore" element={<ExplorePage />} />
-      <Route path="/kategori/:categorySlug" element={<CategoryPage />} />
-      <Route path="/om-oss" element={<AboutPage />} />
-      <Route path="/redaktionen" element={<EditorialTeamPage />} />
-      <Route path="/redaktionen/:authorSlug" element={<AuthorPage />} />
-      <Route path="/kontakt" element={<ContactPage />} />
-      <Route path="/integritetspolicy" element={<PrivacyPage />} />
-      <Route path="/villkor" element={<TermsPage />} />
-      <Route path="/bildkredit" element={<ImageCreditsPage />} />
-      {/* Article slugs are the catch-all; ArticlePage renders NotFoundPage for
-          a slug that does not resolve. */}
-      <Route path="/:slug" element={<ArticlePage />} />
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+    <ErrorBoundary>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/explore" element={<ExplorePage />} />
+        <Route path="/kategori/:categorySlug" element={<CategoryPage />} />
+        <Route path="/om-oss" element={<AboutPage />} />
+        <Route path="/redaktionen" element={<EditorialTeamPage />} />
+        <Route path="/redaktionen/:authorSlug" element={<AuthorPage />} />
+        <Route path="/kontakt" element={<ContactPage />} />
+        <Route path="/integritetspolicy" element={<PrivacyPage />} />
+        <Route path="/villkor" element={<TermsPage />} />
+        <Route path="/bildkredit" element={<ImageCreditsPage />} />
+        {/* Article slugs are the catch-all; ArticlePage renders NotFoundPage for
+            a slug that does not resolve. */}
+        <Route path="/:slug" element={<ArticlePage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </ErrorBoundary>
     <CookieConsent />
   </>
 );

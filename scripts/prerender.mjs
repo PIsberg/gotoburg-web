@@ -39,6 +39,10 @@ const headFor = meta => {
     `<title>${escapeAttr(meta.title)}</title>`,
     `<meta name="description" content="${escapeAttr(meta.description)}" />`,
     `<link rel="canonical" href="${escapeAttr(meta.canonical)}" />`,
+    // follow, so the links out of a thin listing page still reach the articles.
+    ...(meta.indexable === false
+      ? [`<meta name="robots" content="noindex, follow" />`]
+      : []),
     `<meta property="og:type" content="${meta.ogType}" />`,
     `<meta property="og:site_name" content="GotoBurg" />`,
     `<meta property="og:locale" content="sv_SE" />`,
@@ -147,7 +151,9 @@ fs.writeFileSync(
 const sitemap = [
   '<?xml version="1.0" encoding="UTF-8"?>',
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-  ...pages.map(p =>
+  // A noindex page in the sitemap is a contradiction Search Console reports as
+  // an error, so the two decisions are made in one place: src/seo.ts.
+  ...pages.filter(p => p.indexable !== false).map(p =>
     [
       '  <url>',
       `    <loc>${p.canonical}</loc>`,
@@ -176,7 +182,12 @@ const robots = [
 ].join('\n');
 fs.writeFileSync(path.join(dist, 'robots.txt'), robots, 'utf8');
 
+const noindexed = pages.filter(p => p.indexable === false);
 console.log(`\nPrerendered ${pages.length} routes + 404.html, sitemap.xml, robots.txt`);
+console.log(`Sitemap URLs: ${pages.length - noindexed.length}`);
+if (noindexed.length) {
+  console.log(`noindex (too thin to submit): ${noindexed.map(p => p.path).join(", ")}`);
+}
 console.log(`Canonical origin: ${siteOrigin}`);
 console.log(
   verification

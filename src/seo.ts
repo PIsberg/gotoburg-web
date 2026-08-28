@@ -15,7 +15,28 @@ export interface PageMeta {
   published?: string;
   jsonLd: Record<string, unknown>[];
   priority: string;
+  /**
+   * False keeps the page on the site and in the nav but out of the index and
+   * out of sitemap.xml. Defaults to true; only set it where the page is real
+   * but has nothing yet worth ranking.
+   */
+  indexable?: boolean;
 }
+
+/**
+ * A category listing below this many articles is mostly nav and footer.
+ * Measured on 2026-08-28: /kategori/kultur and /kategori/arbete each listed one
+ * article and rendered 152 words of visible text, of which the headline and
+ * excerpt were the only part not repeated on every other page. Of the 36 URLs
+ * in sitemap.xml only 20 were articles, so close to half of what the site
+ * submitted to Google carried no unique content of its own. That is the
+ * "thin content" the AdSense review names, and it is fixed either by writing
+ * more in the category or by not submitting the page until it exists.
+ *
+ * noindex, not removal: the pages stay linked from the nav so a visitor can
+ * still browse them, and `follow` keeps the links to the articles live.
+ */
+export const MIN_ARTICLES_TO_INDEX_CATEGORY = 3;
 
 const publisher = {
   '@type': 'Organization',
@@ -161,6 +182,7 @@ const categoryMeta = (category: Category, articles: Article[]): PageMeta => {
     image: imageUrl(inCategory[0] && inCategory[0].imageUrl),
     published: inCategory[0] && inCategory[0].publishedAt,
     priority: '0.6',
+    indexable: inCategory.length >= MIN_ARTICLES_TO_INDEX_CATEGORY,
     jsonLd: [
       {
         '@context': 'https://schema.org',
