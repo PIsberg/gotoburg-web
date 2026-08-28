@@ -164,6 +164,45 @@ test.describe('No ad slot reserves space it cannot fill', () => {
   }
 });
 
+test.describe('Native ad units carry the attributes that make them native', () => {
+  /**
+   * A slot id being right is not enough. An in-article unit needs
+   * `data-ad-layout="in-article"` and an in-feed unit needs the
+   * `data-ad-layout-key` generated with it; without them the unit still serves,
+   * but as a plain display ad rather than the native format it was created as.
+   * Nothing else here would notice, because the id and the format attribute
+   * both still look correct.
+   */
+  test('the in-article slot declares its layout', async ({ page }) => {
+    const html = await (await page.request.get('/' + ARTICLES[0].slug)).text();
+    const ins = html.match(/<ins[^>]*data-ad-slot="9483607882"[^>]*>/);
+    expect(ins, 'in-article slot not found in the served HTML').not.toBeNull();
+    expect(ins![0]).toContain('data-ad-layout="in-article"');
+    expect(ins![0]).toContain('data-ad-format="fluid"');
+  });
+
+  test('the in-feed slot carries its layout key on every page that uses it', async ({ page }) => {
+    for (const path of ['/', categoryPath('Mat & Dryck')]) {
+      const html = await (await page.request.get(path)).text();
+      const ins = html.match(/<ins[^>]*data-ad-slot="7150300033"[^>]*>/);
+      expect(ins, `in-feed slot not found on ${path}`).not.toBeNull();
+      // Specific to the layout chosen when the unit was created, so it cannot
+      // be guessed and must not drift from the console.
+      expect(ins![0], path).toContain('data-ad-layout-key="-fb+5w+4e-db+86"');
+      expect(ins![0], path).toContain('data-ad-format="fluid"');
+    }
+  });
+
+  test('display slots declare no layout attributes', async ({ page }) => {
+    const html = await (await page.request.get('/')).text();
+    for (const slot of ['8006874685', '8362097902']) {
+      const ins = html.match(new RegExp(`<ins[^>]*data-ad-slot="${slot}"[^>]*>`));
+      expect(ins, `display slot ${slot} not found`).not.toBeNull();
+      expect(ins![0], slot).not.toContain('data-ad-layout');
+    }
+  });
+});
+
 test.describe('The chrome contains no controls that do nothing', () => {
   test('the top bar offers no subscription or login the site cannot honour', async ({ page }) => {
     await page.goto('/');

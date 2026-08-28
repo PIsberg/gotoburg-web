@@ -194,7 +194,13 @@ const ArticlePage: React.FC = () => {
                 <Block key={`p1-${i}`} text={para} />
               ))}
 
-              <AdSense slot={ADSENSE_CONFIG.IN_ARTICLE_FLUID} format="fluid" className="my-8 py-4 border-y border-gray-100" label="Annons" />
+              <AdSense
+                slot={ADSENSE_CONFIG.IN_ARTICLE_FLUID}
+                format="fluid"
+                layout="in-article"
+                className="my-8 py-4 border-y border-gray-100"
+                label="Annons"
+              />
 
               {article.content.slice(midPoint).map((para, i) => (
                 <Block key={`p2-${i}`} text={para} />
@@ -266,7 +272,7 @@ const ArticlePage: React.FC = () => {
           {/* Sidebar */}
           <aside className="lg:col-span-4">
             <div className="sticky top-28 space-y-8">
-              <AdSense slot={ADSENSE_CONFIG.ARTICLE_SIDEBAR} format="rectangle" label="Annons" />
+              <AdSense slot={ADSENSE_CONFIG.ARTICLE_SIDEBAR} label="Annons" />
 
               {related.length > 0 && (
                 <div>

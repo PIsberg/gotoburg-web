@@ -62,7 +62,12 @@ const CategoryPage: React.FC = () => {
             </div>
           )}
 
-          <AdSense slot={ADSENSE_CONFIG.HOME_FEED_MIDDLE} format="fluid" className="mt-12" />
+          <AdSense
+            slot={ADSENSE_CONFIG.HOME_FEED_MIDDLE}
+            format="fluid"
+            layoutKey={ADSENSE_CONFIG.HOME_FEED_MIDDLE_LAYOUT_KEY}
+            className="mt-12"
+          />
         </>
       )}
     </Layout>

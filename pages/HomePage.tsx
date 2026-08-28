@@ -39,7 +39,12 @@ const HomePage: React.FC = () => {
             </div>
           )}
 
-          <AdSense slot={ADSENSE_CONFIG.HOME_FEED_MIDDLE} format="fluid" className="mb-10" />
+          <AdSense
+            slot={ADSENSE_CONFIG.HOME_FEED_MIDDLE}
+            format="fluid"
+            layoutKey={ADSENSE_CONFIG.HOME_FEED_MIDDLE_LAYOUT_KEY}
+            className="mb-10"
+          />
 
           {/* Latest news */}
           {remainingArticles.length > 0 && (
@@ -109,7 +114,7 @@ const HomePage: React.FC = () => {
               </ol>
             </div>
 
-            <AdSense slot={ADSENSE_CONFIG.SIDEBAR_RIGHT} format="rectangle" label="Sponsor" />
+            <AdSense slot={ADSENSE_CONFIG.SIDEBAR_RIGHT} label="Sponsor" />
           </div>
         </aside>
       </div>
