@@ -38,10 +38,12 @@ test.describe('Every route paints something in a real browser', () => {
 
       await page.goto(route);
       await page.waitForLoadState('networkidle');
-      // networkidle can be reached before an async third-party script has run.
-      // The Maps loader is exactly that: without this wait the page still holds
-      // its prerendered markup at assertion time and goes blank a moment later,
-      // so this test passed against the very bug it exists to catch.
+      // networkidle can be reached before code that runs after mount has run.
+      // The Google Maps loader was exactly that, and the Leaflet chunk /explore
+      // now imports inside an effect is the same shape: without this wait the
+      // page still holds its prerendered markup at assertion time and goes
+      // blank a moment later, so this test passed against the very bug it
+      // exists to catch.
       await page.waitForTimeout(2000);
 
       // The header is outside every route's own component, so if it is missing
@@ -56,91 +58,57 @@ test.describe('Every route paints something in a real browser', () => {
   }
 });
 
-test.describe('The map cannot take the page down with it', () => {
+test.describe('The map draws, and cannot take the page down with it', () => {
+  const withCoordinates = ARTICLES.filter(a => /@-?\d+\.\d+,-?\d+\.\d+/.test(a.googleMapsUrl || ''));
+
   test('/explore lists its places whether or not the map draws', async ({ page }) => {
     await page.goto('/explore');
     await page.waitForLoadState('networkidle');
 
-    // Billing on the Cloud project behind the Maps key is disabled, so in
-    // production this is the degraded path. Either way the places must render:
-    // they are the actual content of the page, and the map is an enhancement.
+    // The places are the actual content of the page and the map is an
+    // enhancement. That division of labour predates the Leaflet swap, and it
+    // stays: a map failure must never take the list with it.
     await expect(page.getByRole('heading', { name: /Platser vi har skrivit om/i })).toBeVisible();
 
-    const withCoordinates = ARTICLES.filter(a => /@-?\d+\.\d+,-?\d+\.\d+/.test(a.googleMapsUrl || ''));
     expect(withCoordinates.length).toBeGreaterThan(0);
     await expect(page.getByRole('link', { name: withCoordinates[0].title })).toBeVisible();
   });
 
-  /**
-   * The bug in full, without depending on Google.
-   *
-   * `loading=async` makes the loader fetch libraries on demand, so the script's
-   * load event fires while `google.maps.Map` is still undefined. Asserting that
-   * against the live API is a race: whether Map happens to exist by the time the
-   * effect runs depends on Google's servers, and the same test has been observed
-   * both catching and missing the bug on consecutive runs. This stub pins the
-   * one property that matters, so the regression cannot come back unnoticed.
-   */
-  test('the page survives a loader whose load event beats google.maps.Map', async ({ page }) => {
-    await page.route('**/maps/api/js*', route =>
-      route.fulfill({
-        status: 200,
-        contentType: 'text/javascript',
-        body: `
-          window.google = window.google || {};
-          window.google.maps = window.google.maps || {};
-          // Deliberately no google.maps.Map yet. Code that constructs one on the
-          // script's load event throws here, which is the whole bug.
-          window.google.maps.importLibrary = function () {
-            return new Promise(function (resolve) {
-              setTimeout(function () {
-                function FakeMap() {}
-                FakeMap.prototype.fitBounds = function () {};
-                FakeMap.prototype.getZoom = function () { return 12; };
-                FakeMap.prototype.setZoom = function () {};
-                function FakeMarker() {}
-                FakeMarker.prototype.addListener = function () {};
-                FakeMarker.prototype.getPosition = function () { return {}; };
-                FakeMarker.prototype.setMap = function () {};
-                function FakeInfoWindow() {}
-                FakeInfoWindow.prototype.open = function () {};
-                FakeInfoWindow.prototype.close = function () {};
-                function FakeBounds() {}
-                FakeBounds.prototype.extend = function () {};
-                window.google.maps.Map = FakeMap;
-                window.google.maps.Marker = FakeMarker;
-                window.google.maps.InfoWindow = FakeInfoWindow;
-                window.google.maps.LatLngBounds = FakeBounds;
-                window.google.maps.event = {
-                  addListener: function () { return {}; },
-                  removeListener: function () {},
-                };
-                window.google.maps.Animation = { DROP: 'DROP' };
-                resolve({ Map: FakeMap });
-              }, 250);
-            });
-          };
-        `,
-      })
-    );
+  test('/explore draws the Leaflet map with one marker per mapped place', async ({ page }) => {
+    // Under Google Maps this assertion was impossible: the Cloud project had no
+    // billing, the API refused to draw, and the suite could only prove the page
+    // survived the wreck. Leaflet has no key and no billing to fail on, so a
+    // map that does not draw is a plain regression from here on.
+    await page.goto('/explore');
+
+    await expect(page.locator('.leaflet-container')).toBeVisible();
+    await expect(page.locator('.leaflet-marker-icon')).toHaveCount(withCoordinates.length);
+
+    // The attribution control is an OpenStreetMap licence term (ODbL), not
+    // styling. Removing it is a compliance bug.
+    await expect(page.locator('.leaflet-control-attribution')).toContainText('OpenStreetMap');
+  });
+
+  test('the page survives the tile server being unreachable', async ({ page }) => {
+    // Tiles come from tile.openstreetmap.org at runtime. If it is down the
+    // canvas stays grey, but the markers are DOM nodes of our own and the rest
+    // of the page must be untouched — the analogue of the old requirement that
+    // a Google loader failure could not blank the route.
+    await page.route('https://tile.openstreetmap.org/**', route => route.abort());
 
     const crashes: string[] = [];
     page.on('pageerror', err => crashes.push(err.message));
 
     await page.goto('/explore');
     await page.waitForLoadState('networkidle');
-    await page.waitForTimeout(2000);
 
+    await expect(page.locator('.leaflet-container')).toBeVisible();
+    await expect(page.locator('.leaflet-marker-icon')).toHaveCount(withCoordinates.length);
     await expect(page.getByRole('heading', { name: /Platser vi har skrivit om/i })).toBeVisible();
+    // The fallback panel is for a map that failed to initialise. Unreachable
+    // tiles are not that, and must not swap a working marker map for an excuse.
+    await expect(page.getByText('Kartan kan inte visas just nu')).toHaveCount(0);
     expect(crashes, `/explore threw: ${crashes.join(' | ')}`).toEqual([]);
-  });
-
-  test('a map that never loads leaves no perpetual "Laddar karta"', async ({ page }) => {
-    await page.goto('/explore');
-    await page.waitForLoadState('networkidle');
-    // Either the map drew or the fallback replaced it. A loading state still on
-    // screen after the network settled is the third outcome, and it is a bug.
-    await expect(page.getByText('Laddar karta')).toHaveCount(0);
   });
 });
 

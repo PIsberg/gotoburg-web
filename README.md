@@ -57,30 +57,17 @@ Articles follow this schema (edit in admin tool):
 - **Slug:** URL identifier (lowercase, hyphens) — e.g., `nytt-kallbadhus-oppnar`
 - **Category:** One of: Mat & Dryck, Natur, Arbete, Aktiviteter, Kultur, Sport, Vad är på gång, Event
 - **Content:** Array of paragraphs (ad slots can be inserted between them)
-- **Google Maps URL:** Optional, for the map view on the Explore page
+- **Google Maps URL:** Optional. The `@lat,lng` in the share link supplies the coordinates for the map on the Explore page, and the link itself is shown as "Visa på Google Maps"
 
-## Google Maps Configuration
+## The map on /explore
 
-To enable the map view (Explore page), configure a Google Maps API Key:
+The map is Leaflet with OpenStreetMap tiles. It needs no API key, no Google Cloud
+project and no configuration, locally or in production. Coordinates come from each
+article's optional Google Maps URL, parsed by `placeCoordinates()` in
+`components/MapSection.tsx`.
 
-1. Go to the [Google Cloud Console](https://console.cloud.google.com/google/maps-apis/)
-2. Create a new project or select an existing one
-3. Enable **Maps JavaScript API** and **Geocoding API**
-4. Go to **Credentials** and create an **API Key**
-
-### Local Configuration
-
-Create or edit `.env.local` in the project root:
-```
-VITE_GOOGLE_MAPS_API_KEY=YOUR_API_KEY_HERE
-```
-
-### Production (Netlify)
-
-1. Do NOT commit `.env.local` to GitHub
-2. In Netlify dashboard, go to **Site settings** > **Environment variables**
-3. Add: Key `VITE_GOOGLE_MAPS_API_KEY`, Value: your API key
-4. Redeploy the site
+The OpenStreetMap attribution shown on the map is a licence requirement (ODbL),
+not styling. Do not remove it.
 
 ## Deployment
 
@@ -95,14 +82,14 @@ This creates a `dist/` folder with the static site.
 ### Deploy to Netlify
 
 1. Upload the `dist/` folder (not the source code)
-2. Ensure `VITE_GOOGLE_MAPS_API_KEY` is configured in Netlify env vars
+2. No environment variable is needed for the map; `VITE_ADSENSE_ENABLED=true` goes in once AdSense approves the site
 3. Site will be live at https://gotoburg.netlify.app/
 
 ## Integrations
 
 - **Google Analytics:** Configured in `index.html` (tracks SPA route changes)
 - **Google AdSense:** Publisher ID `ca-pub-2203695397498260` (ads auto-inject between article paragraphs and in sidebars)
-- **Google Maps:** Articles can include an optional `googleMapsUrl` for map embeds
+- **Map:** Leaflet + OpenStreetMap on the Explore page; articles can include an optional `googleMapsUrl` that supplies the coordinates
 
 ## Project Structure
 

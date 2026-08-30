@@ -17,7 +17,8 @@ interface State {
  * was correct, so nothing that inspects only the served markup could see it,
  * which is why the SEO suite stayed green throughout.
  *
- * The specific bug is fixed in components/GoogleMapSection.tsx. This exists so
+ * That loader is gone entirely; the map is Leaflet now, in
+ * components/MapSection.tsx. This exists so
  * the next one costs a degraded panel instead of the whole site, which is the
  * difference between a page a reviewer can use and one they cannot.
  */

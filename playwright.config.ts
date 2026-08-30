@@ -40,28 +40,10 @@ export default defineConfig({
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
-    env: {
-      ...process.env,
-      // Pinned so the build always bakes a key in and /explore always takes the
-      // load-the-Maps-API path. Without this the value comes from .env.local,
-      // which CI does not have; the component then short-circuits on the empty
-      // key and renders its fallback, and tests/e2e/renders.spec.ts would assert
-      // that /explore survives the map without ever loading a map. That is how
-      // the blank-page bug lived in production while CI stayed green.
-      //
-      // Deliberately not key-shaped. Only two things matter here: that the
-      // value is non-empty, so GoogleMapSection does not short-circuit before
-      // it loads anything, and that the Maps API rejects it. A realistic
-      // `AIza...` string would do both, and would also match the regex GitHub's
-      // secret scanning uses, raising a false alert on a repository that
-      // already carries a real one for the browser key in the bundle. An alert
-      // people learn to ignore is worse than no alert.
-      //
-      // What is under test is that the page survives whatever the Maps API
-      // does, which is the property that broke, not that the map draws. If
-      // maps.googleapis.com is unreachable the loader errors and the same
-      // fallback renders, so the test cannot flake into a false failure.
-      VITE_GOOGLE_MAPS_API_KEY: 'invalid-key-for-tests-do-not-replace',
-    },
+    // No env pin any more. The Google Maps era needed VITE_GOOGLE_MAPS_API_KEY
+    // forced here so CI, which has no .env.local, would still exercise the
+    // load-the-Maps-API path instead of short-circuiting on an empty key; the
+    // Leaflet map has no key to short-circuit on, so every build takes the same
+    // path and tests/e2e/renders.spec.ts asserts the map actually draws.
   },
 });
