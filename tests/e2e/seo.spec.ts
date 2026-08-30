@@ -229,13 +229,15 @@ test.describe('Served HTML is crawlable', () => {
 /**
  * /explore is the first item in the nav and its content was a Google map, which
  * renders nothing at all without JavaScript and, as it turned out, nothing with
- * it either: the Cloud project has no billing, so the Maps API answers
+ * it either: the Cloud project had no billing, so the Maps API answered
  * BillingNotEnabledMapError and the page painted an empty grey box. That left
  * 97 words of prerendered content on the thinnest page in the sitemap, on a
  * site rejected for thin content.
  *
  * The places are now real markup rendered from the same parsed coordinates the
  * markers use, so the page carries its content whether or not the map works.
+ * The map itself is Leaflet + OpenStreetMap these days, but a Leaflet canvas is
+ * still nothing to a crawler, so everything here holds unchanged.
  */
 test.describe('The map page carries its content without the map', () => {
   test('every mapped place is in the served HTML with a link to its article', async ({ page }) => {

@@ -1,20 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
-import GoogleMapSection, { mappedArticles } from '../components/GoogleMapSection';
+import MapSection, { mappedArticles } from '../components/MapSection';
 import { getAllArticles } from '../services/articleService';
 import { formatDate } from '../src/utils/dateUtils';
 import { getCategoryText } from '../src/utils/categoryColors';
 
 /**
  * The map is an enhancement, not the page. It draws nothing for a crawler, and
- * for eight months it drew nothing for visitors either: the Cloud project has
- * no billing, so the Maps API answered BillingNotEnabledMapError and the page
- * rendered an empty grey box. /explore is the first item in the nav and sat at
- * 97 words of prerendered content, the thinnest page in the sitemap, on a site
- * whose AdSense rejection was about thin content.
+ * under Google Maps it drew nothing for visitors either: the Cloud project had
+ * no billing, so the API answered BillingNotEnabledMapError and /explore, the
+ * first item in the nav, sat at 97 words of prerendered content on a site whose
+ * AdSense rejection was about thin content. The map is Leaflet + OpenStreetMap
+ * now, which needs no key and no billing, but the shape of the page stays:
  *
- * So the places are rendered as real markup, from the same parsed coordinates
+ * the places are rendered as real markup, from the same parsed coordinates
  * the markers use. The map layers on top when it works.
  */
 const ExplorePage: React.FC = () => {
@@ -29,7 +29,7 @@ const ExplorePage: React.FC = () => {
                     Här kan du se var våra artiklar utspelar sig. Klicka på en markör för att läsa mer,
                     eller bläddra i listan under kartan.
                 </p>
-                <GoogleMapSection articles={articles} />
+                <MapSection articles={articles} />
 
                 <section>
                     <h3 className="font-serif text-2xl font-bold mb-2">

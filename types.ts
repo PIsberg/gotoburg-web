@@ -53,15 +53,12 @@ export interface AdUnitProps {
   label?: string;
 }
 
-declare global {
-  interface Window {
-    google: any;
-  }
-}
+// components/MapSection.tsx imports leaflet/dist/leaflet.css dynamically; Vite
+// injects the styles at runtime and the module itself has no typed shape.
+declare module '*.css';
 
 // Fix Property 'env' does not exist on type 'ImportMeta'
 interface ImportMetaEnv {
-  readonly VITE_GOOGLE_MAPS_API_KEY: string;
   readonly [key: string]: string;
 }
 
