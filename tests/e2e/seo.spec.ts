@@ -160,6 +160,29 @@ test.describe('Served HTML is crawlable', () => {
     }
   });
 
+  test('no article is built on other people\'s review scores', async ({ page }) => {
+    // AdSense rejected the site for low value content on 2026-09-08, after
+    // every technical fix had shipped. Seven articles restated star ratings from
+    // Tripadvisor, Google, TheFork, Novacircle and AllTrails, five of them in a
+    // section of their own, and paraphrased named reviewers ("John L skrev i
+    // juni 2025 ..."). Google's helpful-content self-assessment asks directly
+    // whether a page mainly summarises what others have to say; those sections
+    // did nothing else. They also republished private people's names and words.
+    // Published criticism (Göteborgs-Posten, White Guide, Michelin) is not
+    // caught: it is attributable, and "24 av 25" is not a decimal score.
+    const platforms = /\b(Tripadvisor|Novacircle|LikeSweden|AllTrails)\b/i;
+    const decimalScore = /\b\d+,\d+ av (5|10)\b/;
+
+    for (const article of ARTICLES) {
+      const path = `/${article.slug}`;
+      const html = await fetchHtml(page.request, path);
+      const text = visibleText(html.slice(html.indexOf('<div id="root">')));
+
+      expect(text, `review platform cited on ${path}`).not.toMatch(platforms);
+      expect(text, `aggregated rating on ${path}`).not.toMatch(decimalScore);
+    }
+  });
+
   test('ads.txt is served for AdSense verification', async ({ page }) => {
     const response = await page.request.get('/ads.txt');
     expect(response.status()).toBe(200);
