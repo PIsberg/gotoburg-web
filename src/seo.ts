@@ -124,7 +124,7 @@ export const articleMeta = (article: Article): PageMeta => {
         description: article.excerpt,
         image: [article.imageUrl, ...(article.additionalImages || [])].map(imageUrl),
         datePublished: article.publishedAt,
-        dateModified: article.publishedAt,
+        dateModified: article.updatedAt ?? article.publishedAt,
         author: authorNode(article.author),
         publisher,
         articleSection: article.category,

@@ -183,6 +183,47 @@ test.describe('Served HTML is crawlable', () => {
     }
   });
 
+  test('an article that gives hours or prices says when they were checked', async ({ page }) => {
+    // /om-oss promises that opening hours, prices and booking rules are checked
+    // against the venue's own website or booking page, that the date of that
+    // check is printed in the article, and that what cannot be confirmed there
+    // is left out. Until 2026-09-13 the page promised a check "innan
+    // publicering" that the articles contradicted: hours were copied from
+    // listings in past tense ("Restaurangen har hållit stängt på måndagar"),
+    // and a fact check that day found 29 of 117 venue facts out of date.
+    // A price in kronor, or a clock-time range such as "16–22" or "11:30-21:00".
+    // Words like "öppet" are not enough on their own: "öppet landskap" and
+    // "kontrollera öppettider" state nothing that could go stale. Ranges of
+    // years, kilometres, floors and people are excluded.
+    const volatile = /\d\s?(kr|kronor|:-)(?!\p{L})|(?<![\d.,])([01]?\d|2[0-3])([:.][0-5]\d)?\s?[-–]\s?([01]?\d|2[0-4])([:.][0-5]\d)?(?![\d.,]|\s?(%|procent|år|km|kilometer|meter|personer|våningar))|klockan\s+\d/iu;
+    const checked = ARTICLES.filter(a => a.factsCheckedAt);
+    expect(checked.length, 'articles carrying a facts-checked date').toBeGreaterThan(0);
+
+    for (const article of ARTICLES) {
+      const path = `/${article.slug}`;
+      const html = await fetchHtml(page.request, path);
+      const body = html.slice(html.indexOf('<div id="root">'));
+
+      if (article.content.some(p => volatile.test(p))) {
+        expect(article.factsCheckedAt, `${path} states hours or prices without a check date`).toBeTruthy();
+      }
+      if (article.factsCheckedAt) {
+        expect(body, `check note on ${path}`).toContain('kontrollerades mot verksamheternas egna kanaler');
+        expect(body).toContain(`dateTime="${article.factsCheckedAt}"`);
+      } else {
+        expect(body, `unearned check note on ${path}`).not.toContain('kontrollerades mot verksamheternas egna kanaler');
+      }
+
+      const ld = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+        .map(m => JSON.parse(m[1]))
+        .find(b => b['@type'] === 'NewsArticle');
+      // A revised article that still reports its publish date as modified tells
+      // Google the page is older than what it says.
+      expect(ld.dateModified, `dateModified on ${path}`).toBe(article.updatedAt ?? article.publishedAt);
+      if (article.updatedAt) expect(visibleText(body)).toContain('Uppdaterad');
+    }
+  });
+
   test('ads.txt is served for AdSense verification', async ({ page }) => {
     const response = await page.request.get('/ads.txt');
     expect(response.status()).toBe(200);

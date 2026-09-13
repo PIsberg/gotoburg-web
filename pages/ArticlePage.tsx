@@ -136,6 +136,12 @@ const ArticlePage: React.FC = () => {
                 )}
                 <span className="mx-2 text-gray-300">•</span>
                 <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
+                {article.updatedAt && (
+                  <>
+                    <span className="mx-2 text-gray-300">•</span>
+                    Uppdaterad <time dateTime={article.updatedAt}>{formatDate(article.updatedAt)}</time>
+                  </>
+                )}
               </div>
             </div>
 
@@ -210,6 +216,14 @@ const ArticlePage: React.FC = () => {
               ))}
             </div>
 
+            {article.factsCheckedAt && (
+              <p className="mt-8 text-sm text-gray-500 font-sans border-l-2 border-gray-200 pl-4" data-testid="facts-checked">
+                Praktiska uppgifter i artikeln, som öppettider, priser och bokningsregler, kontrollerades mot verksamheternas egna kanaler den{' '}
+                <time dateTime={article.factsCheckedAt}>{formatDate(article.factsCheckedAt)}</time>. Sådant ändras, så
+                kontrollera gärna igen innan du åker.
+              </p>
+            )}
+
             {/* Additional Images */}
             {article.additionalImages && article.additionalImages.length > 0 && (
               <div className="mt-10 space-y-4">
@@ -262,12 +276,6 @@ const ArticlePage: React.FC = () => {
                 >
                   {article.category}
                 </Link>
-                <span className="px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-sm bg-gray-100 text-gray-500">
-                  Nyheter
-                </span>
-                <span className="px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-sm bg-gray-100 text-gray-500">
-                  {new Date(article.publishedAt).getFullYear()}
-                </span>
               </div>
             </div>
           </div>

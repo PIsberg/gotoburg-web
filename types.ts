@@ -44,6 +44,20 @@ export interface Article {
   additionalImages?: string[];
   additionalImageCredits?: ImageCredit[];
   googleMapsUrl?: string; // Optional Google Maps URL
+  /**
+   * ISO date of the last revision that changed what the article says. Feeds
+   * schema.org dateModified and the "Uppdaterad" line under the byline. Absent
+   * means the article is as published.
+   */
+  updatedAt?: string;
+  /**
+   * ISO date on which the volatile details still in the article (opening hours,
+   * prices, booking rules, addresses) were checked against the venue's own
+   * website or booking page. /om-oss promises exactly that check and that the
+   * date is printed, so set it only after doing it, and remove any detail the
+   * venue's own channel does not state rather than keeping it unchecked.
+   */
+  factsCheckedAt?: string;
 }
 
 export interface AdUnitProps {
