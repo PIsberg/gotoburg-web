@@ -37,7 +37,7 @@ const ExplorePage: React.FC = () => {
                     </h3>
                     <p className="text-gray-600 max-w-2xl mb-6">
                         {places.length} platser i och runt Göteborg, från Masthugget och Linnégatan till
-                        Hisings Backa och Marks kommun. Varje plats leder till artikeln om den.
+                        Lindholmen och Marks kommun. Varje plats leder till artikeln om den.
                     </p>
 
                     <ul className="space-y-6">

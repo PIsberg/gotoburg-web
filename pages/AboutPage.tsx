@@ -5,14 +5,14 @@ import StaticPage, { Section } from '../components/StaticPage';
 const AboutPage: React.FC = () => (
     <StaticPage
         title="Om GotoBurg"
-        intro="GotoBurg är en fristående sajt om Göteborg: mat och dryck, natur, kultur, sport och sådant som händer i staden just nu."
+        intro="GotoBurg är en fristående sajt om Göteborg: mat och dryck, natur, kultur, aktiviteter, arbetsliv och sådant som händer i staden just nu."
     >
         <Section heading="Vad vi gör">
             <p>
-                GotoBurg samlar tips och reportage om Göteborg och Västsverige. Vi skriver om
-                restauranger och kaféer, om vandringsleder och badplatser, om konserter, utställningar
-                och evenemang, och om hur det är att bo och arbeta i staden. Materialet riktar sig både
-                till dig som bor här och till dig som är på besök.
+                GotoBurg samlar guider och artiklar om Göteborg och Västsverige. Vi skriver om
+                restauranger och barer, om naturreservat och vandringsleder, om konsthallar och
+                livemusik, om nya stadsdelar och om hur det är att arbeta i staden. Materialet riktar sig
+                både till dig som bor här och till dig som är på besök.
             </p>
             <p>
                 Sajten drivs som ett självständigt projekt och är inte kopplad till någon myndighet,
@@ -39,9 +39,17 @@ const AboutPage: React.FC = () => (
                 som inte klarar den granskningen publiceras inte.
             </p>
             <p>
-                Vi kontrollerar öppettider, adresser, priser och datum mot verksamhetens egna kanaler
-                innan publicering. Uppgifter av den typen ändras ofta, så kontrollera gärna en extra gång
-                innan du åker.
+                Vi skriver inte som om vi har varit på ett ställe när vi inte har varit där. En artikel
+                som bygger på ett eget besök säger det, och när besöket gjordes. Övriga artiklar bygger på
+                verksamhetens egna uppgifter, på publicerad kritik som vi anger källan till och på
+                allmän kunskap om ämnet, och är skrivna så att de inte ger sken av något annat. Vi
+                återger inte andras betyg och omdömen från recensionssajter.
+            </p>
+            <p>
+                Uppgifter som ändras ofta, som öppettider, priser och bokningsregler, kontrollerar vi mot
+                verksamhetens egna kanaler, alltså dess webbplats eller bokningssida. Datumet för den
+                kontrollen står längst ned i artikeln. Det vi inte kan bekräfta där tar vi inte med.
+                Sådant ändras, så kontrollera gärna en extra gång innan du åker.
             </p>
         </Section>
 
@@ -57,10 +65,9 @@ const AboutPage: React.FC = () => (
 
         <Section heading="Hur sajten finansieras">
             <p>
-                GotoBurg finansieras av annonser och i vissa fall av affiliatelänkar, det vill säga länkar
-                där vi får en ersättning om du bokar eller köper något. Sådana länkar märks ut i
-                artikeln. Ersättningen påverkar inte vad vi väljer att skriva om eller hur vi bedömer
-                det vi skriver om. Vi tar inte betalt för positiv omskrivning.
+                GotoBurg ska finansieras av annonser. Sajten har inga affiliatelänkar, alltså länkar där
+                vi får ersättning om du bokar eller köper något, och skulle vi börja använda sådana märks
+                de ut i artikeln. Vi tar inte betalt för positiv omskrivning.
             </p>
             <p>
                 Läs mer i våra <Link to="/villkor" className="text-blue-600 hover:underline">villkor</Link> och i{' '}

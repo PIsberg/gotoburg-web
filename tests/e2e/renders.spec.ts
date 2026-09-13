@@ -3,6 +3,8 @@ import { test, expect } from '@playwright/test';
 import { ADSENSE_CONFIG, ARTICLES } from '../../src/constants';
 import { CATEGORIES, categoryPath, countByCategory } from '../../src/categories';
 import { MIN_ARTICLES_TO_INDEX_CATEGORY } from '../../src/seo';
+import { placeCoordinates } from '../../components/MapSection';
+import type { Article } from '../../types';
 
 /**
  * The counterpart to seo.spec.ts, which asserts the served HTML using
@@ -87,6 +89,19 @@ test.describe('The map draws, and cannot take the page down with it', () => {
     // The attribution control is an OpenStreetMap licence term (ODbL), not
     // styling. Removing it is a compliance bug.
     await expect(page.locator('.leaflet-control-attribution')).toContainText('OpenStreetMap');
+  });
+
+  test('a pasted Google Maps place URL puts the marker on the place, not the viewport', () => {
+    // A URL copied from Google Maps carries two positions: `@lat,lng` is where
+    // the camera was centred, `!3d<lat>!4d<lng>` is the place itself. Reading
+    // the first put the Göteboil and Feskekörka markers about 150 m off, on the
+    // wrong block, until 2026-09-13.
+    const url = 'https://www.google.com/maps/place/G%C3%B6teboil/@57.7002417,11.9542399,17z/data=!4m6!3m5!1s0x464ff34fbbe95c5b:0x9d11ced83c05f64b!8m2!3d57.7002389!4d11.9568202!16s%2Fg%2F11zj34925s';
+    expect(placeCoordinates({ googleMapsUrl: url } as Article)).toEqual({ lat: 57.7002389, lng: 11.9568202 });
+
+    // A short URL with only a camera position still works, as before.
+    expect(placeCoordinates({ googleMapsUrl: 'https://www.google.com/maps/place/Hoze/@57.699405,11.9350685,17z' } as Article))
+      .toEqual({ lat: 57.699405, lng: 11.9350685 });
   });
 
   test('the page survives the tile server being unreachable', async ({ page }) => {

@@ -8,14 +8,19 @@ interface MapSectionProps {
 }
 
 /**
- * Coordinates live inside the Google Maps share URL as `/@57.70,11.97,17z`.
- * The articles keep those URLs (they are the outbound "Visa på Google Maps"
- * links), so they stay the single source of coordinates. One parser for both
- * the markers and the list under the map, so the two can never disagree about
- * which places are on this page.
+ * Coordinates live inside the Google Maps share URL. The articles keep those
+ * URLs (they are the outbound "Visa på Google Maps" links), so they stay the
+ * single source of coordinates. One parser for both the markers and the list
+ * under the map, so the two can never disagree about which places are on this
+ * page.
+ *
+ * A URL copied from a place page carries two positions: `/@57.70,11.95,17z` is
+ * the camera centre, and `!3d57.70!4d11.95` in the data segment is the place.
+ * The camera can sit a block away, so the place wins whenever it is present.
  */
 export const placeCoordinates = (article: Article): { lat: number; lng: number } | null => {
-    const match = article.googleMapsUrl?.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
+    const url = article.googleMapsUrl;
+    const match = url?.match(/!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)/) ?? url?.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
     if (!match) return null;
     return { lat: parseFloat(match[1]), lng: parseFloat(match[2]) };
 };
