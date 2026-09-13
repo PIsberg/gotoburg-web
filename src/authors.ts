@@ -53,7 +53,7 @@ export const AUTHORS: Author[] = [
     bio: 'Guider och översikter som tas fram gemensamt av redaktionen i stället för av en enskild skribent. Ansvarig utgivare är Peter Isberg.',
     longBio: [
       'Artiklar som tas fram gemensamt, i stället för av en enskild skribent, publiceras under redaktionens namn. Det gäller framför allt guider och översikter som täcker flera platser eller ett helt område.',
-      'Öppettider, adresser och priser kontrolleras mot verksamheternas egna kanaler före publicering. Hur redaktionen arbetar med research, AI-verktyg och faktakontroll står i sin helhet på Om GotoBurg.',
+      'Öppettider, priser och bokningsregler kontrolleras mot verksamheternas egna kanaler, och datumet för kontrollen står i artikeln. Hur redaktionen arbetar med research, AI-verktyg och faktakontroll står i sin helhet på Om GotoBurg.',
       'Ansvarig utgivare för allt material på GotoBurg är Peter Isberg.',
     ],
     sameAs: [],
