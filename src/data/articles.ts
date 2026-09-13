@@ -830,13 +830,13 @@ export const articles = [
     "additionalImages": [],
     "googleMapsUrl": "https://www.google.com/maps/place/Shiro/@57.70814,11.93727,17z",
     "imageCredit": {
-      "file": "Lindholmsallén 61-45.jpg",
+      "file": "Lindholmsallén 39-31.jpg",
       "author": "Vogler",
       "licence": "CC BY-SA 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lindholmsall%C3%A9n_61-45.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lindholmsall%C3%A9n_39-31.jpg"
     },
-    "imageCaption": "Husen vid Lindholmsallén 61–45, där Shiro by Takame ligger, fotograferade under byggtiden 2011.",
+    "imageCaption": "Lindholmsallén 39–31, grannhusen till Shiro by Takame på nummer 45.",
     "factsCheckedAt": "2026-09-13",
     "updatedAt": "2026-09-13"
   },
