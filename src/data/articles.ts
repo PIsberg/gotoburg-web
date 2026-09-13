@@ -72,11 +72,11 @@ export const articles = [
     "additionalImages": [],
     "googleMapsUrl": "https://www.google.com/maps/place/Feskek%C3%B4rka,+411+20+G%C3%B6teborg/@57.7011008,11.9551992,17z/data=!3m1!4b1!4m6!3m5!1s0x464ff369ad5ca32d:0x1c0d4c405eda660a!8m2!3d57.701098!4d11.9577741!16s%2Fg%2F1q67s49_z?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D",
     "imageCredit": {
-      "file": "Feskekôrka September 2016 01.jpg",
-      "author": "Arild Vågen",
+      "file": "Feskekôrka July 2025 01.jpg",
+      "author": "ArildV",
       "licence": "CC BY-SA 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Feskek%C3%B4rka_September_2016_01.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Feskek%C3%B4rka_July_2025_01.jpg"
     },
     "imageCaption": "Feskekörka, där popupen låg under december 2025."
   },
@@ -113,13 +113,13 @@ export const articles = [
     "imageUrl": "/img/goteborgs-nya-sparvagnslinje-12-ar-har.jpg",
     "additionalImages": [],
     "imageCredit": {
-      "file": "M33 Göteborg.jpg",
-      "author": "LeoLikesTrains",
+      "file": "Göteborg tram 2026 5.jpg",
+      "author": "Smiley.toerist",
       "licence": "CC BY-SA 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:M33_G%C3%B6teborg.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:G%C3%B6teborg_tram_2026_5.jpg"
     },
-    "imageCaption": "En spårvagn av typen M33 i Göteborg."
+    "imageCaption": "En spårvagn vid den nya hållplatsen Lindholmen, där linje 12 har sin ändhållplats. Bilden är tagen i maj 2026."
   },
   {
     "id": "1",
@@ -157,13 +157,13 @@ export const articles = [
       "Har du bara ett glas, ta en färsk West Coast IPA. Det är den öl som gjorde staden känd, och den fungerar fortfarande som förklaring till varför."
     ],
     "imageCredit": {
-      "file": "Göteborg Panorama.jpg",
-      "author": "Amjad Sheikh",
+      "file": "Poppels bryggeri Jonsereds Fabriker Partille municipality Sweden on June 23 2026.jpg",
+      "author": "R. Henrik Nilsson",
       "licence": "CC BY 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:G%C3%B6teborg_Panorama.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poppels_bryggeri_Jonsereds_Fabriker_Partille_municipality_Sweden_on_June_23_2026.jpg"
     },
-    "imageCaption": "Göteborg sett från ovan."
+    "imageCaption": "Poppels bryggeri i Jonsereds fabriker, ett av bryggerierna i texten."
   },
   {
     "id": "2",
@@ -242,11 +242,11 @@ export const articles = [
       "Det arrangeras också konferenser, mässor och öppna evenemang i området under året. Vad som är på gång just nu står hos Lindholmen Science Park själva, inte här."
     ],
     "imageCredit": {
-      "file": "Lindholmen Science Park.jpg",
-      "author": "Bulver",
+      "file": "Goteborg Lindholmen Science Park.jpg",
+      "author": "Andrzej Otrębski",
       "licence": "CC BY-SA 3.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lindholmen_Science_Park.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Goteborg_Lindholmen_Science_Park.jpg"
     }
   },
   {
@@ -342,13 +342,13 @@ export const articles = [
       "Öppettider, priser och sittningar ändras löpande. Kontrollera hos respektive ställe innan du planerar helgen efter dem."
     ],
     "imageCredit": {
-      "file": "Haganygata.jpg",
-      "author": "Photographer: Erik of Gothenburg, EVL.",
-      "licence": "CC BY-SA 3.0",
-      "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Haganygata.jpg"
+      "file": "Clarion Hotel Post 2015 01.jpg",
+      "author": "Arild Vågen",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clarion_Hotel_Post_2015_01.jpg"
     },
-    "imageCaption": "Haga, en av stadsdelarna i guiden."
+    "imageCaption": "Clarion Hotel Post vid Drottningtorget, där Norda Brunch Club ligger."
   },
   {
     "id": "10",
@@ -387,13 +387,13 @@ export const articles = [
     "additionalImages": [],
     "googleMapsUrl": "https://www.google.com/maps/place/Postgatan+39,+411+13+G%C3%B6teborg/@57.7085,11.9695,17z",
     "imageCredit": {
-      "file": "Entrance to Nordstan from Brunnsparken in Gothenburg.jpg",
-      "author": "W.carter",
+      "file": "Postgatan 24-22.jpg",
+      "author": "Vogler",
       "licence": "CC BY-SA 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Entrance_to_Nordstan_from_Brunnsparken_in_Gothenburg.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Postgatan_24-22.jpg"
     },
-    "imageCaption": "Nordstans entré från Brunnsparken. Activate ligger på Postgatan i köpcentrets västra hörn."
+    "imageCaption": "Postgatan i Nordstan. Till vänster Postgatan 43–39, där Activate ligger. Bilden är tagen 2019, innan Activate öppnade."
   },
   {
     "id": "9",
@@ -473,15 +473,15 @@ export const articles = [
     "category": "Mat & Dryck",
     "imageUrl": "/img/izakaya-by-komo-japansk-gastropub-sankt-eriksgatan-goteborg.jpg",
     "additionalImages": [],
-    "googleMapsUrl": "https://www.google.com/maps/place/Izakaya+by+KOMO/@57.7095,11.9628,17z",
+    "googleMapsUrl": "https://www.google.com/maps/place/Izakaya+by+KOMO/@57.70969,11.96516,17z",
     "imageCredit": {
-      "file": "GoteborgsOperan.jpg",
-      "author": "Krm500",
+      "file": "Sankt Eriksgatan 3, 4.jpg",
+      "author": "Alicia Fagerving",
       "licence": "CC BY-SA 3.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:GoteborgsOperan.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sankt_Eriksgatan_3,_4.jpg"
     },
-    "imageCaption": "Göteborgsoperan, granne med restaurangen på Sankt Eriksgatan."
+    "imageCaption": "Sankt Eriksgatan 3 och 4, grannhusen till Izakaya by KOMO."
   },
   {
     "id": "12",
@@ -523,13 +523,12 @@ export const articles = [
     "additionalImages": [],
     "googleMapsUrl": "https://www.google.com/maps/place/Hyssna+gamla+kyrka/@57.5572,12.5327,14z",
     "imageCredit": {
-      "file": "Hyssna gamla kyrka.jpg",
-      "author": "Kemitsv",
-      "licence": "CC BY-SA 3.0",
-      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyssna_gamla_kyrka.jpg"
-    },
-    "imageCaption": "Hyssna gamla kyrka, nära ledens norra ände."
+      "file": "Stoms ås bokskog.jpg",
+      "author": "Mattias Ivermark",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stoms_%C3%A5s_bokskog.jpg"
+    }
   },
   {
     "id": "13",
@@ -573,7 +572,7 @@ export const articles = [
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:M%C3%B6lndalsv%C3%A4gen_89.jpg"
     },
-    "imageCaption": "Mölndalsvägen, gatan där K-Bunsik ligger."
+    "imageCaption": "Bostadshuset Light Factory på Mölndalsvägen 89, granne med K-Bunsik."
   },
   {
     "id": "14",
@@ -611,13 +610,13 @@ export const articles = [
     "additionalImages": [],
     "googleMapsUrl": "https://www.google.com/maps/place/Fairways+and+Friends/@57.699558,11.9731295,17z",
     "imageCredit": {
-      "file": "Kungsportsavenyn (Avenyn) Göteborg (2009).JPG",
-      "author": "Gumisza",
-      "licence": "CC BY-SA 3.0",
-      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kungsportsavenyn_(Avenyn)_G%C3%B6teborg_(2009).JPG"
+      "file": "Göteborg, Chalmersgatan-1.jpg",
+      "author": "Roy Olsen",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:G%C3%B6teborg,_Chalmersgatan-1.jpg"
     },
-    "imageCaption": "Kungsportsavenyn, gatan där Fairways and Friends ligger."
+    "imageCaption": "Chalmersgatan sedd söderut från Vasagatan, kvarteret där Fairways and Friends ligger."
   },
   {
     "id": "15",
@@ -653,13 +652,13 @@ export const articles = [
     "additionalImages": [],
     "googleMapsUrl": "https://www.google.com/maps/place/Sushi+Lee+G/@57.6930554,11.9529655,17z",
     "imageCredit": {
-      "file": "Linnégatan July 2024 01.jpg",
-      "author": "ArildV",
+      "file": "Linnégatan 66-64.jpg",
+      "author": "Vogler",
       "licence": "CC BY-SA 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Linn%C3%A9gatan_July_2024_01.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Linn%C3%A9gatan_66-64.jpg"
     },
-    "imageCaption": "Linnégatan, gatan där Sushi Lee G ligger."
+    "imageCaption": "Linnégatan 66–64 vid Olivedalsgatan, i samma kvarter som Sushi Lee G."
   },
   {
     "id": "16",
@@ -697,7 +696,7 @@ export const articles = [
     "category": "Mat & Dryck",
     "imageUrl": "/img/stranger-cocktailbar-speakeasy-kungstorget-goteborg.jpg",
     "additionalImages": [],
-    "googleMapsUrl": "https://www.google.com/maps/place/Stranger/@57.7027,11.9686,17z",
+    "googleMapsUrl": "https://www.google.com/maps/place/Stranger/@57.70352,11.96895,17z",
     "imageCredit": {
       "file": "Kungstorget 10-14.jpg",
       "author": "Vogler",
@@ -705,7 +704,7 @@ export const articles = [
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kungstorget_10-14.jpg"
     },
-    "imageCaption": "Kungstorget, kvarteret där Stranger ligger."
+    "imageCaption": "Husen vid Kungstorget 10–14. Stranger ligger en trappa ned, utan skylt."
   },
   {
     "id": "17",
@@ -744,15 +743,15 @@ export const articles = [
     "category": "Mat & Dryck",
     "imageUrl": "/img/shotluckan-show-och-shot-bar-viktoriagatan-goteborg.jpg",
     "additionalImages": [],
-    "googleMapsUrl": "https://www.google.com/maps/place/Shotluckan+G%C3%B6teborg/@57.6986,11.9656,17z",
+    "googleMapsUrl": "https://www.google.com/maps/place/Shotluckan+G%C3%B6teborg/@57.69909,11.96483,17z",
     "imageCredit": {
-      "file": "Göteborg Vasaplatsen.jpg",
-      "author": "Henrik Sendelbach",
-      "licence": "CC BY-SA 3.0",
-      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:G%C3%B6teborg_Vasaplatsen.jpg"
+      "file": "Viktoriagatan 1A-1B Gothenburg.jpg",
+      "author": "Vogler",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Viktoriagatan_1A-1B_Gothenburg.jpg"
     },
-    "imageCaption": "Vasaplatsen, några kvarter från Viktoriagatan."
+    "imageCaption": "Hörnhuset Viktoriagatan 1A–1B vid Parkgatan, granne med Shotluckan."
   },
   {
     "id": "18",
@@ -787,15 +786,15 @@ export const articles = [
     "category": "Mat & Dryck",
     "imageUrl": "/img/shiro-by-takame-japansk-fusion-lindholmen-goteborg.jpg",
     "additionalImages": [],
-    "googleMapsUrl": "https://www.google.com/maps/place/Shiro/@57.7077,11.9387,17z",
+    "googleMapsUrl": "https://www.google.com/maps/place/Shiro/@57.70814,11.93727,17z",
     "imageCredit": {
-      "file": "Lindholmsallén 39-31.jpg",
+      "file": "Lindholmsallén 61-45.jpg",
       "author": "Vogler",
       "licence": "CC BY-SA 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lindholmsall%C3%A9n_39-31.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lindholmsall%C3%A9n_61-45.jpg"
     },
-    "imageCaption": "Lindholmsallén, gatan där Shiro by Takame ligger."
+    "imageCaption": "Husen vid Lindholmsallén 61–45, där Shiro by Takame ligger, fotograferade under byggtiden 2011."
   },
   {
     "id": "19",
@@ -836,15 +835,15 @@ export const articles = [
     "category": "Kultur",
     "imageUrl": "/img/grekiska-foreningen-goteborg-fyrtio-ar-grekisk-kultur-hisings-backa.jpg",
     "additionalImages": [],
-    "googleMapsUrl": "https://www.google.com/maps/place/Grekiska+F%C3%B6reningen+i+G%C3%B6teborg/@57.7565,11.9580,15z",
+    "googleMapsUrl": "https://www.google.com/maps/place/Grekiska+F%C3%B6reningen+i+G%C3%B6teborg/@57.74002,11.97277,15z",
     "imageCredit": {
-      "file": "Kalamatianos 92nd Tokyo Yushun.jpg",
-      "author": "nakashi",
-      "licence": "CC BY-SA 2.0",
-      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kalamatianos_92nd_Tokyo_Yushun.jpg"
+      "file": "Wadköpingsgatan.jpg",
+      "author": "Alicia Fagerving",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wadk%C3%B6pingsgatan.jpg"
     },
-    "imageCaption": "Kalamatianos, ringdansen som dansas på föreningens fester. Bilden är inte tagen i Göteborg."
+    "imageCaption": "Wadköpingsgatan i Backa, gatan där föreningen har sin lokal."
   },
   {
     "id": "20",
@@ -983,13 +982,12 @@ export const articles = [
     "additionalImages": [],
     "googleMapsUrl": "https://www.google.com/maps/@57.6353,11.7930,13z",
     "imageCredit": {
-      "file": "Vrångö July 2025 01.jpg",
-      "author": "ArildV",
+      "file": "Havskajak asperö-2016-juni.jpg",
+      "author": "DavidIvar",
       "licence": "CC BY-SA 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vr%C3%A5ng%C3%B6_July_2025_01.jpg"
-    },
-    "imageCaption": "Vrångö, längst ut i södra skärgården."
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Havskajak_asper%C3%B6-2016-juni.jpg"
+    }
   },
   {
     "id": "23",
@@ -1070,13 +1068,13 @@ export const articles = [
     "imageUrl": "/img/fordonsklustret-goteborg-jobba-i-fordonsindustrin.jpg",
     "additionalImages": [],
     "imageCredit": {
-      "file": "Volvo Torslanda, Tuve.jpg",
-      "author": "Lantmäteriet",
-      "licence": "CC BY 4.0",
-      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Volvo_Torslanda,_Tuve.jpg"
+      "file": "Volvo Cars HQ.jpg",
+      "author": "RandomEuropean",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Volvo_Cars_HQ.jpg"
     },
-    "imageCaption": "Volvos anläggning i Torslanda."
+    "imageCaption": "Volvo Cars huvudkontor i Torslanda, en av arbetsgivarna i texten."
   },
   {
     "id": "25",
