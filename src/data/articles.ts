@@ -505,13 +505,13 @@ export const articles = [
     "additionalImages": [],
     "googleMapsUrl": "https://www.google.com/maps/place/Izakaya+by+KOMO/@57.70969,11.96516,17z",
     "imageCredit": {
-      "file": "Sankt Eriksgatan 3, 4.jpg",
-      "author": "Alicia Fagerving",
-      "licence": "CC BY-SA 3.0",
-      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sankt_Eriksgatan_3,_4.jpg"
+      "file": "Quality izakaya in Ebisu 7.jpg",
+      "author": "Syced",
+      "licence": "CC0",
+      "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Quality_izakaya_in_Ebisu_7.jpg"
     },
-    "imageCaption": "Sankt Eriksgatan 3 och 4, grannhusen till Izakaya by KOMO.",
+    "imageCaption": "Sashimi på en izakaya i Ebisu i Tokyo. Bilden är inte tagen på Izakaya by KOMO.",
     "factsCheckedAt": "2026-09-13",
     "updatedAt": "2026-09-13"
   },
@@ -601,13 +601,13 @@ export const articles = [
     "additionalImages": [],
     "googleMapsUrl": "https://www.google.com/maps/place/K-Bunsik/@57.680647,12.002018,17z",
     "imageCredit": {
-      "file": "Mölndalsvägen 89.jpg",
-      "author": "Vogler",
+      "file": "Korean corn dog on stick.jpg",
+      "author": "Aerous",
       "licence": "CC BY-SA 4.0",
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:M%C3%B6lndalsv%C3%A4gen_89.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Korean_corn_dog_on_stick.jpg"
     },
-    "imageCaption": "Bostadshuset Light Factory på Mölndalsvägen 89, granne med K-Bunsik.",
+    "imageCaption": "Koreanska corn dogs på en bricka. Bilden är inte tagen på K-Bunsik.",
     "factsCheckedAt": "2026-09-13",
     "updatedAt": "2026-09-13"
   },
@@ -647,13 +647,13 @@ export const articles = [
     "additionalImages": [],
     "googleMapsUrl": "https://www.google.com/maps/place/Fairways+and+Friends/@57.699558,11.9731295,17z",
     "imageCredit": {
-      "file": "Göteborg, Chalmersgatan-1.jpg",
-      "author": "Roy Olsen",
-      "licence": "CC BY-SA 4.0",
-      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:G%C3%B6teborg,_Chalmersgatan-1.jpg"
+      "file": "Indoor golf simulator.JPG",
+      "author": "Ohconfucius",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Indoor_golf_simulator.JPG"
     },
-    "imageCaption": "Chalmersgatan sedd söderut från Vasagatan, kvarteret där Fairways and Friends ligger.",
+    "imageCaption": "En golfsimulator med projektorduk och utslagsmatta. Bilden är inte tagen hos Fairways and Friends.",
     "factsCheckedAt": "2026-09-13",
     "updatedAt": "2026-09-13"
   },
@@ -690,13 +690,13 @@ export const articles = [
     "additionalImages": [],
     "googleMapsUrl": "https://www.google.com/maps/place/Sushi+Lee+G/@57.6930554,11.9529655,17z",
     "imageCredit": {
-      "file": "Linnégatan 66-64.jpg",
-      "author": "Vogler",
-      "licence": "CC BY-SA 4.0",
-      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Linn%C3%A9gatan_66-64.jpg"
+      "file": "Norwegia Roll Salmon Sushi.jpg",
+      "author": "Gunawan Kartapranata",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Norwegia_Roll_Salmon_Sushi.jpg"
     },
-    "imageCaption": "Linnégatan 66–64 vid Olivedalsgatan, i samma kvarter som Sushi Lee G.",
+    "imageCaption": "Uramaki toppad med lax, citron och majonnäs, fotograferad i Jakarta. Bilden är inte tagen på Sushi Lee G.",
     "factsCheckedAt": "2026-09-13",
     "updatedAt": "2026-09-13"
   },
@@ -786,13 +786,13 @@ export const articles = [
     "additionalImages": [],
     "googleMapsUrl": "https://www.google.com/maps/place/Shotluckan+G%C3%B6teborg/@57.69909,11.96483,17z",
     "imageCredit": {
-      "file": "Viktoriagatan 1A-1B Gothenburg.jpg",
-      "author": "Vogler",
-      "licence": "CC BY-SA 4.0",
-      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Viktoriagatan_1A-1B_Gothenburg.jpg"
+      "file": "Flaming Sambuca con la mosca.jpg",
+      "author": "Twentyfour Students from Bangkok, Thailand",
+      "licence": "CC BY-SA 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flaming_Sambuca_con_la_mosca.jpg"
     },
-    "imageCaption": "Hörnhuset Viktoriagatan 1A–1B vid Parkgatan, granne med Shotluckan.",
+    "imageCaption": "En brinnande shot: sambuca med kaffebönor. Bilden är inte tagen på Shotluckan.",
     "factsCheckedAt": "2026-09-13",
     "updatedAt": "2026-09-13"
   },
@@ -830,13 +830,13 @@ export const articles = [
     "additionalImages": [],
     "googleMapsUrl": "https://www.google.com/maps/place/Shiro/@57.70814,11.93727,17z",
     "imageCredit": {
-      "file": "Lindholmsallén 39-31.jpg",
-      "author": "Vogler",
-      "licence": "CC BY-SA 4.0",
-      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lindholmsall%C3%A9n_39-31.jpg"
+      "file": "Korean fried chicken wings.jpg",
+      "author": "T.Tseng",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Korean_fried_chicken_wings.jpg"
     },
-    "imageCaption": "Lindholmsallén 39–31, grannhusen till Shiro by Takame på nummer 45.",
+    "imageCaption": "Koreansk friterad kyckling i en take away-låda, fotograferad i Kalifornien. Bilden är inte tagen på Shiro by Takame.",
     "factsCheckedAt": "2026-09-13",
     "updatedAt": "2026-09-13"
   },
@@ -1076,13 +1076,13 @@ export const articles = [
     "imageUrl": "/img/coworking-goteborg-sa-valjer-du-kontorsplats.jpg",
     "additionalImages": [],
     "imageCredit": {
-      "file": "Lindholmspiren i Göteborg 01.JPG",
-      "author": "Historiker",
-      "licence": "CC BY-SA 3.0",
-      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lindholmspiren_i_G%C3%B6teborg_01.JPG"
+      "file": "Cowork Videmonte.jpg",
+      "author": "Hipersyl",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cowork_Videmonte.jpg"
     },
-    "imageCaption": "Lindholmspiren, en av stadsdelarna i texten.",
+    "imageCaption": "Ett coworkingrum med gemensamma arbetsbord i Videmonte i Portugal. Bilden är inte tagen i Göteborg.",
     "updatedAt": "2026-09-13"
   },
   {
